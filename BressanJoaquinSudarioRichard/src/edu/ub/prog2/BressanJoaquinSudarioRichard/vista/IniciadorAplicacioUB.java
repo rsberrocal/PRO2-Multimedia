@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bressanjoaquinsudariorichard;
+package edu.ub.prog2.BressanJoaquinSudarioRichard.vista;
 
 /**
  *
  * @author rsudarbe117.alumnes
  */
-public class BressanJoaquinSudarioRichard {
-
+public class IniciadorAplicacioUB {
     /**
      * @param args the command line arguments
      */
