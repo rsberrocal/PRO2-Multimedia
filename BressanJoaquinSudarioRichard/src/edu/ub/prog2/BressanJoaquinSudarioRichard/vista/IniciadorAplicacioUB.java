@@ -15,6 +15,10 @@ public class IniciadorAplicacioUB {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
     }
-    
+ 
+    public void gestioAplicacioUB(){
+        
+    }
 }
