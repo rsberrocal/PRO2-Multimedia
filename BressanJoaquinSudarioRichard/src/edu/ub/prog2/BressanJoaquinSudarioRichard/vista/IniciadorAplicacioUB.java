@@ -64,10 +64,14 @@ public class IniciadorAplicacioUB {
                     System.out.print("Path? ");
                     p = sc.next();
                     if (checkFile(p)==true){
-                        File fi = new File(p);
-                        cf.addFitxer(fi);
+                        f = new File(p);
+                        try{
+                            cf.addFitxer(f);
+                        }catch(Exception e){
+                            e.getMessage();
+                        }
                     }else{
-                        System.out.println("File does not exist.");
+                        System.out.println("Invalid path.");
                     }
                     break;
                 case MAIN_MENU_OPTION2:
@@ -81,10 +85,9 @@ public class IniciadorAplicacioUB {
                             e.getMessage();
                         }
                     }else{
-                        System.out.println("Path does not exist.");
+                        System.out.println("Invalid path.");
                     }
                     break;
-                case MAIN_MENU_OPCION3:
                 case MAIN_MENU_EXIT:
                     System.out.println("Good Bye");
                     break;
