@@ -14,13 +14,13 @@ import java.util.Scanner;
  *
  * @author rsudarbe117.alumnes
  */
-public class CarpetaFitxer {
+public class CarpetaFitxers {
 
     //private int size;
     private int MAX_SIZE = 100;
     private ArrayList<FitxerMultimedia> folder;
 
-    public CarpetaFitxer() {
+    public CarpetaFitxers() {
         this.folder = new ArrayList<>();
     }
 
@@ -35,17 +35,18 @@ public class CarpetaFitxer {
             this.folder.add(createFitxerMultimedia(fitxer));
         }
     }
-
+    
     public void removeFitxer(File fitxer) throws Exception {
         FitxerMultimedia fileMulti = createFitxerMultimedia(fitxer);
+        //Get the index of the file;
         int fileIndex = this.folder.indexOf(fileMulti);
         if (fileIndex != -1) {
             this.folder.remove(fileIndex);
         } else {
             throw new Exception("ERROR: File not found");
         }
-    }
-
+    }   
+    
     public File getAt(int position) {
         return this.folder.get(position);
     }

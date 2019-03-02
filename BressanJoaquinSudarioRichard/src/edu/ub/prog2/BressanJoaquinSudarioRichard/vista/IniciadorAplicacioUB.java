@@ -11,7 +11,7 @@
  */
 package edu.ub.prog2.BressanJoaquinSudarioRichard.vista;
 
-import edu.ub.prog2.BressanJoaquinSudarioRichard.model.CarpetaFitxer;
+import edu.ub.prog2.BressanJoaquinSudarioRichard.model.CarpetaFitxers;
 import edu.ub.prog2.BressanJoaquinSudarioRichard.model.FitxerMultimedia;
 import java.util.Scanner;
 import edu.ub.prog2.utils.Menu;
@@ -49,7 +49,7 @@ public class IniciadorAplicacioUB {
         Menu<OptionsMainMenu> mainMenu = new Menu<OptionsMainMenu>("Main Menu", OptionsMainMenu.values());
         
         String p, ext, description, name, d = null;
-        CarpetaFitxer cf = new CarpetaFitxer();
+        CarpetaFitxers cf = new CarpetaFitxers();
         File f;
         
         mainMenu.setDescripcions(descMainMenu);
