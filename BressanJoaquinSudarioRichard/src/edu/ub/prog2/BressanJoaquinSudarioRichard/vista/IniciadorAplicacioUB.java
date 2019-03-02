@@ -7,7 +7,6 @@ package edu.ub.prog2.BressanJoaquinSudarioRichard.vista;
 
 import java.util.Scanner;
 import edu.ub.prog2.utils.Menu;
-
 /**
  *
  * @author rsudarbe117.alumnes
