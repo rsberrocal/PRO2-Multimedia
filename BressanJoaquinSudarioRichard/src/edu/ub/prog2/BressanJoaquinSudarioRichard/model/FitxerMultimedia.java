@@ -75,7 +75,6 @@ public class FitxerMultimedia extends File{
     }
     
     public String toString(){
-        return("Description: " + this.getDescription() + ", date: " +  this.getLastUpdate()
-                + ", file name: " + this.getNameFile() + ", extension: " + this.getExt() + ", path: " + this.path);
+        return("Descripció = " + this.getDescription() + ", data = " + this.getLastUpdate() + ", nom fitxer = " + this.getNameFile() + ", ext = " + this.getExt() + ", cami complet = " + this.getAbsolutePath());
     }
 }
