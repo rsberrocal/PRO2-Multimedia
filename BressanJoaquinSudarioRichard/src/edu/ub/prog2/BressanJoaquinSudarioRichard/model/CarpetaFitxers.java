@@ -17,28 +17,33 @@ import java.util.Scanner;
 public class CarpetaFitxers {
 
     //private int size;
-    private int MAX_SIZE = 2;
+    private int MAX_SIZE = 100;
     private ArrayList<FitxerMultimedia> folder;
 
     public CarpetaFitxers() {
+        //By default create a empty list
         this.folder = new ArrayList<>();
     }
 
+    //returns the size folder
     public int getSize() {
         return this.folder.size();
     }
 
+    //method to add a file in a folder, if is full throw a exception
     public void addFitxer(File fitxer) throws Exception {
         if (this.isFull()) {
             throw new Exception("ERROR: Folder is full");
         } else {
-            this.folder.add(createFitxerMultimedia(fitxer,true));
+            //call the method createFitxerMultimedia to create a FitxerMultimedia object
+            this.folder.add(createFitxerMultimedia(fitxer, true));
         }
     }
 
+    //method to remove a file in a folder, if not exist in the folder throw a exception
     public void removeFitxer(File fitxer) throws Exception {
-        FitxerMultimedia fileMulti = createFitxerMultimedia(fitxer,false);
-        //Get the index of the file;
+        FitxerMultimedia fileMulti = createFitxerMultimedia(fitxer, false);
+        //Get the index of the file if not exist fileIndex is -1
         int fileIndex = this.folder.indexOf(fileMulti);
         if (fileIndex != -1) {
             this.folder.remove(fileIndex);
@@ -47,14 +52,17 @@ public class CarpetaFitxers {
         }
     }
 
+    //returns file in folder by a position
     public File getAt(int position) {
         return this.folder.get(position);
     }
 
+    //clear the whole folder
     public void clear() {
         this.folder.clear();
     }
 
+    //returns true if size is equal to MAX_SIZE
     public boolean isFull() {
         return this.folder.size() == this.MAX_SIZE;
     }
@@ -64,8 +72,6 @@ public class CarpetaFitxers {
         String message = "Carpeta Fitxers:\n";
         message += "==============\n";
         for (int i = 0; i < this.folder.size(); i++) {
-            /*[1] Descripció= Nadal, data=Thu Jan 08 12:34:02 CET 2015, nom
-                fitxer=carmen, ext=mp4, cami complet=F:\carmen.mp4 */
             FitxerMultimedia file = this.folder.get(i);
             message += "[" + (i + 1) + "]" + file;
             message += "\n";
@@ -73,24 +79,26 @@ public class CarpetaFitxers {
         return message;
     }
 
-    //Function to create a FitxerMultimedia object
+    //Function to create a FitxerMultimedia object, parameters: file to create, bool to select if is a file to add or not
     private FitxerMultimedia createFitxerMultimedia(File fitxer, boolean isNew) {
         FitxerMultimedia fileToAdd = new FitxerMultimedia(fitxer.getPath());
         Scanner sc = new Scanner(System.in);
-        //Get index to split the nameFile
+        
+        //get index to split between the name and the extension
         int indexName = fitxer.getName().lastIndexOf('.');
         String name = fitxer.getName().substring(0, indexName);
         String ext = fitxer.getName().substring(indexName);
-        fileToAdd.setNameFile(name);
-        //To get the extension, search the last dot
+        fileToAdd.setNameFile(name);        
         fileToAdd.setExt(ext);
+        //lastUpdate is now
         fileToAdd.setLastUpdate(new Date());
-
+        
+        //if is a file to add, set a description
         if (isNew) {
             System.out.println("Afegeix una descripcion al fitxer " + name);
             fileToAdd.setDescription(sc.next());
         }
         return fileToAdd;
     }
-    
+
 }
