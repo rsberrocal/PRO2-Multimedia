@@ -33,8 +33,7 @@ public class IniciadorAplicacioUB {
 
     public void gestioAplicacioUB(Scanner sc) {
 
-        Menu<OptionsMainMenu> mainMenu = new Menu<OptionsMainMenu>("Main Menu", OptionsMainMenu.values());
-
+        Menu<OptionsMainMenu> mainMenu = new Menu<OptionsMainMenu>("Main Menu", OptionsMainMenu.values());      
         mainMenu.setDescripcions(descMainMenu);
 
         OptionsMainMenu option = null;
