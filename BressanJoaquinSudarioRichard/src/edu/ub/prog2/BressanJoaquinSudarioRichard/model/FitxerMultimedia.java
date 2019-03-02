@@ -64,4 +64,17 @@ public class FitxerMultimedia extends File{
         this.description = description;
     }
     
+    public boolean equals(FitxerMultimedia fitxerMultimedia){
+        if(this.path == fitxerMultimedia.getPath() && this.nameFile == fitxerMultimedia.getNameFile()
+                && this.ext == fitxerMultimedia.getExt() && this.description == fitxerMultimedia.getDescription()
+                && this.lastUpdate == fitxerMultimedia.getLastUpdate()){
+            return true;
+        }
+        return false;
+    }
+    
+    public String toString(){
+        return("Description: " + this.getDescription() + ", date: " +  this.getLastUpdate()
+                + ", file name: " + this.getNameFile() + ", extension: " + this.getExt() + ", path: " + this.path);
+    }
 }
