@@ -63,7 +63,7 @@ public class IniciadorAplicacioUB {
                         try {
                             cf.addFitxer(f);
                         } catch (Exception e) {
-                            e.getMessage();
+                            System.out.println(e.getMessage());
                         }
                     } else {
                         System.out.println("Invalid path.");
@@ -77,7 +77,7 @@ public class IniciadorAplicacioUB {
                         try {
                             cf.removeFitxer(f);
                         } catch (Exception e) {
-                            e.getMessage();
+                            System.out.println(e.getMessage());
                         }
                     } else {
                         System.out.println("Invalid path.");
