@@ -15,10 +15,6 @@ import edu.ub.prog2.BressanJoaquinSudarioRichard.model.CarpetaFitxers;
 import java.util.Scanner;
 import edu.ub.prog2.utils.Menu;
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 /**
  *
  * @author rsudarbe117.alumnes
@@ -47,7 +43,7 @@ public class IniciadorAplicacioUB {
 
         Menu<OptionsMainMenu> mainMenu = new Menu<OptionsMainMenu>("Main Menu", OptionsMainMenu.values());
 
-        String p, ext, description, name, d = null;
+        String p;
         CarpetaFitxers cf = new CarpetaFitxers();
         File f;
 
@@ -62,7 +58,7 @@ public class IniciadorAplicacioUB {
                 case MAIN_MENU_OPTION1:
                     System.out.print("Path? ");
                     p = sc.next();
-                    if (checkFile(p) == true) {
+                    if (checkFile(p)) {
                         f = new File(p);
                         try {
                             cf.addFitxer(f);
@@ -76,7 +72,7 @@ public class IniciadorAplicacioUB {
                 case MAIN_MENU_OPTION2:
                     System.out.print("Path? ");
                     p = sc.next();
-                    if (checkFile(p) == true) {
+                    if (checkFile(p)) {
                         f = new File(p);
                         try {
                             cf.removeFitxer(f);
@@ -104,10 +100,7 @@ public class IniciadorAplicacioUB {
     }
 
     public static boolean checkFile(String p) {
-        File file = new File(p);
-        System.err.println("ABOSULTE PATH "+file.getAbsolutePath());
-        System.out.println("REL "+file.getPath());
-        System.out.println("COSO "+file.exists());
+        File file = new File(p);        
         return file.exists();
     }
 }

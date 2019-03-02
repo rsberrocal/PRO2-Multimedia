@@ -22,6 +22,7 @@ public class FitxerMultimedia extends File{
     
     public FitxerMultimedia(String path) {
         super(path);
+        this.path = path;
     }
     
     public String getPath() {
