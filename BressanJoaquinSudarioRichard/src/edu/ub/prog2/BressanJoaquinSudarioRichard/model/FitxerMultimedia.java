@@ -25,46 +25,48 @@ public class FitxerMultimedia extends File{
         this.path = path;
     }
     
+    //getters
     public String getPath() {
         return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
     }
 
     public String getNameFile() {
         return nameFile;
     }
 
-    public void setNameFile(String nameFile) {
-        this.nameFile = nameFile;
-    }
-
-    public String getExt() {
+   public String getExt() {
         return ext;
-    }
-
-    public void setExt(String ext) {
-        this.ext = ext;
     }
 
     public Date getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Date lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
-
     public String getDescription() {
         return description;
     }
 
+    //setters
+    public void setPath(String path) {
+        this.path = path;
+    }
+    
     public void setDescription(String description) {
         this.description = description;
     }
     
+    public void setNameFile(String nameFile) {
+        this.nameFile = nameFile;
+    }
+
+    public void setExt(String ext) {
+        this.ext = ext;
+    }
+
+    public void setLastUpdate(Date lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+     
     public boolean equals(FitxerMultimedia fitxerMultimedia){
         if(this.path == fitxerMultimedia.getPath() && this.nameFile == fitxerMultimedia.getNameFile()
                 && this.ext == fitxerMultimedia.getExt() && this.description == fitxerMultimedia.getDescription()
