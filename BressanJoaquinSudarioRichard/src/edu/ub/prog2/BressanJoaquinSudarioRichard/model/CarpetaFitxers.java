@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class CarpetaFitxers {
 
     //private int size;
-    private int MAX_SIZE = 100;
+    private int MAX_SIZE = 2;
     private ArrayList<FitxerMultimedia> folder;
 
     public CarpetaFitxers() {
