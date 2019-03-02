@@ -12,14 +12,12 @@
 package edu.ub.prog2.BressanJoaquinSudarioRichard.vista;
 
 import edu.ub.prog2.BressanJoaquinSudarioRichard.model.CarpetaFitxers;
-import edu.ub.prog2.BressanJoaquinSudarioRichard.model.FitxerMultimedia;
 import java.util.Scanner;
 import edu.ub.prog2.utils.Menu;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Date;
 /**
  *
  * @author rsudarbe117.alumnes
@@ -33,7 +31,7 @@ public class IniciadorAplicacioUB {
         MAIN_MENU_OPTION1, MAIN_MENU_OPTION2, MAIN_MENU_OPTION3, MAIN_MENU_EXIT
     };
 
-    static private String[] descMainMenu = {"Afegir fitxer multimèdia", "Eliminar fitxer multimèdia", "Mostrar carpeta", "Sortir"};
+    static private String[] descMainMenu = {"Afegir fitxer multimedia", "Eliminar fitxer multimedia", "Mostrar carpeta", "Sortir"};
 
     public static void main(String[] args) {
         // TODO code application logic here
@@ -88,6 +86,8 @@ public class IniciadorAplicacioUB {
                         System.out.println("Invalid path.");
                     }
                     break;
+                case MAIN_MENU_OPTION3:
+                    System.out.println(cf);
                 case MAIN_MENU_EXIT:
                     System.out.println("Good Bye");
                     break;
