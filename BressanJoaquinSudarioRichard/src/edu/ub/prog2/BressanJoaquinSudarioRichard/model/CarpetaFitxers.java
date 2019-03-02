@@ -67,7 +67,7 @@ public class CarpetaFitxers {
             /*[1] Descripció= Nadal, data=Thu Jan 08 12:34:02 CET 2015, nom
                 fitxer=carmen, ext=mp4, cami complet=F:\carmen.mp4 */
             FitxerMultimedia file = this.folder.get(i);
-            message += "[" + (i + 1) + "]  Descripció = " + file.getDescription() + ", data = " + file.getLastUpdate() + ", nom fitxer = " + file.getNameFile() + ", ext = " + file.getExt() + ", cami complet = " + file.getAbsolutePath();
+            message += "[" + (i + 1) + "]" + file;
             message += "\n";
         }
         return message;
