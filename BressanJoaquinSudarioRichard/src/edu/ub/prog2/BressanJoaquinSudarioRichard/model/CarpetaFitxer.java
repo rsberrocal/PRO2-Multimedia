@@ -32,9 +32,9 @@ public class CarpetaFitxer {
         this.folder.add(createFitxerMultimedia(fitxer));        
     }
 
-    public void removeFitxer(File fitxer) throws Exception {
-        //CHECK FITXER IS FITXERMULTIMEDIA
-        int fileIndex = this.folder.indexOf(fitxer);
+    public void removeFitxer(File fitxer) throws Exception {        
+        FitxerMultimedia fileMulti = createFitxerMultimedia(fitxer);
+        int fileIndex = this.folder.indexOf(fileMulti);
         if (fileIndex != -1) {
             this.folder.remove(fileIndex);
         } else {
