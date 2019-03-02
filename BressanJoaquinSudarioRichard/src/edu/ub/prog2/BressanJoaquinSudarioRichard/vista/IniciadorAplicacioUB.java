@@ -70,17 +70,21 @@ public class IniciadorAplicacioUB {
                     }
                     break;
                 case MAIN_MENU_OPTION2:
-                    System.out.print("Path? ");
-                    p = sc.next();
-                    if (checkFile(p)) {
-                        f = new File(p);
-                        try {
-                            cf.removeFitxer(f);
-                        } catch (Exception e) {
-                            System.out.println(e.getMessage());
+                    if(cf.getSize()==0){
+                        System.out.println("The folder is empty");
+                    }else{
+                        System.out.print("Path? ");
+                        p = sc.next();
+                        if (checkFile(p)) {
+                            f = new File(p);
+                            try {
+                                cf.removeFitxer(f);
+                            } catch (Exception e) {
+                                System.out.println(e.getMessage());
+                            }
+                        } else {
+                            System.out.println("Invalid path.");
                         }
-                    } else {
-                        System.out.println("Invalid path.");
                     }
                     break;
                 case MAIN_MENU_OPTION3:
