@@ -28,17 +28,21 @@ public class CarpetaFitxer {
         return this.folder.size();
     }
 
-    public void addFitxer(File fitxer) {
-        this.folder.add(createFitxerMultimedia(fitxer));        
+    public void addFitxer(File fitxer) throws Exception {
+        if (this.isFull()) {
+            throw new Exception("ERROR: Folder is full");
+        } else {
+            this.folder.add(createFitxerMultimedia(fitxer));
+        }
     }
 
     public void removeFitxer(File fitxer) throws Exception {
-        //CHECK FITXER IS FITXERMULTIMEDIA
-        int fileIndex = this.folder.indexOf(fitxer);
+        FitxerMultimedia fileMulti = createFitxerMultimedia(fitxer);
+        int fileIndex = this.folder.indexOf(fileMulti);
         if (fileIndex != -1) {
             this.folder.remove(fileIndex);
         } else {
-            throw new Exception("ERROR:File not found");
+            throw new Exception("ERROR: File not found");
         }
     }
 
@@ -67,6 +71,7 @@ public class CarpetaFitxer {
         }
         return message;
     }
+
     //Function to create a FitxerMultimedia object
     private FitxerMultimedia createFitxerMultimedia(File fitxer) {
         FitxerMultimedia fileToAdd = new FitxerMultimedia(fitxer.getPath());
