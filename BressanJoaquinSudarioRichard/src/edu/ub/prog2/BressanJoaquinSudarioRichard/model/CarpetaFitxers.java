@@ -80,7 +80,7 @@ public class CarpetaFitxers {
         //Get index to split the nameFile
         int indexName = fitxer.getName().lastIndexOf('.');
         String name = fitxer.getName().substring(0, indexName);
-        String ext = fitxer.getName().substring(indexName, 0);
+        String ext = fitxer.getName().substring(indexName);
         fileToAdd.setNameFile(name);
         //To get the extension, search the last dot
         fileToAdd.setExt(ext);
