@@ -41,17 +41,17 @@ public class IniciadorAplicacioUB {
 
     public void gestioAplicacioUB(Scanner sc) {
 
-        Menu<OptionsMainMenu> mainMenu = new Menu<OptionsMainMenu>("Main Menu", OptionsMainMenu.values());
+        Menu<OptionsMainMenu> mainMenu = new Menu<OptionsMainMenu>("Main Menu", OptionsMainMenu.values());//creating an object from Menu's class
 
         String p;
-        CarpetaFitxers cf = new CarpetaFitxers();
         File f;
-
-        mainMenu.setDescripcions(descMainMenu);
+        CarpetaFitxers cf = new CarpetaFitxers();
+        
+        mainMenu.setDescripcions(descMainMenu);//method in jar file
 
         OptionsMainMenu option = null;
         do {
-            mainMenu.mostrarMenu();
+            mainMenu.mostrarMenu();//method in jar file
             option = mainMenu.getOpcio(sc);
 
             switch (option) {
@@ -60,9 +60,10 @@ public class IniciadorAplicacioUB {
                     p = sc.next();
                     if (checkFile(p)) {
                         f = new File(p);
-                        try {
+                        //try...catch methods for thrown Java exceptions
+                        try { //statement executed while there are no errors
                             cf.addFitxer(f);
-                        } catch (Exception e) {
+                        } catch(Exception e) { // statement executed if an error occurs in the try block
                             System.out.println(e.getMessage());
                         }
                     } else {
@@ -72,14 +73,14 @@ public class IniciadorAplicacioUB {
                 case MAIN_MENU_OPTION2:
                     if(cf.getSize()==0){
                         System.out.println("The folder is empty");
-                    }else{
+                    } else {
                         System.out.print("Path? ");
                         p = sc.next();
                         if (checkFile(p)) {
                             f = new File(p);
                             try {
                                 cf.removeFitxer(f);
-                            } catch (Exception e) {
+                            } catch(Exception e) {
                                 System.out.println(e.getMessage());
                             }
                         } else {
@@ -93,16 +94,14 @@ public class IniciadorAplicacioUB {
                 case MAIN_MENU_EXIT:
                     System.out.println("Good Bye");
                     break;
-                default:
-                    System.out.println("Error");
-                    break;
-
+                //default choice already implemented in the jar imported
             }
 
         } while (option != OptionsMainMenu.MAIN_MENU_EXIT);
 
     }
-
+    
+    //method to check the existence of a file with a given path
     public static boolean checkFile(String p) {
         File file = new File(p);        
         return file.exists();
