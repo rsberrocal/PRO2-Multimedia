@@ -32,12 +32,12 @@ public class CarpetaFitxers {
         if (this.isFull()) {
             throw new Exception("ERROR: Folder is full");
         } else {
-            this.folder.add(createFitxerMultimedia(fitxer));
+            this.folder.add(createFitxerMultimedia(fitxer,true));
         }
     }
-    
+
     public void removeFitxer(File fitxer) throws Exception {
-        FitxerMultimedia fileMulti = createFitxerMultimedia(fitxer);
+        FitxerMultimedia fileMulti = createFitxerMultimedia(fitxer,false);
         //Get the index of the file;
         int fileIndex = this.folder.indexOf(fileMulti);
         if (fileIndex != -1) {
@@ -45,8 +45,8 @@ public class CarpetaFitxers {
         } else {
             throw new Exception("ERROR: File not found");
         }
-    }   
-    
+    }
+
     public File getAt(int position) {
         return this.folder.get(position);
     }
@@ -74,7 +74,7 @@ public class CarpetaFitxers {
     }
 
     //Function to create a FitxerMultimedia object
-    private FitxerMultimedia createFitxerMultimedia(File fitxer) {
+    private FitxerMultimedia createFitxerMultimedia(File fitxer, boolean isNew) {
         FitxerMultimedia fileToAdd = new FitxerMultimedia(fitxer.getPath());
         Scanner sc = new Scanner(System.in);
         //Get index to split the nameFile
@@ -86,8 +86,10 @@ public class CarpetaFitxers {
         fileToAdd.setExt(ext);
         fileToAdd.setLastUpdate(new Date());
 
-        System.out.println("Afegeix una descripcion al fitxer " + name);
-        fileToAdd.setDescription(sc.nextLine());
+        if (isNew) {
+            System.out.println("Afegeix una descripcion al fitxer " + name);
+            fileToAdd.setDescription(sc.next());
+        }
         return fileToAdd;
     }
 }
