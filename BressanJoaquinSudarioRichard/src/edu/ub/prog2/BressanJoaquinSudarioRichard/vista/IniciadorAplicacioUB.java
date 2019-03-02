@@ -30,7 +30,7 @@ public class IniciadorAplicacioUB {
      * @param args the command line arguments
      */
     static private enum OptionsMainMenu {
-        MAIN_MENU_OPTION1, MAIN_MENU_OPTION2, MAIN_MENU_EXIT
+        MAIN_MENU_OPTION1, MAIN_MENU_OPTION2, MAIN_MENU_OPTION3, MAIN_MENU_EXIT
     };
 
     static private String[] descMainMenu = {"Afegir fitxer multimèdia", "Eliminar fitxer multimèdia", "Mostrar carpeta", "Sortir"};
@@ -74,14 +74,24 @@ public class IniciadorAplicacioUB {
                     System.out.print("Path? ");
                     p = sc.next();
                     if (checkFile(p)== true){
-                    f = new File(p);
-                    cf.removeFitxer(f);
+                        f = new File(p);
+                        try{
+                            cf.removeFitxer(f);
+                        }catch(Exception e){
+                            e.getMessage();
+                        }
+                    }else{
+                        System.out.println("Path does not exist.");
                     }
-                    System.out.println("Option 2");
                     break;
+                case MAIN_MENU_OPCION3:
                 case MAIN_MENU_EXIT:
                     System.out.println("Good Bye");
                     break;
+                default:
+                    System.out.println("Error");
+                    break;
+                
             }
             
         } while (option != OptionsMainMenu.MAIN_MENU_EXIT);
