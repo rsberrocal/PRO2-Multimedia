@@ -20,7 +20,11 @@ public class FitxerMultimedia extends File{
     private Date lastUpdate;
     private String description;
     
-    public FitxerMultimedia(String path) {
+	/**
+	 *
+	 * @param path
+	 */
+	public FitxerMultimedia(String path) {
         super(path);
         this.path = path;
     }
@@ -30,44 +34,86 @@ public class FitxerMultimedia extends File{
         return path;
     }
 
-    public String getNameFile() {
+	/**
+	 *
+	 * @return
+	 */
+	public String getNameFile() {
         return nameFile;
     }
 
-   public String getExt() {
+	/**
+	 *
+	 * @return
+	 */
+	public String getExt() {
         return ext;
     }
 
-    public Date getLastUpdate() {
+	/**
+	 *
+	 * @return
+	 */
+	public Date getLastUpdate() {
         return lastUpdate;
     }
 
-    public String getDescription() {
+	/**
+	 *
+	 * @return
+	 */
+	public String getDescription() {
         return description;
     }
 
     //setters
+
+	/**
+	 *
+	 * @param path
+	 */
     public void setPath(String path) {
         this.path = path;
     }
     
-    public void setDescription(String description) {
+	/**
+	 *
+	 * @param description
+	 */
+	public void setDescription(String description) {
         this.description = description;
     }
     
-    public void setNameFile(String nameFile) {
+	/**
+	 *
+	 * @param nameFile
+	 */
+	public void setNameFile(String nameFile) {
         this.nameFile = nameFile;
     }
 
-    public void setExt(String ext) {
+	/**
+	 *
+	 * @param ext
+	 */
+	public void setExt(String ext) {
         this.ext = ext;
     }
 
-    public void setLastUpdate(Date lastUpdate) {
+	/**
+	 *
+	 * @param lastUpdate
+	 */
+	public void setLastUpdate(Date lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
      
-    public boolean equals(FitxerMultimedia fitxerMultimedia){
+	/**
+	 *
+	 * @param fitxerMultimedia
+	 * @return
+	 */
+	public boolean equals(FitxerMultimedia fitxerMultimedia){
         if(this.path == fitxerMultimedia.getPath() && this.nameFile == fitxerMultimedia.getNameFile()
                 && this.ext == fitxerMultimedia.getExt() && this.description == fitxerMultimedia.getDescription()
                 && this.lastUpdate == fitxerMultimedia.getLastUpdate()){

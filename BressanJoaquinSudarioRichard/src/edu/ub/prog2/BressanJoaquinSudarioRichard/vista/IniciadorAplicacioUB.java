@@ -30,7 +30,11 @@ public class IniciadorAplicacioUB {
 
     static private String[] descMainMenu = {"Afegir fitxer multimedia", "Eliminar fitxer multimedia", "Mostrar carpeta", "Sortir"};
 
-    public static void main(String[] args) {
+	/**
+	 *
+	 * @param args
+	 */
+	public static void main(String[] args) {
         // TODO code application logic here
         Scanner sc = new Scanner(System.in);
 
@@ -39,7 +43,11 @@ public class IniciadorAplicacioUB {
         aplicacio.gestioAplicacioUB(sc);
     }
 
-    public void gestioAplicacioUB(Scanner sc) {
+	/**
+	 *
+	 * @param sc
+	 */
+	public void gestioAplicacioUB(Scanner sc) {
 
         Menu<OptionsMainMenu> mainMenu = new Menu<OptionsMainMenu>("Main Menu", OptionsMainMenu.values());//creating an object from Menu's class
 
@@ -102,6 +110,12 @@ public class IniciadorAplicacioUB {
     }
     
     //method to check the existence of a file with a given path
+
+	/**
+	 *
+	 * @param p
+	 * @return
+	 */
     public static boolean checkFile(String p) {
         File file = new File(p);        
         return file.exists();

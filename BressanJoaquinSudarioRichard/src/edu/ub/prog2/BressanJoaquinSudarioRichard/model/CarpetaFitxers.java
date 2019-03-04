@@ -11,26 +11,37 @@ import java.util.Date;
 import java.util.Scanner;
 
 /**
- *
- * @author rsudarbe117.alumnes
+ * @author Richard Sudario
+ * This CarpetaFitxers class contains and control all the FitxerMultimedia 
  */
 public class CarpetaFitxers {
-
-    //private int size;
+	
     private int MAX_SIZE = 100;
     private ArrayList<FitxerMultimedia> folder;
 
-    public CarpetaFitxers() {
+	/**
+	 * Creates a empty folder
+	 */
+	public CarpetaFitxers() {
         //By default create a empty list
         this.folder = new ArrayList<>();
     }
+    
 
-    //returns the size folder
+	/**
+	 * returns the size folder
+	 * @return
+	 */
     public int getSize() {
         return this.folder.size();
     }
+    
 
-    //method to add a file in a folder, if is full throw a exception
+	/**
+	 * method to add a file in a folder, if is full throw a exception
+	 * @param fitxer this fitxer is used to create a new FitxerMultimedia and added to the folder
+	 * @throws Exception if the folder is full
+	 */
     public void addFitxer(File fitxer) throws Exception {
         if (this.isFull()) {
             throw new Exception("ERROR: Folder is full");
@@ -38,9 +49,13 @@ public class CarpetaFitxers {
             //call the method createFitxerMultimedia to create a FitxerMultimedia object
             this.folder.add(createFitxerMultimedia(fitxer, true));
         }
-    }
+    }    
 
-    //method to remove a file in a folder, if not exist in the folder throw a exception
+	/**
+	 * method to remove a file in a folder, if not exist in the folder throw a exception
+	 * @param fitxer this fitxer is used to create a new FitxerMultimedia, later search this object and if is found its removed
+	 * @throws Exception if file doesnt exist
+	 */
     public void removeFitxer(File fitxer) throws Exception {
         FitxerMultimedia fileMulti = createFitxerMultimedia(fitxer, false);
         //Get the index of the file if not exist fileIndex is -1
@@ -51,18 +66,30 @@ public class CarpetaFitxers {
             throw new Exception("ERROR: File not found");
         }
     }
+    
 
-    //returns file in folder by a position
+	/**
+	 * returns file in folder by a position
+	 * @param position
+	 * @return
+	 */
     public File getAt(int position) {
         return this.folder.get(position);
     }
+    
 
-    //clear the whole folder
+	/**
+	 * clear the whole folder
+	 */
     public void clear() {
         this.folder.clear();
     }
+    
 
-    //returns true if size is equal to MAX_SIZE
+	/**
+	 * returns true if size is equal to MAX_SIZE
+	 * @return
+	 */
     public boolean isFull() {
         return this.folder.size() == this.MAX_SIZE;
     }
