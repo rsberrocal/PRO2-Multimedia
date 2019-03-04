@@ -107,12 +107,10 @@ public class IniciadorAplicacioUB {
 
         } while (option != OptionsMainMenu.MAIN_MENU_EXIT);
 
-    }
-    
-    //method to check the existence of a file with a given path
+    }        
 
 	/**
-	 *
+	 * method to check the existence of a file with a given path
 	 * @param p
 	 * @return
 	 */
