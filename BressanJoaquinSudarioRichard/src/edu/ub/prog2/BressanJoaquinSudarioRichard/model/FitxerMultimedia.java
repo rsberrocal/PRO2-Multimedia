@@ -10,110 +10,118 @@ import java.util.Date;
 
 /**
  *
- * @author rsudarbe117.alumnes
+ * @author rsudarbe117.alumnes & jbressna9.alumnes
+ * The FitxerMultimedia class defines the attributes
+ * of a multimedia file
  */
-public class FitxerMultimedia extends File{  
+public class FitxerMultimedia extends File{ 
     
+        /**Path, name, extension, date, description of
+         * the multimedia file
+         */
     private String path;
     private String nameFile;
     private String ext;
     private Date lastUpdate;
     private String description;
     
-	/**
-	 *
-	 * @param path
-	 */
-	public FitxerMultimedia(String path) {
+
+        /**Constructor for FitxerMultimedia
+         * 
+         * @param path
+         */
+    public FitxerMultimedia(String path) {
         super(path);
         this.path = path;
     }
     
-    //getters
+        /**Gets file's path
+         * 
+         * @return String
+         */
     public String getPath() {
-        return path;
+            return path;
     }
 
-	/**
+	/**Gets file's name
 	 *
-	 * @return
+	 * @return String
 	 */
-	public String getNameFile() {
+    public String getNameFile() {
         return nameFile;
     }
 
-	/**
+	/**Gets file's extension
 	 *
-	 * @return
+	 * @return String
 	 */
-	public String getExt() {
+    public String getExt() {
         return ext;
     }
 
-	/**
+	/**Gets file's last update
 	 *
-	 * @return
+	 * @return Date
 	 */
-	public Date getLastUpdate() {
+    public Date getLastUpdate() {
         return lastUpdate;
     }
 
-	/**
+	/**Gets file's description
 	 *
-	 * @return
+	 * @return String
 	 */
-	public String getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    //setters
-
-	/**
-	 *
-	 * @param path
-	 */
+        /**Sets file's path by the inserted string
+         * 
+         * @param path 
+         */
     public void setPath(String path) {
         this.path = path;
     }
     
-	/**
+	/**Sets file's description by the inserted string
 	 *
 	 * @param description
 	 */
-	public void setDescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
     
-	/**
+	/**Sets file's name by the inserted string
 	 *
 	 * @param nameFile
 	 */
-	public void setNameFile(String nameFile) {
+    public void setNameFile(String nameFile) {
         this.nameFile = nameFile;
     }
 
-	/**
+	/**sets file's extension by the inserted string
 	 *
 	 * @param ext
 	 */
-	public void setExt(String ext) {
+    public void setExt(String ext) {
         this.ext = ext;
     }
 
-	/**
+	/**Sets file's last update by the inserted date
 	 *
 	 * @param lastUpdate
 	 */
-	public void setLastUpdate(Date lastUpdate) {
+    public void setLastUpdate(Date lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
      
-	/**
-	 *
+	/**Method that compares two files by comparing all
+	 *their attributes
+         * 
 	 * @param fitxerMultimedia
-	 * @return
+	 * @return boolean
 	 */
-	public boolean equals(FitxerMultimedia fitxerMultimedia){
+    public boolean equals(FitxerMultimedia fitxerMultimedia){
         if(this.path == fitxerMultimedia.getPath() && this.nameFile == fitxerMultimedia.getNameFile()
                 && this.ext == fitxerMultimedia.getExt() && this.description == fitxerMultimedia.getDescription()
                 && this.lastUpdate == fitxerMultimedia.getLastUpdate()){
@@ -121,7 +129,11 @@ public class FitxerMultimedia extends File{
         }
         return false;
     }
-    
+        /**Method that returns the string representation
+         * of the file
+         * 
+         * @return String
+         */
     public String toString(){
         return("Descripció = " + this.getDescription() + ", data = " + this.getLastUpdate() + ", nom fitxer = " + this.getNameFile() + ", ext = " + this.getExt() + ", cami complet = " + this.getAbsolutePath());
     }
