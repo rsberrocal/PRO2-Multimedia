@@ -3,12 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
- /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.ub.prog2.BressanJoaquinSudarioRichard.vista;
 
 import edu.ub.prog2.BressanJoaquinSudarioRichard.model.CarpetaFitxers;
@@ -17,24 +11,28 @@ import edu.ub.prog2.utils.Menu;
 import java.io.File;
 /**
  *
- * @author rsudarbe117.alumnes
+ * @author Joaquin Bressan & rsudarbe117.alumnes
+ * The IniciadorAplicacioUB class contains the imported menu and the main class
+ * where the program will be executed
  */
 public class IniciadorAplicacioUB {
 
-    /**
-     * @param args the command line arguments
-     */
+        /**Set of predefined constants
+         * 
+         */
     static private enum OptionsMainMenu {
         MAIN_MENU_OPTION1, MAIN_MENU_OPTION2, MAIN_MENU_OPTION3, MAIN_MENU_EXIT
     };
-
+        /**String list with the different
+         * options that the user will have
+         */
     static private String[] descMainMenu = {"Afegir fitxer multimedia", "Eliminar fitxer multimedia", "Mostrar carpeta", "Sortir"};
 
-	/**
+	/**main() method where menu is implemented
 	 *
 	 * @param args
 	 */
-	public static void main(String[] args) {
+    public static void main(String[] args) {
         // TODO code application logic here
         Scanner sc = new Scanner(System.in);
 
@@ -43,23 +41,25 @@ public class IniciadorAplicacioUB {
         aplicacio.gestioAplicacioUB(sc);
     }
 
-	/**
+	/**Method where the imported menu
+         * is called and managed
 	 *
 	 * @param sc
 	 */
-	public void gestioAplicacioUB(Scanner sc) {
-
-        Menu<OptionsMainMenu> mainMenu = new Menu<OptionsMainMenu>("Main Menu", OptionsMainMenu.values());//creating an object from Menu's class
+    public void gestioAplicacioUB(Scanner sc) {
+        
+        //creating an object from Menu's class
+        Menu<OptionsMainMenu> mainMenu = new Menu<OptionsMainMenu>("Main Menu", OptionsMainMenu.values());
 
         String p;
         File f;
         CarpetaFitxers cf = new CarpetaFitxers();
         
-        mainMenu.setDescripcions(descMainMenu);//method in jar file
+        mainMenu.setDescripcions(descMainMenu);//method in imported menu
 
         OptionsMainMenu option = null;
         do {
-            mainMenu.mostrarMenu();//method in jar file
+            mainMenu.mostrarMenu();//method in imported menu
             option = mainMenu.getOpcio(sc);
 
             switch (option) {
@@ -108,13 +108,12 @@ public class IniciadorAplicacioUB {
         } while (option != OptionsMainMenu.MAIN_MENU_EXIT);
 
     }
-    
-    //method to check the existence of a file with a given path
 
-	/**
+	/**Method to check the existence of a file
+         * through a given path
 	 *
 	 * @param p
-	 * @return
+	 * @return boolean
 	 */
     public static boolean checkFile(String p) {
         File file = new File(p);        
