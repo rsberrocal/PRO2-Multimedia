@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
-
+import ub.edu.prog2.BressanJoaquinSudarioRichard.vista.AplicacioUB2;
+import edu.ub.prog2.utils.Menu;
 import java.util.Scanner;
 
 /**
@@ -25,6 +26,6 @@ public class IniciadorAplicacioUB {
     }
     
     public void gestioAplicacioUB(Scanner sc){
-        
+        Menu<OpcionsMainMenu,OpcionsSubMenu,OpcionsSubMenu1> mainMenu = new Menu("Menu", {OpcionsMainMenu,OpcionsSubMenu,OpcionsSubMenu1)
     }
 }
