@@ -5,19 +5,10 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.model;
 
-import java.io.File;
-
 /**
  *
  * @author rsudarbe117.alumnes
  */
-public class BibliotecaFitxersMultimedia extends CarpetaFitxers{
-    public BibliotecaFitxersMultimedia(){
-        
-    }
-    
-    public void addFitxer(File fitxer, boolean isAudio){
-        
-    }    
+public class Video extends FitxerReproduible{
     
 }
