@@ -5,11 +5,13 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author joaqu
  */
-public class Dades {
+public class Dades implements Serializable {
     
     public void guardarDades(){
         
