@@ -5,6 +5,10 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.model;
 
+import edu.ub.prog2.utils.AplicacioException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.Serializable;
 
 /**
@@ -13,8 +17,8 @@ import java.io.Serializable;
  */
 public class Dades implements Serializable {
     
-    public void guardarDades(){
-        
+    public void guardarDades(String path) throws Exception{
+        AplicacioException ex = new AplicacioException("ERROR");
     }
     
     public void carregarDades(){

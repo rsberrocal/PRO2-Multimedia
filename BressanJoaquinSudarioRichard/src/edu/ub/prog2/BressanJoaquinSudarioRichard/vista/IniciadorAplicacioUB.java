@@ -6,6 +6,7 @@
 package edu.ub.prog2.BressanJoaquinSudarioRichard.vista;
 
 import edu.ub.prog2.BressanJoaquinSudarioRichard.model.CarpetaFitxers;
+import edu.ub.prog2.utils.AplicacioException;
 import java.util.Scanner;
 import edu.ub.prog2.utils.Menu;
 import java.io.File;
@@ -32,7 +33,7 @@ public class IniciadorAplicacioUB {
 	 *
 	 * @param args
 	 */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws AplicacioException {
         // TODO code application logic here
         Scanner sc = new Scanner(System.in);
 
@@ -46,7 +47,7 @@ public class IniciadorAplicacioUB {
 	 *
 	 * @param sc
 	 */
-    public void gestioAplicacioUB(Scanner sc) {
+    public void gestioAplicacioUB(Scanner sc) throws AplicacioException {
         
         //creating an object from Menu's class
         Menu<OptionsMainMenu> mainMenu = new Menu<OptionsMainMenu>("Main Menu", OptionsMainMenu.values());
@@ -86,10 +87,11 @@ public class IniciadorAplicacioUB {
                         p = sc.next();
                         if (checkFile(p)) {
                             f = new File(p);
-                            try {
+                            AplicacioException ex = new AplicacioException("ERROR");
+                            try{
                                 cf.removeFitxer(f);
-                            } catch(Exception e) {
-                                System.out.println(e.getMessage());
+                            }catch(Exception e){
+                                throw ex;
                             }
                         } else {
                             System.out.println("Invalid path.");
