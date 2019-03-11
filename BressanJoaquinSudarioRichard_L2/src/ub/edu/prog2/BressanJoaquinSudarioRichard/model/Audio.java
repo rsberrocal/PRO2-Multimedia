@@ -10,5 +10,17 @@ package ub.edu.prog2.BressanJoaquinSudarioRichard.model;
  * @author rsudarbe117.alumnes
  */
 public class Audio extends FitxerReproduible{
+    String quality;
+
+    public Audio() {
+    }
+
+    public String getQuality() {
+        return quality;
+    }
+
+    public void setQuality(String quality) {
+        this.quality = quality;
+    }
     
 }
