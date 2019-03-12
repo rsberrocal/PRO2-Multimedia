@@ -5,8 +5,10 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.controlador;
 
+import ub.edu.prog2.BressanJoaquinSudarioRichard.model.Dades;
 import edu.ub.prog2.utils.AplicacioException;
 import java.util.List;
+import ub.edu.prog2.BressanJoaquinSudarioRichard.model.Video;
 
 /**
  *
@@ -21,12 +23,14 @@ public class Controlador {
         
     }
     
-    public List<String> mostrarBiblioteca(){
+    public List<String> mostrarBiblioteca(){ // lista de las salidas de toString() de los ficheros
         List<String> d = null; //Sino aparecía como error
         return d;
     }
     
     public void esborrarFitxer(int id) throws AplicacioException{
+        // id es la posición en la lista de getBiblioteca()
+
         
     }
     

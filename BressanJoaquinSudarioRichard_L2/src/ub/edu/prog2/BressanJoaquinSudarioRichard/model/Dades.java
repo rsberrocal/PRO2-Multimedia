@@ -17,11 +17,37 @@ import java.io.Serializable;
  */
 public class Dades implements Serializable {
     
-    public void guardarDades(String path) throws Exception{
-        AplicacioException ex = new AplicacioException("ERROR");
+    public void guardarDades(String camiDesti) throws AplicacioException{
+        File f = new File(camiDesti);
+        FileInputStream in = null;
+        
+        try{
+            in = new FileInputStream(f);
+            
+        }catch(Exception e){
+            
+        } finally {
+            if (in != null){
+                in.close();
+            }
+        }
     }
     
-    public void carregarDades(){
+    public void carregarDades(String camiOrigen) throws AplicacioException{
+        File f = new File (camiOrigen);
+        FileOutputStream out = null;
+        
+        try{
+            out = new FileOutputStream(f);
+        
+        }catch(Exception e){
+            
+        } finally {
+            if (out != null){
+                out.close();
+            }
+        }
+        
         
     }
 }

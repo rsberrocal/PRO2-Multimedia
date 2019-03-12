@@ -34,6 +34,8 @@ public class AplicacioUB2 {
         
         mainMenu.setDescripcions(descMainMenu);
         
+        String p;
+        
         OptionsMainMenu opt = null;
         do{
             mainMenu.mostrarMenu();
@@ -44,10 +46,12 @@ public class AplicacioUB2 {
                     gestioSubMenu1(sc);
                     break;
                 case MAIN_MENU_OPTION2:
-                    
+                    System.out.println("Insert destination path: ");
+                    p = sc.next();
                     break;
                 case MAIN_MENU_OPTION3:
-                    
+                    System.out.println("Insert origin path: ");
+                    p = sc.next();
                     break;  
                 case MAIN_MENU_EXIT:
                     System.out.println("Good bye");
