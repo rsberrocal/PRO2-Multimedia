@@ -14,7 +14,8 @@ public class Video extends FitxerReproduible{
     float heightPx;
     int fps;
 
-    public Video() {
+    public Video(String path){
+        super(path);
     }
 
     public float getWidthPx() {

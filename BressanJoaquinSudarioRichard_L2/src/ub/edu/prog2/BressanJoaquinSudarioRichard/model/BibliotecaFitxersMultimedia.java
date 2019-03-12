@@ -16,12 +16,7 @@ public class BibliotecaFitxersMultimedia extends CarpetaFitxers{
         
     }
     
-    public void addFitxer(File fitxer, boolean isAudio){
-        if(isAudio){
-            Audio aud = new Audio();
-        }else{
-            
-        }
+    public void addFitxer(File fitxer){
     }    
     
 }
