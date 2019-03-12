@@ -12,7 +12,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintStream;
 import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  *
@@ -20,6 +22,11 @@ import java.io.Serializable;
  */
 public class Dades implements Serializable {
     BibliotecaFitxersMultimedia bfm;
+    
+    Dades (BibliotecaFitxersMultimedia bfm){
+        this.bfm = bfm;
+    }
+    
     //serialización
     public void carregarDades(String camiOrigen) throws AplicacioException, IOException{
         File f = new File(camiOrigen);
@@ -65,4 +72,11 @@ public class Dades implements Serializable {
         
         
     }
+    
+    /*public String toString(){
+        for (int i = 0; i < bfm.getSize() ; i++){
+            System.out.println(bfm[i]);
+        }
+        return (".");
+    } BibliotecaFitxerMultimedia is not array*/
 }

@@ -9,15 +9,14 @@ import ub.edu.prog2.BressanJoaquinSudarioRichard.model.Dades;
 import edu.ub.prog2.utils.AplicacioException;
 import java.io.IOException;
 import java.util.List;
-import ub.edu.prog2.BressanJoaquinSudarioRichard.model.FitxerMultimedia;
-import ub.edu.prog2.BressanJoaquinSudarioRichard.model.Video;
 
 /**
  *
  * @author joaqu
  */
 public class Controlador {
-    Dades d = new Dades();
+    
+    Dades d;
     
     public void afegirVideo (String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException{
         
