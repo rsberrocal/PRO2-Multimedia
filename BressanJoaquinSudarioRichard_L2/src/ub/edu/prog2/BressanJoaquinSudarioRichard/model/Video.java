@@ -40,6 +40,7 @@ public class Video extends FitxerReproduible{
 
     public void setFps(int fps) {
         this.fps = fps;
-    }
+    }        
+       
     
 }

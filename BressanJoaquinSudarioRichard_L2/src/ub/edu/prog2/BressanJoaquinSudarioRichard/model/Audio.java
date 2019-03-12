@@ -23,5 +23,10 @@ public class Audio extends FitxerReproduible{
     public void setQuality(String quality) {
         this.quality = quality;
     }
+
+    @Override
+    protected void reproduir() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

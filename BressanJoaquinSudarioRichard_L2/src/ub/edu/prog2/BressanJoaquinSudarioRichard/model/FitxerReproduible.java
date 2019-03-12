@@ -9,14 +9,15 @@ package ub.edu.prog2.BressanJoaquinSudarioRichard.model;
  *
  * @author rsudarbe117.alumnes
  */
-public class FitxerReproduible extends FitxerMultimedia{
+public abstract class FitxerReproduible extends FitxerMultimedia{
     private double duration;
     private String codec;
 
     public FitxerReproduible(String path) {
-        super(path);        
+        super(path);
     }
     
+    protected abstract void reproduir();    
     
         
     
