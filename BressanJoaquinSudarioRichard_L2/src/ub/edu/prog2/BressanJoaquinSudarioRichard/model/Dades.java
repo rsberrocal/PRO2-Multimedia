@@ -9,6 +9,9 @@ import edu.ub.prog2.utils.AplicacioException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 /**
@@ -17,34 +20,45 @@ import java.io.Serializable;
  */
 public class Dades implements Serializable {
     
-    public void guardarDades(String camiDesti) throws AplicacioException{
-        File f = new File(camiDesti);
+    //serialización
+    public void carregarDades(String camiOrigen) throws AplicacioException, IOException{
+        File f = new File(camiOrigen);
         FileInputStream in = null;
+        ObjectInputStream objIn = null;
         
         try{
             in = new FileInputStream(f);
-            
+            objIn = new ObjectInputStream(in);
+            objIn.read();
         }catch(Exception e){
-            
+            throw new AplicacioException(e.getMessage());
         } finally {
             if (in != null){
                 in.close();
             }
+            if (objIn != null){
+                objIn.close();
+            }
         }
     }
     
-    public void carregarDades(String camiOrigen) throws AplicacioException{
-        File f = new File (camiOrigen);
+    //deserialización
+    public void guardarDades(String camiDesti) throws AplicacioException, IOException{ 
+        File f = new File (camiDesti);
         FileOutputStream out = null;
+        ObjectOutputStream objOut = null;
         
         try{
             out = new FileOutputStream(f);
-        
+            objOut = new ObjectOutputStream(out);
         }catch(Exception e){
-            
+            throw new AplicacioException(e.getMessage());
         } finally {
             if (out != null){
                 out.close();
+            }
+            if (objOut != null){
+                objOut.close();
             }
         }
         

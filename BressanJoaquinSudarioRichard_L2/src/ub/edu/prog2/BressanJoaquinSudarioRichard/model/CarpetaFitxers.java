@@ -6,6 +6,7 @@
 package ub.edu.prog2.BressanJoaquinSudarioRichard.model;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -14,7 +15,7 @@ import java.util.Scanner;
  * @author Richard Sudario
  * This CarpetaFitxers class contains and control all the FitxerMultimedia 
  */
-public class CarpetaFitxers {
+public class CarpetaFitxers implements Serializable {
 	
     private int MAX_SIZE = 100;
     private ArrayList<FitxerMultimedia> folder;

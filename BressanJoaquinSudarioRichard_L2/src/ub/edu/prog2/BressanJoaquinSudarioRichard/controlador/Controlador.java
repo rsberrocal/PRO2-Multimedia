@@ -8,6 +8,7 @@ package ub.edu.prog2.BressanJoaquinSudarioRichard.controlador;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.Dades;
 import edu.ub.prog2.utils.AplicacioException;
 import java.util.List;
+import ub.edu.prog2.BressanJoaquinSudarioRichard.model.FitxerMultimedia;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.Video;
 
 /**
