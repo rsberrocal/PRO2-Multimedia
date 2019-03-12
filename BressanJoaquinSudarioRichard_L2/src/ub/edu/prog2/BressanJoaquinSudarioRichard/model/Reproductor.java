@@ -5,17 +5,12 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.model;
 
+import edu.ub.prog2.utils.ReproductorBasic;
+
 /**
  *
- * @author rsudarbe117.alumnes
+ * @author Rocho
  */
-public class FitxerReproduible {
-    private double duration;
-    private String codec;
-    
-    public FitxerReproduible(){
-        
-    }
-        
+public class Reproductor extends ReproductorBasic {
     
 }
