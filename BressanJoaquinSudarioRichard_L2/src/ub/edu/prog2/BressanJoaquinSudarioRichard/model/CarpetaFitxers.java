@@ -114,16 +114,16 @@ public class CarpetaFitxers implements Serializable {
         
         //get index to split between the name and the extension
         int indexName = fitxer.getName().lastIndexOf('.');
-        String name = fitxer.getName().substring(0, indexName);
+        //String name = fitxer.getName().substring(0, indexName);
         String ext = fitxer.getName().substring(indexName);
-        fileToAdd.setNameFile(name);        
+        //fileToAdd.setNameFile(name);        
         fileToAdd.setExt(ext);
         //lastUpdate is now
-        fileToAdd.setLastUpdate(new Date());
+        //fileToAdd.setLastUpdate(new Date());
         
         //if is a file to add, set a description
         if (isNew) {
-            System.out.println("Afegeix una descripcion al fitxer " + name);
+            System.out.println("Afegeix una descripcion al fitxer " + fileToAdd.getNameFile());
             fileToAdd.setDescription(sc.next());
         }
         return fileToAdd;
