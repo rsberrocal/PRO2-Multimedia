@@ -7,6 +7,7 @@ package ub.edu.prog2.BressanJoaquinSudarioRichard.controlador;
 
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.Dades;
 import edu.ub.prog2.utils.AplicacioException;
+import java.io.IOException;
 import java.util.List;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.FitxerMultimedia;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.Video;
@@ -16,6 +17,8 @@ import ub.edu.prog2.BressanJoaquinSudarioRichard.model.Video;
  * @author joaqu
  */
 public class Controlador {
+    Dades d = new Dades();
+    
     public void afegirVideo (String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException{
         
     }
@@ -31,15 +34,15 @@ public class Controlador {
     
     public void esborrarFitxer(int id) throws AplicacioException{
         // id es la posición en la lista de getBiblioteca()
-
+        
         
     }
     
-    public void guardarDadesDisc(String camiDesti) throws AplicacioException{
-        
+    public void guardarDadesDisc(String camiDesti) throws AplicacioException, IOException{
+        d.guardarDades(camiDesti);
     }
     
-    public void carregarDadesDisc(String camiOrigen) throws AplicacioException{
-
+    public void carregarDadesDisc(String camiOrigen) throws AplicacioException, IOException{
+        d.carregarDades(camiOrigen);
     }
 }

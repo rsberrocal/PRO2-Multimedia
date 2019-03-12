@@ -5,8 +5,10 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
 
+import edu.ub.prog2.utils.AplicacioException;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
 import edu.ub.prog2.utils.Menu;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -34,6 +36,7 @@ public class AplicacioUB2 {
         
         mainMenu.setDescripcions(descMainMenu);
         
+        Controlador c = new Controlador();
         String p;
         
         OptionsMainMenu opt = null;
@@ -48,10 +51,24 @@ public class AplicacioUB2 {
                 case MAIN_MENU_OPTION2:
                     System.out.println("Insert destination path: ");
                     p = sc.next();
+                    try{
+                        c.guardarDadesDisc(p);
+                    } catch(AplicacioException a){
+                        System.err.println(a);
+                    } catch(IOException e){
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case MAIN_MENU_OPTION3:
                     System.out.println("Insert origin path: ");
                     p = sc.next();
+                    try{
+                        c.carregarDadesDisc(p);
+                    } catch(AplicacioException a){
+                        System.err.println(a);
+                    } catch(IOException e){
+                        System.out.println(e.getMessage());
+                    }
                     break;  
                 case MAIN_MENU_EXIT:
                     System.out.println("Good bye");

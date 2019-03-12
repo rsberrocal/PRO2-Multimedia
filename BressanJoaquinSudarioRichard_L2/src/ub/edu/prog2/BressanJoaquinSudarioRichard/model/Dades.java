@@ -19,7 +19,7 @@ import java.io.Serializable;
  * @author joaqu
  */
 public class Dades implements Serializable {
-    
+    BibliotecaFitxersMultimedia bfm;
     //serialización
     public void carregarDades(String camiOrigen) throws AplicacioException, IOException{
         File f = new File(camiOrigen);
@@ -51,6 +51,7 @@ public class Dades implements Serializable {
         try{
             out = new FileOutputStream(f);
             objOut = new ObjectOutputStream(out);
+            objOut.writeObject(this.bfm);
         }catch(Exception e){
             throw new AplicacioException(e.getMessage());
         } finally {
