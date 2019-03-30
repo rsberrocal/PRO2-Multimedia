@@ -5,28 +5,34 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.model;
 
+import java.io.File;
+
 /**
  *
  * @author rsudarbe117.alumnes
  */
-public class Audio extends FitxerReproduible{
-    String quality;    
+public class Audio extends FitxerReproduible {
 
-    public Audio(String path) {
-        super(path);
-    }       
+    private int kbps;
+    private File img;
 
-    public String getQuality() {
-        return quality;
+    public Audio(String cami, File fitxerImatge, String nom, String codec, float durada, int kbps, Reproductor r) {
+        super(cami, nom, codec, durada, r);
+        this.kbps = kbps;
+        this.img = fitxerImatge;
     }
 
-    public void setQuality(String quality) {
-        this.quality = quality;
+    public int getQuality() {
+        return kbps;
+    }
+
+    public void setQuality(int kbps) {
+        this.kbps = kbps;
     }
 
     @Override
     protected void reproduir() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //TODO
     }
-    
+
 }
