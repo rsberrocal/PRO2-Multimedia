@@ -163,8 +163,6 @@ public class AplicacioUB2 {
                     path = sc.next();
                     System.out.print("Audio's name? ");
                     nom = sc.next();
-                    System.out.print("Carátula? Si/No");
-                    String p = sc.next();
                     System.out.print("Audio's image path? ");
                     pathFile = sc.next();
                     camiImatge = new File(pathFile);
