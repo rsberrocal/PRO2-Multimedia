@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,19 +27,18 @@ public class Dades implements Serializable {
         this.bfm = b;
     }
     
-    public void addVideo(String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws Exception{
+    public void addVideo(String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException, Exception{
         Video v = new Video(path, nomVideo, codec, durada, alcada, amplada, fps, r);
         this.bfm.addFitxer(v);
     }
     
-    public void addAudio(String cami, File camiImatge, String nomAudio, String codec, float durada, int kbps) throws Exception{
+    public void addAudio(String cami, File camiImatge, String nomAudio, String codec, float durada, int kbps) throws AplicacioException, Exception{
         Audio a = new Audio(cami, camiImatge, nomAudio, codec, durada, kbps, r);
         this.bfm.addFitxer(a);
     }
     
     public List<String> print(){
-        List<String> l = new ArrayList<>(); // sino me sale un error y no puedo commit
-        return l;
+        return ((List<String>) this.bfm);
     }
     
     public void delete(int id) throws AplicacioException{
@@ -91,11 +89,4 @@ public class Dades implements Serializable {
         
         
     }
-    
-    /*public String toString(){
-        for (int i = 0; i < bfm.getSize() ; i++){
-            System.out.println(bfm[i]);
-        }
-        return (".");
-    } BibliotecaFitxerMultimedia is not array*/
 }

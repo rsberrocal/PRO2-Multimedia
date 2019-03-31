@@ -100,7 +100,7 @@ public class AplicacioUB2 {
                     gestioSubMenu2(sc);
                     break;
                 case SUB_MENU1_OPTION2:
-                    
+                    System.out.println(c.mostrarBiblioteca());
                     break;
                 case SUB_MENU1_OPTION3:
                     int id;
@@ -120,7 +120,7 @@ public class AplicacioUB2 {
         } while(opt != OptionsSubMenu1.SUB_MENU1_EXIT);
     }
     
-    public void gestioSubMenu2 (Scanner sc){
+    public void gestioSubMenu2 (Scanner sc) throws AplicacioException{
         Menu<OptionsSubMenu2> subMenu2 = new Menu<>("Submenu 2", OptionsSubMenu2.values());
         
         subMenu2.setDescripcions(descSubMenu2);
@@ -152,7 +152,25 @@ public class AplicacioUB2 {
                     }
                     break;
                 case SUB_MENU2_OPTION2:
-                    
+                    System.out.print("Audio's path? ");
+                    path = sc.next();
+                    System.out.print("Audio's name? ");
+                    nom = sc.next();
+                    System.out.print("Audio's codec? ");
+                    codec = sc.next();
+                    System.out.print("Audio's duration? ");
+                    durada = sc.nextFloat();
+                    System.out.print("Audio's height? ");
+                    alcada = sc.nextInt();
+                    System.out.print("Audio's width? ");
+                    amplada = sc.nextInt();
+                    System.out.print("Audio's kbps? ");
+                    kbps = sc.nextInt();
+                    try{
+                        c.afegirVideo(path, nom, codec, durada, alcada, amplada, kbps);
+                    }catch(AplicacioException e){
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case SUB_MENU2_EXIT:
                     break;
