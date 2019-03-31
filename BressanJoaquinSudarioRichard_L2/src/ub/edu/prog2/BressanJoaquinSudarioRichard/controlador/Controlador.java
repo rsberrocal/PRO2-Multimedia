@@ -20,7 +20,7 @@ public class Controlador {
     Dades d;
     Reproductor r;
     
-    public void afegirVideo (String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException{
+    public void afegirVideo (String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException, Exception{
         d.addVideo(path, nomVideo, codec, durada, alcada, amplada, fps);
     }
     
