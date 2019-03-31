@@ -51,4 +51,9 @@ public class Video extends FitxerReproduible {
         //TODO
     }
 
+    @Override
+    public String toString() {
+        return (super.toString() + ", amplada = " + this.getWidthPx() + ", alçada = " + this.getHeightPx() + " , fps = " + this.getFps());
+    }
+
 }

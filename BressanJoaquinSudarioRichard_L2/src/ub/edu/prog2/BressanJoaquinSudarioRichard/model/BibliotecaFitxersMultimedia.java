@@ -6,10 +6,7 @@
 package ub.edu.prog2.BressanJoaquinSudarioRichard.model;
 
 import java.io.File;
-import java.util.Scanner;
 import edu.ub.prog2.utils.AplicacioException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -43,6 +40,10 @@ public class BibliotecaFitxersMultimedia extends CarpetaFitxers {
                 }
             }
         }
+    }
+
+    public void listBiblioteca() {
+        System.out.println(super.toString());
     }
 
 }

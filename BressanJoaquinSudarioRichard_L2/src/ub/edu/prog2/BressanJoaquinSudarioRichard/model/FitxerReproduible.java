@@ -22,4 +22,12 @@ public abstract class FitxerReproduible extends FitxerMultimedia {
 
     protected abstract void reproduir();
 
+    /**
+     * Method that returns the string representation of the file
+     *
+     * @return String
+     */
+    public String toString() {
+        return (super.toString() + ", duració = " + this.duration + " , codec = " + this.codec);
+    }
 }
