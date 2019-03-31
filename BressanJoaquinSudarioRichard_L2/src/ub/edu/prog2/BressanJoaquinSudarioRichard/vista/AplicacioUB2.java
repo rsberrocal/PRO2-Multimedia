@@ -8,6 +8,7 @@ package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
 import edu.ub.prog2.utils.AplicacioException;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
 import edu.ub.prog2.utils.Menu;
+import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -29,14 +30,19 @@ public class AplicacioUB2 {
     static private String[] descMainMenu = {"Gestio biblioteca", "Guardar dades","Recuperar dades", "Sortir"};
     static private String[] descSubMenu1 = {"Afegir fitxer multimedia", "Mostrar carpeta", "Eliminar fitxer multimedia", "Menu anterior"};
     static private String[] descSubMenu2 = {"Afegir video", "Afegir audio", "Menu anterior"};
-        
+    Controlador c = new Controlador(); 
+    String path, nom, codec;
+    float durada, fps;
+    int alcada, amplada, kbps;
+    File camiImatge;
+    
     public void gestioAplicacioUB(Scanner sc){
         
         Menu<OptionsMainMenu> mainMenu = new Menu<>("Main menu", OptionsMainMenu.values());
         
         mainMenu.setDescripcions(descMainMenu);
         
-        Controlador c = new Controlador();
+        
         String p;
         
         OptionsMainMenu opt = null;
@@ -97,7 +103,15 @@ public class AplicacioUB2 {
                     
                     break;
                 case SUB_MENU1_OPTION3:
-                    
+                    int id;
+                    c.mostrarBiblioteca();
+                    System.out.println("File id?");
+                    id = sc.nextInt();
+                    try{
+                        c.esborrarFitxer(id);
+                    }catch(AplicacioException e){
+                        System.out.println(e.getMessage());
+                    }        
                     break;
                 case SUB_MENU1_EXIT:
                     break;
@@ -117,7 +131,25 @@ public class AplicacioUB2 {
             opt = subMenu2.getOpcio(sc);
             switch(opt){
                 case SUB_MENU2_OPTION1:
-                    
+                    System.out.print("Video's path? ");
+                    path = sc.next();
+                    System.out.print("Video's name? ");
+                    nom = sc.next();
+                    System.out.print("Video's codec? ");
+                    codec = sc.next();
+                    System.out.print("Video's duration? ");
+                    durada = sc.nextFloat();
+                    System.out.print("Video's height? ");
+                    alcada = sc.nextInt();
+                    System.out.print("Video's width( ");
+                    amplada = sc.nextInt();
+                    System.out.print("Video's fps? ");
+                    fps = sc.nextFloat();
+                    try{
+                        c.afegirVideo(path, nom, codec, durada, alcada, amplada, fps);
+                    }catch(AplicacioException e){
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case SUB_MENU2_OPTION2:
                     
