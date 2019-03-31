@@ -9,37 +9,46 @@ package ub.edu.prog2.BressanJoaquinSudarioRichard.model;
  *
  * @author rsudarbe117.alumnes
  */
-public class Video extends FitxerReproduible{
-    float widthPx;
-    float heightPx;
-    int fps;
+public class Video extends FitxerReproduible {
 
-    public Video(String path){
-        super(path);
+    private int widthPx;
+    private int heightPx;
+    private float fps;
+
+    public Video(String cami, String nom, String codec, float durada, int alcada, int amplada, float fps, Reproductor r) {
+        super(cami, nom, codec, durada, r);
+        this.widthPx = alcada;
+        this.heightPx = amplada;
+        this.fps = fps;
     }
 
-    public float getWidthPx() {
+    public int getWidthPx() {
         return widthPx;
     }
 
-    public void setWidthPx(float widthPx) {
+    public void setWidthPx(int widthPx) {
         this.widthPx = widthPx;
     }
 
-    public float getHeightPx() {
+    public int getHeightPx() {
         return heightPx;
     }
 
-    public void setHeightPx(float heightPx) {
+    public void setHeightPx(int heightPx) {
         this.heightPx = heightPx;
     }
 
-    public int getFps() {
+    public float getFps() {
         return fps;
     }
 
-    public void setFps(int fps) {
+    public void setFps(float fps) {
         this.fps = fps;
     }
-    
+
+    @Override
+    protected void reproduir() {
+        //TODO
+    }
+
 }
