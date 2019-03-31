@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,7 +24,7 @@ public class Dades implements Serializable {
     BibliotecaFitxersMultimedia bfm = new BibliotecaFitxersMultimedia();
     Reproductor r;
     
-    Dades (BibliotecaFitxersMultimedia b){
+    public Dades (BibliotecaFitxersMultimedia b){
         this.bfm = b;
     }
     
@@ -39,7 +40,9 @@ public class Dades implements Serializable {
     }
     
     public List<String> print(){
-        return ((List<String>) this.bfm);
+        List<String> l = new ArrayList();
+        l.add(bfm.toString());
+        return (l);
     }
     
     public void delete(int id) throws AplicacioException{

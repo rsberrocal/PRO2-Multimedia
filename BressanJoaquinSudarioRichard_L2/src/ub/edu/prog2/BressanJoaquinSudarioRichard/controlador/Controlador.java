@@ -9,17 +9,22 @@ import ub.edu.prog2.BressanJoaquinSudarioRichard.model.Dades;
 import edu.ub.prog2.utils.AplicacioException;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import ub.edu.prog2.BressanJoaquinSudarioRichard.model.BibliotecaFitxersMultimedia;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.Reproductor;
 /**
  *
  * @author joaqu
  */
 public class Controlador {
-    
-    Dades d;
+    BibliotecaFitxersMultimedia b = new BibliotecaFitxersMultimedia();
+    Dades d ;
     Reproductor r;
     
+    public Controlador (){
+        d = new Dades(b);
+    }
     public void afegirVideo (String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException{
         d.addVideo(path, nomVideo, codec, durada, alcada, amplada, fps);
     }
@@ -29,8 +34,7 @@ public class Controlador {
     }
     
     public List<String> mostrarBiblioteca(){ // lista de las salidas de toString() de los ficheros
-        return d.print();
-            
+        return d.print(); 
     }
     
     public void esborrarFitxer(int id) throws AplicacioException{
