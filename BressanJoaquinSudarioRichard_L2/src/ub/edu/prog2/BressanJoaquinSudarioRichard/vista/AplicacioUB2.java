@@ -110,7 +110,7 @@ public class AplicacioUB2 {
                     try{
                         c.esborrarFitxer(id);
                     }catch(AplicacioException e){
-                        System.out.println(e.getMessage());
+                        System.out.println(e);
                     }        
                     break;
                 case SUB_MENU1_EXIT:
@@ -120,7 +120,7 @@ public class AplicacioUB2 {
         } while(opt != OptionsSubMenu1.SUB_MENU1_EXIT);
     }
     
-    public void gestioSubMenu2 (Scanner sc) throws AplicacioException{
+    public void gestioSubMenu2 (Scanner sc){
         Menu<OptionsSubMenu2> subMenu2 = new Menu<>("Submenu 2", OptionsSubMenu2.values());
         
         subMenu2.setDescripcions(descSubMenu2);
@@ -148,7 +148,7 @@ public class AplicacioUB2 {
                     try{
                         c.afegirVideo(path, nom, codec, durada, alcada, amplada, fps);
                     }catch(AplicacioException e){
-                        System.out.println(e.getMessage());
+                        System.out.println(e);
                     }
                     break;
                 case SUB_MENU2_OPTION2:
@@ -169,7 +169,7 @@ public class AplicacioUB2 {
                     try{
                         c.afegirVideo(path, nom, codec, durada, alcada, amplada, kbps);
                     }catch(AplicacioException e){
-                        System.out.println(e.getMessage());
+                        System.out.println(e);
                     }
                     break;
                 case SUB_MENU2_EXIT:

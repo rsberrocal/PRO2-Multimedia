@@ -20,19 +20,20 @@ import java.util.List;
  * @author joaqu
  */
 public class Dades implements Serializable {
-    BibliotecaFitxersMultimedia bfm;
+    BibliotecaFitxersMultimedia bfm = new BibliotecaFitxersMultimedia();
     Reproductor r;
     
     Dades (BibliotecaFitxersMultimedia b){
         this.bfm = b;
     }
     
-    public void addVideo(String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException, Exception{
+    public void addVideo(String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException{
         Video v = new Video(path, nomVideo, codec, durada, alcada, amplada, fps, r);
         this.bfm.addFitxer(v);
+        
     }
     
-    public void addAudio(String cami, File camiImatge, String nomAudio, String codec, float durada, int kbps) throws AplicacioException, Exception{
+    public void addAudio(String cami, File camiImatge, String nomAudio, String codec, float durada, int kbps) throws AplicacioException{
         Audio a = new Audio(cami, camiImatge, nomAudio, codec, durada, kbps, r);
         this.bfm.addFitxer(a);
     }

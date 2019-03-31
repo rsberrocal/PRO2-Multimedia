@@ -20,11 +20,11 @@ public class Controlador {
     Dades d;
     Reproductor r;
     
-    public void afegirVideo (String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException, Exception{
+    public void afegirVideo (String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException{
         d.addVideo(path, nomVideo, codec, durada, alcada, amplada, fps);
     }
     
-    public void afegirAudio(String cami, File camiImatge, String nomAudio, String codec, float durada, int kbps) throws AplicacioException, Exception{
+    public void afegirAudio(String cami, File camiImatge, String nomAudio, String codec, float durada, int kbps) throws AplicacioException{
         d.addAudio(cami, camiImatge, nomAudio, codec, durada, kbps);
     }
     
