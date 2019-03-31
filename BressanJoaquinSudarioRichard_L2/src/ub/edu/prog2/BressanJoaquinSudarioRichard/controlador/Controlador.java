@@ -44,4 +44,11 @@ public class Controlador {
     public void carregarDadesDisc(String camiOrigen) throws AplicacioException, IOException{
         d.carregarDades(camiOrigen);
     }
+   
+    public boolean isEmpty(){
+        if (d.isEmpty()){
+            return true;
+        }
+        return false;
+    }
 }

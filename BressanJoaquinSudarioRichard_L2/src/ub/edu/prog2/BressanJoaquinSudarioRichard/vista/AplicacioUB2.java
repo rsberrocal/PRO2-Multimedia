@@ -100,18 +100,26 @@ public class AplicacioUB2 {
                     gestioSubMenu2(sc);
                     break;
                 case SUB_MENU1_OPTION2:
-                    System.out.println(c.mostrarBiblioteca());
+                    if (c.isEmpty()){
+                        System.out.println("Biblioteca vacía.");
+                    }else{
+                        System.out.println(c.mostrarBiblioteca());
+                    }
                     break;
                 case SUB_MENU1_OPTION3:
-                    int id;
-                    c.mostrarBiblioteca();
-                    System.out.println("File id?");
-                    id = sc.nextInt();
-                    try{
-                        c.esborrarFitxer(id);
-                    }catch(AplicacioException e){
-                        System.out.println(e);
-                    }        
+                    if (c.isEmpty()){
+                        System.out.println("Biblioteca vacía.");
+                    }else{
+                        int id;
+                        c.mostrarBiblioteca();
+                        System.out.println("File id?");
+                        id = sc.nextInt();
+                        try{
+                            c.esborrarFitxer(id);
+                        }catch(AplicacioException e){
+                            System.out.println(e);
+                        }
+                    }
                     break;
                 case SUB_MENU1_EXIT:
                     break;

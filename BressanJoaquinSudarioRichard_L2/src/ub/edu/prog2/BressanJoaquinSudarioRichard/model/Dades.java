@@ -76,7 +76,9 @@ public class Dades implements Serializable {
         try{
             out = new FileOutputStream(f);
             objOut = new ObjectOutputStream(out);
-            objOut.writeObject(this.bfm);
+            for(int i = 0; i<bfm.getSize(); i++){
+                objOut.writeObject(bfm.getAt(i));
+            }
         }catch(Exception e){
             throw new AplicacioException(e.getMessage());
         } finally {
@@ -89,5 +91,11 @@ public class Dades implements Serializable {
         }
         
         
+    }
+    public boolean isEmpty(){
+        if(bfm.getSize() == 0){
+            return true;
+        }
+        return false;
     }
 }
