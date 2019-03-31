@@ -31,7 +31,7 @@ public class AplicacioUB2 {
     static private String[] descSubMenu1 = {"Afegir fitxer multimedia", "Mostrar carpeta", "Eliminar fitxer multimedia", "Menu anterior"};
     static private String[] descSubMenu2 = {"Afegir video", "Afegir audio", "Menu anterior"};
     Controlador c = new Controlador(); 
-    String path, nom, codec;
+    String path, nom, codec, pathFile;
     float durada, fps;
     int alcada, amplada, kbps;
     File camiImatge;
@@ -79,7 +79,6 @@ public class AplicacioUB2 {
                 case MAIN_MENU_EXIT:
                     System.out.println("Good bye");
                     break;
-                
             }
                             
         } while (opt != OptionsMainMenu.MAIN_MENU_EXIT);
@@ -164,24 +163,26 @@ public class AplicacioUB2 {
                     path = sc.next();
                     System.out.print("Audio's name? ");
                     nom = sc.next();
+                    System.out.print("Carátula? Si/No");
+                    String p = sc.next();
+                    System.out.print("Audio's image path? ");
+                    pathFile = sc.next();
+                    camiImatge = new File(pathFile);
                     System.out.print("Audio's codec? ");
                     codec = sc.next();
                     System.out.print("Audio's duration? ");
                     durada = sc.nextFloat();
-                    System.out.print("Audio's height? ");
-                    alcada = sc.nextInt();
-                    System.out.print("Audio's width? ");
-                    amplada = sc.nextInt();
                     System.out.print("Audio's kbps? ");
                     kbps = sc.nextInt();
                     try{
-                        c.afegirVideo(path, nom, codec, durada, alcada, amplada, kbps);
+                        c.afegirAudio(path, camiImatge, nom, codec, durada, kbps);
                     }catch(AplicacioException e){
                         System.out.println(e);
                     }
                     break;
                 case SUB_MENU2_EXIT:
                     break;
+                
             } 
         } while (opt != OptionsSubMenu2.SUB_MENU2_EXIT);
     }
