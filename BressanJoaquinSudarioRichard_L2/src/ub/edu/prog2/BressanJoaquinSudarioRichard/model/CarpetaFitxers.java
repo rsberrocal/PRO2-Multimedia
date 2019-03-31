@@ -12,51 +12,56 @@ import java.util.Date;
 import java.util.Scanner;
 
 /**
- * @author Richard Sudario
- * This CarpetaFitxers class contains and control all the FitxerMultimedia 
+ * @author Richard Sudario This CarpetaFitxers class contains and control all
+ * the FitxerMultimedia
  */
 public class CarpetaFitxers implements Serializable {
-	
+
     private int MAX_SIZE = 100;
     private ArrayList<FitxerMultimedia> folder;
 
-	/**
-	 * Creates a empty folder
-	 */
-	public CarpetaFitxers() {
+    /**
+     * Creates a empty folder
+     */
+    public CarpetaFitxers() {
         //By default create a empty list
         this.folder = new ArrayList<>();
     }
-    
 
-	/**
-	 * returns the size folder
-	 * @return
-	 */
+    /**
+     * returns the size folder
+     *
+     * @return
+     */
     public int getSize() {
         return this.folder.size();
     }
-    
 
-	/**
-	 * method to add a file in a folder, if is full throw a exception
-	 * @param fitxer this fitxer is used to create a new FitxerMultimedia and added to the folder
-	 * @throws Exception if the folder is full
-	 */
+    /**
+     * method to add a file in a folder, if is full throw a exception
+     *
+     * @param fitxer this fitxer is used to create a new FitxerMultimedia and
+     * added to the folder
+     * @throws Exception if the folder is full
+     */
     public void addFitxer(File fitxer) throws Exception {
         if (this.isFull()) {
             throw new Exception("ERROR: Folder is full");
         } else {
             //call the method createFitxerMultimedia to create a FitxerMultimedia object
-            this.folder.add(createFitxerMultimedia(fitxer, true));
+            //this.folder.add(createFitxerMultimedia(fitxer, true));
+            this.folder.add((FitxerMultimedia) fitxer);
         }
-    }    
+    }
 
-	/**
-	 * method to remove a file in a folder, if not exist in the folder throw a exception
-	 * @param fitxer this fitxer is used to create a new FitxerMultimedia, later search this object and if is found its removed
-	 * @throws Exception if file doesnt exist
-	 */
+    /**
+     * method to remove a file in a folder, if not exist in the folder throw a
+     * exception
+     *
+     * @param fitxer this fitxer is used to create a new FitxerMultimedia, later
+     * search this object and if is found its removed
+     * @throws Exception if file doesnt exist
+     */
     public void removeFitxer(File fitxer) throws Exception {
         FitxerMultimedia fileMulti = createFitxerMultimedia(fitxer, false);
         //Get the index of the file if not exist fileIndex is -1
@@ -67,30 +72,28 @@ public class CarpetaFitxers implements Serializable {
             throw new Exception("ERROR: File not found");
         }
     }
-    
 
-	/**
-	 * returns file in folder by a position
-	 * @param position
-	 * @return
-	 */
+    /**
+     * returns file in folder by a position
+     *
+     * @param position
+     * @return
+     */
     public File getAt(int position) {
         return this.folder.get(position);
     }
-    
 
-	/**
-	 * clear the whole folder
-	 */
+    /**
+     * clear the whole folder
+     */
     public void clear() {
         this.folder.clear();
     }
-    
 
-	/**
-	 * 
-	 * @return true if size is equal to MAX_SIZE
-	 */
+    /**
+     *
+     * @return true if size is equal to MAX_SIZE
+     */
     public boolean isFull() {
         return this.folder.size() == this.MAX_SIZE;
     }
@@ -111,7 +114,7 @@ public class CarpetaFitxers implements Serializable {
     private FitxerMultimedia createFitxerMultimedia(File fitxer, boolean isNew) {
         FitxerMultimedia fileToAdd = new FitxerMultimedia(fitxer.getPath());
         Scanner sc = new Scanner(System.in);
-        
+
         //get index to split between the name and the extension
         int indexName = fitxer.getName().lastIndexOf('.');
         //String name = fitxer.getName().substring(0, indexName);
@@ -120,7 +123,7 @@ public class CarpetaFitxers implements Serializable {
         fileToAdd.setExt(ext);
         //lastUpdate is now
         //fileToAdd.setLastUpdate(new Date());
-        
+
         //if is a file to add, set a description
         if (isNew) {
             System.out.println("Afegeix una descripcion al fitxer " + fileToAdd.getNameFile());
