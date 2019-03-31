@@ -12,9 +12,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintStream;
 import java.io.Serializable;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -22,12 +22,30 @@ import java.util.Arrays;
  */
 public class Dades implements Serializable {
     BibliotecaFitxersMultimedia bfm;
+    Reproductor r;
     
-    Dades (BibliotecaFitxersMultimedia bfm){
-        this.bfm = bfm;
+    Dades (BibliotecaFitxersMultimedia b){
+        this.bfm = b;
     }
     
-    public void afegirAudio()
+    public void addVideo(String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws Exception{
+        Video v = new Video(path, nomVideo, codec, durada, alcada, amplada, fps, r);
+        this.bfm.addFitxer(v);
+    }
+    
+    public void addAudio(String cami, File camiImatge, String nomAudio, String codec, float durada, int kbps) throws Exception{
+        Audio a = new Audio(cami, camiImatge, nomAudio, codec, durada, kbps, r);
+        this.bfm.addFitxer(a);
+    }
+    
+    public List<String> print(){
+        List<String> l = new ArrayList<>(); // sino me sale un error y no puedo commit
+        return l;
+    }
+    
+    public void delete(int id) throws AplicacioException{
+        this.bfm.removeFitxer(id);
+    }
     //serialización
     public void carregarDades(String camiOrigen) throws AplicacioException, IOException{
         File f = new File(camiOrigen);
