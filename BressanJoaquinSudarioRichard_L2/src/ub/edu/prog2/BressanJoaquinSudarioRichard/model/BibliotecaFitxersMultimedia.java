@@ -19,23 +19,24 @@ public class BibliotecaFitxersMultimedia extends CarpetaFitxers {
         super();
     }
 
-    public void addFitxer(File fitxer) throws AplicacioException {
-        String desc;
-        float durat;
-        String codec;
-        char optionFile;
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Afegeix una descripcion al fitxer " + fitxer.getName());
-        desc = sc.next();
-        System.out.println("Afegeix una durada al fitxer " + fitxer.getName());
-        durat = sc.nextFloat();
-        System.out.println("Afegeix un codec al fitxer " + fitxer.getName());
-        codec = sc.next();
-        System.out.println("Sera un audio o video? A/V");
-        optionFile = sc.next().charAt(0);
-        switch (optionFile) {
-            case 'A':
-            case 'a':
+    public void addFitxer(File fitxer, boolean isAudio) throws AplicacioException {
+        if (this.isFull()) {
+            throw new AplicacioException("Error: biblioteca plena");
+        } else {
+            String desc;
+            float durat;
+            String codec;
+            char optionFile;
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Afegeix una descripcion al fitxer " + fitxer.getName());
+            desc = sc.next();
+            System.out.println("Afegeix una durada al fitxer " + fitxer.getName());
+            durat = sc.nextFloat();
+            System.out.println("Afegeix un codec al fitxer " + fitxer.getName());
+            codec = sc.next();
+            System.out.println("Sera un audio o video? A/V");
+            optionFile = sc.next().charAt(0);
+            if (isAudio) {
                 int kbs;
                 String imgFile;
                 System.out.println("Afeigeix una qualitat d'audio(kbs)");
@@ -48,9 +49,7 @@ public class BibliotecaFitxersMultimedia extends CarpetaFitxers {
                 } catch (Exception e) {
                     throw new AplicacioException(e.getMessage());
                 }
-                break;
-            case 'B':
-            case 'b':
+            } else {
                 int width;
                 int height;
                 float fps;
@@ -66,9 +65,7 @@ public class BibliotecaFitxersMultimedia extends CarpetaFitxers {
                 } catch (Exception e) {
                     throw new AplicacioException(e.getMessage());
                 }
-                break;
-            default:
-                throw new AplicacioException("Error al seleccionar un tipus de fitxer");
+            }
         }
     }
 
