@@ -18,7 +18,7 @@ import java.util.Scanner;
 public class CarpetaFitxers implements Serializable {
 
     private int MAX_SIZE = 100;
-    private ArrayList<FitxerMultimedia> folder;
+    protected ArrayList<FitxerMultimedia> folder;
 
     /**
      * Creates a empty folder

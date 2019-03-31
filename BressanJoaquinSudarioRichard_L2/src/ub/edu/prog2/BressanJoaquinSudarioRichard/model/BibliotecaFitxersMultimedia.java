@@ -7,6 +7,9 @@ package ub.edu.prog2.BressanJoaquinSudarioRichard.model;
 
 import java.io.File;
 import edu.ub.prog2.utils.AplicacioException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  *
@@ -43,8 +46,13 @@ public class BibliotecaFitxersMultimedia extends CarpetaFitxers {
         }
     }
 
-    public void listBiblioteca() {
-        System.out.println(super.toString());
+    public List<String> listBiblioteca() {
+        List<String> list = new ArrayList<>();
+        Iterator it = super.folder.iterator();
+        while (it.hasNext()) {
+            list.add(it.next().toString());
+        }
+        return list;
     }
 
 }
