@@ -27,6 +27,7 @@ public class Dades implements Serializable {
         this.bfm = bfm;
     }
     
+    public void afegirAudio()
     //serialización
     public void carregarDades(String camiOrigen) throws AplicacioException, IOException{
         File f = new File(camiOrigen);
