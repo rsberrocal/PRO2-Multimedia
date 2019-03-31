@@ -18,7 +18,8 @@ public class BibliotecaFitxersMultimedia extends CarpetaFitxers {
         super();
     }
 
-    public void addFitxer(File fitxer, boolean isAudio) throws AplicacioException {
+    @Override
+    public void addFitxer(File fitxer) throws AplicacioException {
         try {
             super.addFitxer(fitxer);
         } catch (Exception e) {
