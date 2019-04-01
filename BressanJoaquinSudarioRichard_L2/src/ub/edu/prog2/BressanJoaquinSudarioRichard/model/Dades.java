@@ -22,14 +22,14 @@ import java.util.List;
  */
 public class Dades implements Serializable {
     BibliotecaFitxersMultimedia bfm = new BibliotecaFitxersMultimedia();
-    Reproductor r = new Reproductor("C:/ProgramFiles/VideoLAN/VLC/");
-    
+    private Reproductor r;
     /**
      *
      * @param b
      */
     public Dades (BibliotecaFitxersMultimedia b){
         this.bfm = b;
+        r = new Reproductor("C:/ProgramFiles/VideoLAN/VLC/");
     }
     
     /**
