@@ -118,7 +118,7 @@ public class AplicacioUB2 {
                         System.out.println("Biblioteca vacía.");
                     }else{
                         int id;
-                        c.mostrarBiblioteca();
+                        System.out.println(c.mostrarBiblioteca());
                         System.out.println("File id?");
                         id = sc.nextInt();
                         try{
