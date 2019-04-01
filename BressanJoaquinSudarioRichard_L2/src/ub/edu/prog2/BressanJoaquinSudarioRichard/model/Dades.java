@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class Dades implements Serializable {
     BibliotecaFitxersMultimedia bfm = new BibliotecaFitxersMultimedia();
-    Reproductor r ;
+    Reproductor r = new Reproductor("C:/ProgramFiles/VideoLAN/VLC/");
     
     /**
      *
