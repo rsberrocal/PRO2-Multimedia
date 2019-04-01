@@ -33,14 +33,14 @@ public class Dades implements Serializable {
     
     /**
      *
-     * @param path
-     * @param nomVideo
-     * @param codec
-     * @param durada
-     * @param alcada
-     * @param amplada
-     * @param fps
-     * @throws AplicacioException
+     * @param path file path
+     * @param nomVideo video name
+     * @param codec codec file
+     * @param durada duration in minutes
+     * @param alcada pixels file
+     * @param amplada pixels file
+     * @param fps frames per seconds
+     * @throws AplicacioException error
      */
     public void addVideo(String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException{
         Video v = new Video(path, nomVideo, codec, durada, alcada, amplada, fps, r);
@@ -50,13 +50,13 @@ public class Dades implements Serializable {
     
     /**
      *
-     * @param cami
-     * @param camiImatge
-     * @param nomAudio
-     * @param codec
-     * @param durada
-     * @param kbps
-     * @throws AplicacioException
+     * @param cami file path
+     * @param camiImatge file image
+     * @param nomAudio audio name
+     * @param codec codec file
+     * @param durada duration in minutes
+     * @param kbps quality 
+     * @throws AplicacioException error
      */
     public void addAudio(String cami, File camiImatge, String nomAudio, String codec, float durada, int kbps) throws AplicacioException{
         Audio a = new Audio(cami, camiImatge, nomAudio, codec, durada, kbps, r);

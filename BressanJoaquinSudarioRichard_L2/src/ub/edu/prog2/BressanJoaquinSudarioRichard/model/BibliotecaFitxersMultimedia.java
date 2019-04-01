@@ -55,7 +55,7 @@ public class BibliotecaFitxersMultimedia extends CarpetaFitxers {
 
     /**
      *
-     * @return
+     * @return returns a list with all elements
      */
     public List<String> listBiblioteca() {
         List<String> list = new ArrayList<>();

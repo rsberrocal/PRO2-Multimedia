@@ -35,9 +35,9 @@ public class CarpetaFitxers implements Serializable {
     }
 
     /**
-     * returns the size folder
+     * 
      *
-     * @return
+     * @return returns the size folder
      */
     public int getSize() {
         return this.folder.size();
@@ -48,9 +48,9 @@ public class CarpetaFitxers implements Serializable {
      *
      * @param fitxer this fitxer is used to create a new FitxerMultimedia and
      * added to the folder
-     * @throws Exception if the folder is full
+     * 
      */
-    public void addFitxer(File fitxer) throws AplicacioException{
+    public void addFitxer(File fitxer) {
         //call the method createFitxerMultimedia to create a FitxerMultimedia object
         //this.folder.add(createFitxerMultimedia(fitxer, true));
         //Method is full is useless 
@@ -78,10 +78,10 @@ public class CarpetaFitxers implements Serializable {
     }
 
     /**
-     * returns file in folder by a position
+     * 
      *
-     * @param position
-     * @return
+     * @param position postion of file
+     * @return returns file in folder by a position
      */
     public File getAt(int position) {
         return this.folder.get(position);
