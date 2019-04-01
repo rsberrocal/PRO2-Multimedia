@@ -6,6 +6,7 @@
 package ub.edu.prog2.BressanJoaquinSudarioRichard.model;
 
 import edu.ub.prog2.utils.AplicacioException;
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -46,7 +47,7 @@ public class Dades implements Serializable {
         this.bfm.removeFitxer(id);
     }
     //serialización
-    public void carregarDades(String camiOrigen) throws AplicacioException, IOException{
+    public void carregarDades(String camiOrigen) throws AplicacioException, IOException, ClassNotFoundException{
         File f = new File(camiOrigen);
         FileInputStream in = null;
         ObjectInputStream objIn = null;
@@ -59,6 +60,8 @@ public class Dades implements Serializable {
                 this.bfm.addFitxer((File) stream);
                 stream = objIn.readObject();
             }
+        }catch(EOFException e){
+            in.close();
         }catch(IOException e){
             throw new AplicacioException(e.getMessage());
         } finally {
