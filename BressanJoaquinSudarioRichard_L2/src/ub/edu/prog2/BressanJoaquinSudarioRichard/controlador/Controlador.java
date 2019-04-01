@@ -44,7 +44,7 @@ public class Controlador {
         d.guardarDades(camiDesti);
     }
     
-    public void carregarDadesDisc(String camiOrigen) throws AplicacioException, IOException{
+    public void carregarDadesDisc(String camiOrigen) throws AplicacioException, IOException, ClassNotFoundException{
         d.carregarDades(camiOrigen);
     }
    

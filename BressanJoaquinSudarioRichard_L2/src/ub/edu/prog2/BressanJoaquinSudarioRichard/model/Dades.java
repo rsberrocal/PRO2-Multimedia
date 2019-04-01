@@ -98,14 +98,14 @@ public class Dades implements Serializable {
             in = new FileInputStream(f);
             objIn = new ObjectInputStream(in);
             Object stream = objIn.readObject();
-            while(stream != null){
-                this.bfm.addFitxer((File) stream);
-                stream = objIn.readObject();
-            }
+            this.bfm.addFitxer((File) stream);
+            stream = objIn.readObject();
         }catch(EOFException e){
             in.close();
         }catch(IOException e){
             throw new AplicacioException(e.getMessage());
+        }catch(ClassNotFoundException ex){
+            throw new AplicacioException(ex.getMessage());
         } finally {
             if (in != null){
                 in.close();
