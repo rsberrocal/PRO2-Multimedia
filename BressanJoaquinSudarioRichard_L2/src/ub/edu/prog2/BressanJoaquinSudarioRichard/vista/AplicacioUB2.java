@@ -160,7 +160,7 @@ public class AplicacioUB2 {
                     durada = sc.nextFloat();
                     System.out.print("Video's height? ");
                     alcada = sc.nextInt();
-                    System.out.print("Video's width( ");
+                    System.out.print("Video's width? ");
                     amplada = sc.nextInt();
                     System.out.print("Video's fps? ");
                     fps = sc.nextFloat();
