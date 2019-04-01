@@ -24,16 +24,11 @@ public class BibliotecaFitxersMultimedia extends CarpetaFitxers {
         super();
     }
 
-    @Override
     public void addFitxer(File fitxer) throws AplicacioException {
-        try {
-            if(super.hasFile(fitxer)){
-                super.addFitxer(fitxer);
-            }else{
-                throw new AplicacioException("Error: File duplicated");
-            }
-        } catch (Exception e) {
-            throw new AplicacioException(e.getMessage());
+        if (super.hasFile(fitxer)) {
+            super.addFitxer(fitxer);
+        } else {
+            throw new AplicacioException("Error: File duplicated");
         }
     }
 
@@ -56,7 +51,7 @@ public class BibliotecaFitxersMultimedia extends CarpetaFitxers {
                 }
             }
         }
-     }
+    }
 
     /**
      *

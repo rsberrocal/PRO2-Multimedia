@@ -5,6 +5,7 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.model;
 
+import edu.ub.prog2.utils.AplicacioException;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -49,7 +50,7 @@ public class CarpetaFitxers implements Serializable {
      * added to the folder
      * @throws Exception if the folder is full
      */
-    public void addFitxer(File fitxer) {
+    public void addFitxer(File fitxer) throws AplicacioException{
         //call the method createFitxerMultimedia to create a FitxerMultimedia object
         //this.folder.add(createFitxerMultimedia(fitxer, true));
         //Method is full is useless 
