@@ -17,19 +17,26 @@ import java.util.List;
  */
 public class BibliotecaFitxersMultimedia extends CarpetaFitxers {
 
+    /**
+     *
+     */
     public BibliotecaFitxersMultimedia() {
         super();
     }
 
-    @Override
     public void addFitxer(File fitxer) throws AplicacioException {
-        try {
+        if (super.hasFile(fitxer)) {
             super.addFitxer(fitxer);
-        } catch (Exception e) {
-            throw new AplicacioException(e.getMessage());
+        } else {
+            throw new AplicacioException("Error: File duplicated");
         }
     }
 
+    /**
+     *
+     * @param index
+     * @throws AplicacioException
+     */
     public void removeFitxer(int index) throws AplicacioException {
         if (this.getSize() == 0) {
             throw new AplicacioException("Error; Biblioteca buida");
@@ -44,8 +51,12 @@ public class BibliotecaFitxersMultimedia extends CarpetaFitxers {
                 }
             }
         }
-     }
+    }
 
+    /**
+     *
+     * @return
+     */
     public List<String> listBiblioteca() {
         List<String> list = new ArrayList<>();
         Iterator it = super.folder.iterator();

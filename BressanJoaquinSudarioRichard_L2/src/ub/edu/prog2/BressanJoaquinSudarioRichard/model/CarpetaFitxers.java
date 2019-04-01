@@ -5,10 +5,12 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.model;
 
+import edu.ub.prog2.utils.AplicacioException;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -17,7 +19,11 @@ import java.util.Scanner;
  */
 public class CarpetaFitxers implements Serializable {
 
-    private int MAX_SIZE = 100;
+    //private int MAX_SIZE = 100; no limit
+
+    /**
+     *
+     */
     protected ArrayList<FitxerMultimedia> folder;
 
     /**
@@ -44,14 +50,12 @@ public class CarpetaFitxers implements Serializable {
      * added to the folder
      * @throws Exception if the folder is full
      */
-    public void addFitxer(File fitxer) throws Exception {
-        if (this.isFull()) {
-            throw new Exception("ERROR: Folder is full");
-        } else {
-            //call the method createFitxerMultimedia to create a FitxerMultimedia object
-            //this.folder.add(createFitxerMultimedia(fitxer, true));
-            this.folder.add((FitxerMultimedia) fitxer);
-        }
+    public void addFitxer(File fitxer) throws AplicacioException{
+        //call the method createFitxerMultimedia to create a FitxerMultimedia object
+        //this.folder.add(createFitxerMultimedia(fitxer, true));
+        //Method is full is useless 
+        this.folder.add((FitxerMultimedia) fitxer);
+
     }
 
     /**
@@ -94,9 +98,10 @@ public class CarpetaFitxers implements Serializable {
      *
      * @return true if size is equal to MAX_SIZE
      */
+    /*
     public boolean isFull() {
         return this.folder.size() == this.MAX_SIZE;
-    }
+    }*/
 
     @Override
     public String toString() {
@@ -108,6 +113,17 @@ public class CarpetaFitxers implements Serializable {
             message += "\n";
         }
         return message;
+    }
+
+    protected boolean hasFile(File f) {
+        Iterator it = this.folder.iterator();
+        while (it.hasNext()) {
+            FitxerMultimedia file = (FitxerMultimedia) it.next();
+            if (file.equals(f)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     //Function to create a FitxerMultimedia object, parameters: file to create, bool to select if is a file to add or not
