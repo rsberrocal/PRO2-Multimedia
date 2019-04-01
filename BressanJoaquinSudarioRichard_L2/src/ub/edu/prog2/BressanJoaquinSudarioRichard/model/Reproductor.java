@@ -12,5 +12,9 @@ import edu.ub.prog2.utils.ReproductorBasic;
  * @author Rocho
  */
 public class Reproductor extends ReproductorBasic {
+
+    public Reproductor(String vlcPath) {
+        super(vlcPath);
+    }
     
 }
