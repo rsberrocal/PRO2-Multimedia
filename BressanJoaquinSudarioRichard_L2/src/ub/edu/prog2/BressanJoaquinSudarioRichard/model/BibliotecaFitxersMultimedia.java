@@ -24,6 +24,7 @@ public class BibliotecaFitxersMultimedia extends CarpetaFitxers {
         super();
     }
 
+    @Override
     public void addFitxer(File fitxer) throws AplicacioException {
         if (!super.hasFile(fitxer)) {
             super.addFitxer(fitxer);
@@ -62,9 +63,9 @@ public class BibliotecaFitxersMultimedia extends CarpetaFitxers {
         Iterator it = super.folder.iterator();
         int i = 0;
         while (it.hasNext()) {
-            list.add("[" + i + "] " + it.next().toString());
+            list.add("\n[" + i + "] " + it.next().toString());
+            i++;
         }
         return list;
     }
-
 }
