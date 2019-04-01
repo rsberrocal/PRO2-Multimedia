@@ -99,27 +99,28 @@ public class FitxerMultimedia extends File {
         ;
     }*/
     /**
-     * Sets file's description by the inserted string
+     * 
      *
-     * @param description
+     * @param description Sets file's description by the inserted string
      */
     public void setDescription(String description) {
         this.description = description;
     }
 
     /**
-     * sets file's extension by the inserted string
+     * 
      *
-     * @param ext
+     * @param ext sets file's extension by the inserted string
      */
     public void setExt(String ext) {
         this.ext = ext;
     }
 
     /**
-     * Method that compares two files by comparing all their attributes
      *
-     * @param fitxerMultimedia
+     *
+     * @param fitxerMultimedia file to compare
+     *  Method that compares two files by comparing all their attributes
      * @return boolean
      */
     public boolean equals(FitxerMultimedia fitxerMultimedia) {

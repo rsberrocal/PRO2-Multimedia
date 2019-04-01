@@ -18,13 +18,13 @@ public class Audio extends FitxerReproduible {
 
     /**
      *
-     * @param cami
-     * @param fitxerImatge
-     * @param nom
-     * @param codec
-     * @param durada
-     * @param kbps
-     * @param r
+     * @param cami path to file
+     * @param fitxerImatge path to image
+     * @param nom name 
+     * @param codec codec from file
+     * @param durada duration in minutes
+     * @param kbps quality
+     * @param r vlc
      */
     public Audio(String cami, File fitxerImatge, String nom, String codec, float durada, int kbps, Reproductor r) {
         super(cami, nom, codec, durada, r);
@@ -34,7 +34,7 @@ public class Audio extends FitxerReproduible {
 
     /**
      *
-     * @return
+     * @return returns the quality
      */
     public int getQuality() {
         return kbps;
@@ -42,7 +42,7 @@ public class Audio extends FitxerReproduible {
 
     /**
      *
-     * @param kbps
+     * @param kbps set the quality
      */
     public void setQuality(int kbps) {
         this.kbps = kbps;

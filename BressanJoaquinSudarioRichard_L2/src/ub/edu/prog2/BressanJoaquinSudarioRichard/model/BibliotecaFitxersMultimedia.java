@@ -34,8 +34,8 @@ public class BibliotecaFitxersMultimedia extends CarpetaFitxers {
 
     /**
      *
-     * @param index
-     * @throws AplicacioException
+     * @param index position in the array
+     * @throws AplicacioException with error message
      */
     public void removeFitxer(int index) throws AplicacioException {
         if (this.getSize() == 0) {
@@ -45,7 +45,7 @@ public class BibliotecaFitxersMultimedia extends CarpetaFitxers {
                 throw new AplicacioException("Error: posició incorrecta");
             } else {
                 try {
-                    super.removeFitxer(super.getAt(index));
+                    super.folder.remove(super.getAt(index));
                 } catch (Exception ex) {
                     throw new AplicacioException(ex.getMessage());
                 }
