@@ -50,7 +50,7 @@ public class CarpetaFitxers implements Serializable {
      * added to the folder
      * 
      */
-    public void addFitxer(File fitxer) {
+    public void addFitxer(File fitxer) throws AplicacioException{
         //call the method createFitxerMultimedia to create a FitxerMultimedia object
         //this.folder.add(createFitxerMultimedia(fitxer, true));
         //Method is full is useless 
