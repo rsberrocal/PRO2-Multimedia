@@ -89,7 +89,7 @@ public class Dades implements Serializable {
      * @throws IOException
      * @throws ClassNotFoundException
      */
-    public void carregarDades(String camiOrigen) throws AplicacioException, IOException, ClassNotFoundException{
+    public void carregarDades(String camiOrigen) throws AplicacioException, IOException{
         File f = new File(camiOrigen);
         FileInputStream in = null;
         ObjectInputStream objIn = null;

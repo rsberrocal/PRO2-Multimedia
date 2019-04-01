@@ -49,7 +49,7 @@ public class AplicacioUB2 {
         
         String p;
         
-        OptionsMainMenu opt = null;
+        OptionsMainMenu opt;
         do{
             mainMenu.mostrarMenu();
             opt = mainMenu.getOpcio(sc);
@@ -97,7 +97,7 @@ public class AplicacioUB2 {
         
         subMenu1.setDescripcions(descSubMenu1);
         
-        OptionsSubMenu1 opt = null;
+        OptionsSubMenu1 opt;
         do{
             subMenu1.mostrarMenu();
             opt = subMenu1.getOpcio(sc);
@@ -144,7 +144,7 @@ public class AplicacioUB2 {
         
         subMenu2.setDescripcions(descSubMenu2);
         
-        OptionsSubMenu2 opt = null;
+        OptionsSubMenu2 opt;
         do{
             subMenu2.mostrarMenu();
             opt = subMenu2.getOpcio(sc);
