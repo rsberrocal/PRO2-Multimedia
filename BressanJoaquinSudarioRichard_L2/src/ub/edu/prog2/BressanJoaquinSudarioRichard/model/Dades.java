@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -40,9 +39,7 @@ public class Dades implements Serializable {
     }
     
     public List<String> print(){
-        List<String> l = new ArrayList();
-        l.add(bfm.toString());
-        return (l);
+        return bfm.listBiblioteca();
     }
     
     public void delete(int id) throws AplicacioException{
@@ -57,8 +54,12 @@ public class Dades implements Serializable {
         try{
             in = new FileInputStream(f);
             objIn = new ObjectInputStream(in);
-            objIn.read();
-        }catch(Exception e){
+            Object stream = objIn.readObject();
+            while(stream != null){
+                this.bfm.addFitxer((File) stream);
+                stream = objIn.readObject();
+            }
+        }catch(IOException e){
             throw new AplicacioException(e.getMessage());
         } finally {
             if (in != null){
@@ -82,7 +83,7 @@ public class Dades implements Serializable {
             for(int i = 0; i<bfm.getSize(); i++){
                 objOut.writeObject(bfm.getAt(i));
             }
-        }catch(Exception e){
+        }catch(IOException e){
             throw new AplicacioException(e.getMessage());
         } finally {
             if (out != null){
