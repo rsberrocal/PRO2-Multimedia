@@ -33,6 +33,11 @@ public class FitxerMultimedia extends File {
         super(path);
     }
 
+    /**
+     *
+     * @param path
+     * @param desc
+     */
     public FitxerMultimedia(String path, String desc) {
         super(path);
         this.description = desc;

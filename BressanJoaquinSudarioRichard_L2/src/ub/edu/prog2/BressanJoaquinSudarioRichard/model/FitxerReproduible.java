@@ -14,12 +14,23 @@ public abstract class FitxerReproduible extends FitxerMultimedia {
     private float duration;
     private String codec;
 
+    /**
+     *
+     * @param cami
+     * @param nom
+     * @param codec
+     * @param durada
+     * @param r
+     */
     protected FitxerReproduible(String cami, String nom, String codec, float durada, Reproductor r) {
         super(cami, nom);
         this.duration = durada;
         this.codec = codec;
     }
 
+    /**
+     *
+     */
     protected abstract void reproduir();
 
     /**
