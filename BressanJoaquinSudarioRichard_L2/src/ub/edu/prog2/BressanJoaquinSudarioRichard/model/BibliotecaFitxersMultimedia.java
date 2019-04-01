@@ -25,7 +25,7 @@ public class BibliotecaFitxersMultimedia extends CarpetaFitxers {
     }
 
     public void addFitxer(File fitxer) throws AplicacioException {
-        if (super.hasFile(fitxer)) {
+        if (!super.hasFile(fitxer)) {
             super.addFitxer(fitxer);
         } else {
             throw new AplicacioException("Error: File duplicated");

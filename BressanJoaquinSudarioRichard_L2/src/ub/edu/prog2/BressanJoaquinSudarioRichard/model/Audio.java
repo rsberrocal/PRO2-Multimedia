@@ -16,20 +16,41 @@ public class Audio extends FitxerReproduible {
     private int kbps;
     private File img;
 
+    /**
+     *
+     * @param cami
+     * @param fitxerImatge
+     * @param nom
+     * @param codec
+     * @param durada
+     * @param kbps
+     * @param r
+     */
     public Audio(String cami, File fitxerImatge, String nom, String codec, float durada, int kbps, Reproductor r) {
         super(cami, nom, codec, durada, r);
         this.kbps = kbps;
         this.img = fitxerImatge;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getQuality() {
         return kbps;
     }
 
+    /**
+     *
+     * @param kbps
+     */
     public void setQuality(int kbps) {
         this.kbps = kbps;
     }
 
+    /**
+     *
+     */
     @Override
     protected void reproduir() {
         //TODO

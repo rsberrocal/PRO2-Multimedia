@@ -36,6 +36,10 @@ public class AplicacioUB2 {
     int alcada, amplada, kbps;
     File camiImatge;
     
+    /**
+     *
+     * @param sc
+     */
     public void gestioAplicacioUB(Scanner sc){
         
         Menu<OptionsMainMenu> mainMenu = new Menu<>("Main menu", OptionsMainMenu.values());
@@ -84,6 +88,10 @@ public class AplicacioUB2 {
         } while (opt != OptionsMainMenu.MAIN_MENU_EXIT);
     }
     
+    /**
+     *
+     * @param sc
+     */
     public void gestioSubMenu1(Scanner sc){
         Menu<OptionsSubMenu1> subMenu1 = new Menu<>("Submenu 1", OptionsSubMenu1.values());
         
@@ -127,6 +135,10 @@ public class AplicacioUB2 {
         } while(opt != OptionsSubMenu1.SUB_MENU1_EXIT);
     }
     
+    /**
+     *
+     * @param sc
+     */
     public void gestioSubMenu2 (Scanner sc){
         Menu<OptionsSubMenu2> subMenu2 = new Menu<>("Submenu 2", OptionsSubMenu2.values());
         
