@@ -25,7 +25,7 @@ public class BibliotecaFitxersMultimedia extends CarpetaFitxers {
     }
 
     @Override
-    public void addFitxer(File fitxer) throws AplicacioException {
+    public void addFitxer(File fitxer) throws AplicacioException {  
         if (!super.hasFile(fitxer)) {
             super.addFitxer(fitxer);
         } else {
