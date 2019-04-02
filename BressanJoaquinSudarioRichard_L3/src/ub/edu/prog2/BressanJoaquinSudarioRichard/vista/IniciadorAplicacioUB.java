@@ -5,6 +5,8 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
 
+import java.util.Scanner;
+
 /**
  *
  * @author joaqu
@@ -15,7 +17,11 @@ public class IniciadorAplicacioUB {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner sc = new Scanner(System.in);
+        
+        AplicacioUB3 aplicacio = new AplicacioUB3();
+        
+        aplicacio.gestioAplicacioUB(sc);
     }
     
 }
