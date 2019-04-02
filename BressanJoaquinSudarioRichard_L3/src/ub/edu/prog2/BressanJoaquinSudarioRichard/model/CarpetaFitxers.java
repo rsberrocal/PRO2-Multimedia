@@ -17,10 +17,10 @@ import java.util.Scanner;
  * @author Richard Sudario This CarpetaFitxers class contains and control all
  * the FitxerMultimedia
  */
-public class CarpetaFitxers implements Serializable {
+public abstract class CarpetaFitxers implements Serializable {
 
     private int MAX_SIZE = 100;
-    
+
     /**
      *
      */
@@ -33,14 +33,14 @@ public class CarpetaFitxers implements Serializable {
         //By default create a empty list
         this.folder = new ArrayList<>();
     }
-    
-    public CarpetaFitxers(int max){
+
+    public CarpetaFitxers(int max) {
         this.MAX_SIZE = max;
         this.folder = new ArrayList();
     }
 
     /**
-     * 
+     *
      *
      * @return returns the size folder
      */
@@ -53,15 +53,24 @@ public class CarpetaFitxers implements Serializable {
      *
      * @param fitxer this fitxer is used to create a new FitxerMultimedia and
      * added to the folder
-     * 
+     *
      */
-    public void addFitxer(File fitxer) throws AplicacioException{
+    public abstract void addFitxer(File fitxer) throws AplicacioException;
+    /*public void addFitxer(File fitxer, boolean checkSize) throws AplicacioException {
         //call the method createFitxerMultimedia to create a FitxerMultimedia object
         //this.folder.add(createFitxerMultimedia(fitxer, true));
         //Method is full is useless 
-        this.folder.add((FitxerMultimedia) fitxer);
+        if (checkSize) {
+            if (this.MAX_SIZE == this.getSize()) {
+                throw new AplicacioException("Error: folder full");
+            } else {
+                this.folder.add((FitxerMultimedia) fitxer);
+            }
+        } else {
+            this.folder.add((FitxerMultimedia) fitxer);
+        }
 
-    }
+    }*/
 
     /**
      * method to remove a file in a folder, if not exist in the folder throw a
@@ -83,7 +92,7 @@ public class CarpetaFitxers implements Serializable {
     }
 
     /**
-     * 
+     *
      *
      * @param position postion of file
      * @return returns file in folder by a position
@@ -107,7 +116,6 @@ public class CarpetaFitxers implements Serializable {
     public boolean isFull() {
         return this.folder.size() == this.MAX_SIZE;
     }*/
-
     @Override
     public String toString() {
         String message = "Carpeta Fitxers:\n";
@@ -118,8 +126,8 @@ public class CarpetaFitxers implements Serializable {
             message += "\n";
         }
         return message;
-    }
-
+    }  
+    
     protected boolean hasFile(File f) {
         Iterator it = this.folder.iterator();
         while (it.hasNext()) {
