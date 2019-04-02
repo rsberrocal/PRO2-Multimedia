@@ -19,8 +19,8 @@ import java.util.Scanner;
  */
 public class CarpetaFitxers implements Serializable {
 
-    //private int MAX_SIZE = 100; no limit
-
+    private int MAX_SIZE = 100;
+    
     /**
      *
      */
@@ -32,6 +32,11 @@ public class CarpetaFitxers implements Serializable {
     public CarpetaFitxers() {
         //By default create a empty list
         this.folder = new ArrayList<>();
+    }
+    
+    public CarpetaFitxers(int max){
+        this.MAX_SIZE = max;
+        this.folder = new ArrayList();
     }
 
     /**
