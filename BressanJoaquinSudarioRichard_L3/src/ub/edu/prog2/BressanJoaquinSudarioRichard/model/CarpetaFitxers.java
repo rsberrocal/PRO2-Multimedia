@@ -12,12 +12,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Scanner;
+import edu.ub.prog2.utils.InFileFolder;
 
 /**
  * @author Richard Sudario This CarpetaFitxers class contains and control all
  * the FitxerMultimedia
  */
-public abstract class CarpetaFitxers implements Serializable {
+public abstract class CarpetaFitxers implements Serializable, InFileFolder {
 
     private int MAX_SIZE = 100;
 
