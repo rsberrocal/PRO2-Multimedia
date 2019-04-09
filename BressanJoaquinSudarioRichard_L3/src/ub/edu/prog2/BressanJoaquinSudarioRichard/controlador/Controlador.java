@@ -8,9 +8,11 @@ package ub.edu.prog2.BressanJoaquinSudarioRichard.controlador;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.Dades;
 import edu.ub.prog2.utils.AplicacioException;
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import edu.ub.prog2.utils.InControlador;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.BibliotecaFitxersMultimedia;
 /**
  *
@@ -19,7 +21,7 @@ import ub.edu.prog2.BressanJoaquinSudarioRichard.model.BibliotecaFitxersMultimed
 public class Controlador implements InControlador{
     BibliotecaFitxersMultimedia b = new BibliotecaFitxersMultimedia();
     Dades d ;
-    Reproductor r;
+    Reproductor reproductor;
     
     public Controlador (){
         d = new Dades(b);
@@ -94,12 +96,12 @@ public class Controlador implements InControlador{
 
     @Override
     public void obrirFinestraReproductor() {
-        this.r.open();
+        this.reproductor.open();
     }
 
     @Override
     public void tancarFinestraReproductor() throws AplicacioException {
-        this.r.close();
+        this.reproductor.close();
     }
 
     @Override
@@ -134,11 +136,19 @@ public class Controlador implements InControlador{
     
     @Override
     public void guardarDadesDisc(String camiDesti) throws AplicacioException{
-        d.guardarDades(camiDesti);
+        try {
+            d.guardarDades(camiDesti);
+        } catch (IOException ex) {
+            throw new AplicacioException(ex.getMessage());
+        }
     }
     
     @Override
     public void carregarDadesDisc(String camiOrigen) throws AplicacioException{
-        d.carregarDades(camiOrigen);
+        try {
+            d.carregarDades(camiOrigen);
+        } catch (IOException ex) {
+            throw new AplicacioException(ex.getMessage());
+        }
     }
 }

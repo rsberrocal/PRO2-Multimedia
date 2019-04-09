@@ -20,12 +20,23 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic{
     private boolean reproduccioCiclica, reproduccioAleatoria;
     int pos;
     
+    /**
+     *
+     * @param llistaReproduint
+     * @param reproduccioCiclica
+     */
     public void iniciarReproduccio(CarpetaFitxers llistaReproduint, boolean reproduccioCiclica){
         this.llistaReproduint = llistaReproduint;
         this.reproduccioCiclica = reproduccioCiclica;
         llistaCtrl =  new boolean[llistaReproduint.getSize()];
     }
     
+    /**
+     *
+     * @param f
+     * @param reproduccioCiclica
+     * @throws AplicacioException
+     */
     public void iniciarReproduccio(File f, boolean reproduccioCiclica) throws AplicacioException{
         this.reproduccioCiclica = reproduccioCiclica;
         this.llistaReproduint = new BibliotecaFitxersMultimedia();
@@ -37,11 +48,17 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic{
         
     }
     
+    /**
+     *
+     */
     @Override
     protected void onEndFile() {
         System.out.println("S'ha acabat de reproduir el fitxer \n");// example to try when all other classes are done to understand this method
     }
 
+    /**
+     *
+     */
     @Override
     protected void next() {
         if (this.reproduccioCiclica){
@@ -75,6 +92,10 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic{
         }
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     protected boolean hasNext() {
         for(int i = 0; i<llistaCtrl.length; i++){
