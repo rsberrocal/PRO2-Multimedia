@@ -21,7 +21,7 @@ import java.util.List;
  * @author joaqu
  */
 public class Dades implements Serializable {
-    BibliotecaFitxersMultimedia bfm = new BibliotecaFitxersMultimedia();
+    CarpetaFitxers bfm = new BibliotecaFitxersMultimedia();
     Reproductor r;
     /**
      *

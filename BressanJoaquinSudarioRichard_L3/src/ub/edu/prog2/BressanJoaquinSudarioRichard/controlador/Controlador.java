@@ -133,11 +133,13 @@ public class Controlador implements InControlador{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    public void guardarDadesDisc(String camiDesti) throws AplicacioException, IOException{
+    @Override
+    public void guardarDadesDisc(String camiDesti) throws AplicacioException{
         d.guardarDades(camiDesti);
     }
     
-    public void carregarDadesDisc(String camiOrigen) throws AplicacioException, IOException{
+    @Override
+    public void carregarDadesDisc(String camiOrigen) throws AplicacioException{
         d.carregarDades(camiOrigen);
     }
 }

@@ -5,7 +5,9 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.model;
 
+import edu.ub.prog2.utils.AplicacioException;
 import edu.ub.prog2.utils.EscoltadorReproduccioBasic;
+import java.io.File;
 /**
  *
  * @author joaqu
@@ -22,6 +24,17 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic{
         llistaCtrl =  new boolean[llistaReproduint.getSize()];
     }
     
+    public void iniciarReproduccio(File f, boolean reproduccioCiclica) throws AplicacioException{
+        this.reproduccioCiclica = reproduccioCiclica;
+        this.llistaReproduint = new BibliotecaFitxersMultimedia();
+        try{
+            this.llistaReproduint.addFitxer(f);
+        }catch(Exception e){
+            throw new AplicacioException("File doesn't exist");
+        }
+        
+    }
+    
     @Override
     protected void onEndFile() {
         System.out.println("S'ha acabat de reproduir el fitxer \n");// example to try when all other classes are done to understand this method
@@ -29,8 +42,8 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic{
 
     @Override
     protected void next() {
-        if (this.reproduccioCiclica==true){
-            if(reproduccioAleatoria == true){
+        if (this.reproduccioCiclica){
+            if(this.reproduccioAleatoria){
                 pos=(int)Math.round(Math.random()*(llistaCtrl.length-1));
                 pos++;
                 pos = pos%llistaReproduint.getSize();
@@ -42,9 +55,9 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic{
                 llistaCtrl[pos] = true;
             }
         }else if(hasNext()){
-            if(reproduccioAleatoria == true){
+            if(this.reproduccioAleatoria){
                 pos=(int)Math.round(Math.random()*(llistaCtrl.length-1));
-                while(llistaCtrl[pos]==true){
+                while(llistaCtrl[pos]){
                     pos++;
                     pos = pos%llistaReproduint.getSize();
                 }
