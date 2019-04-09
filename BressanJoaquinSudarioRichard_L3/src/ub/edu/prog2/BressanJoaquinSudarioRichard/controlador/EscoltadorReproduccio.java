@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ub.edu.prog2.BressanJoaquinSudarioRichard.model;
+package ub.edu.prog2.BressanJoaquinSudarioRichard.controlador;
 
 import edu.ub.prog2.utils.AplicacioException;
 import edu.ub.prog2.utils.EscoltadorReproduccioBasic;
 import java.io.File;
+import ub.edu.prog2.BressanJoaquinSudarioRichard.model.BibliotecaFitxersMultimedia;
+import ub.edu.prog2.BressanJoaquinSudarioRichard.model.CarpetaFitxers;
 /**
  *
  * @author joaqu

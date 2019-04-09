@@ -13,7 +13,6 @@ import edu.ub.prog2.utils.AplicacioException;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
 import edu.ub.prog2.utils.Menu;
 import java.io.File;
-import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -51,7 +50,7 @@ public class AplicacioUB3 {
     static private String[] descSubMenu3 = {"Reproduir un fitxer reproduible", "Reproduir tota la biblioteca", "Reproduir un album", "Activar/desactivar reproduccio continua", "Activar/desactivar reproduccio aleatoria", "Gestio reproduccio en curso", "Menu anterior"};
     static private String[] descSubMenu36 = {"Re-empren", "Pausa", "Atura", "Salta", "Menu anteriro"};
                                             
-    Controlador c = new Controlador(); 
+    Controlador ctrl = new Controlador(); 
     String path, nom, codec, pathFile, nomAlbum;
     float durada, fps;
     int alcada, amplada, kbps, idBFM;
@@ -89,27 +88,23 @@ public class AplicacioUB3 {
                     System.out.println("Insert destination path: ");
                     p = sc.next();
                     try{
-                        c.guardarDadesDisc(p);
+                        ctrl.guardarDadesDisc(p);
                     } catch(AplicacioException a){
                         System.err.println(a);
-                    } catch(IOException e){
-                        System.out.println(e.getMessage());
                     }
                     break;
                 case MAIN_MENU_OPTION5:
                     System.out.println("Insert origin path: ");
                     p = sc.next();
                     try{
-                        c.carregarDadesDisc(p);
+                        ctrl.carregarDadesDisc(p);
                     } catch(AplicacioException a){
                         System.err.println(a);
-                    } catch(IOException e){
-                        System.out.println(e.getMessage());
                     }
-                    break;  
+                    break;    
                 case MAIN_MENU_EXIT:
                     try{
-                        c.tancarFinestraReproductor();
+                        ctrl.tancarFinestraReproductor();
                     }catch(AplicacioException e){
                         System.out.println(e);
                     }
@@ -139,22 +134,22 @@ public class AplicacioUB3 {
                     gestioSubMenu11(sc);
                     break;
                 case SUB_MENU1_OPTION2:
-                    if (c.isEmpty()){
+                    if (ctrl.isEmpty()){
                         System.out.println("Biblioteca vacía.");
                     }else{
-                        System.out.println(c.mostrarBiblioteca());
+                        System.out.println(ctrl.mostrarBiblioteca());
                     }
                     break;
                 case SUB_MENU1_OPTION3:
-                    if (c.isEmpty()){
+                    if (ctrl.isEmpty()){
                         System.out.println("Biblioteca vacía.");
                     }else{
                         int id;
-                        System.out.println(c.mostrarBiblioteca());
+                        System.out.println(ctrl.mostrarBiblioteca());
                         System.out.println("File id?");
                         id = sc.nextInt();
                         try{
-                            c.esborrarFitxer(id);
+                            ctrl.esborrarFitxer(id);
                         }catch(AplicacioException e){
                             System.out.println(e);
                         }
@@ -197,7 +192,7 @@ public class AplicacioUB3 {
                     System.out.print("Video's fps? ");
                     fps = sc.nextFloat();
                     try{
-                        c.afegirVideo(path, nom, codec, durada, alcada, amplada, fps);
+                        ctrl.afegirVideo(path, nom, codec, durada, alcada, amplada, fps);
                     }catch(AplicacioException e){
                         System.out.println(e);
                     }
@@ -217,7 +212,7 @@ public class AplicacioUB3 {
                     System.out.print("Audio's kbps? ");
                     kbps = sc.nextInt();
                     try{
-                        c.afegirAudio(path, camiImatge, nom, codec, durada, kbps);
+                        ctrl.afegirAudio(path, camiImatge, nom, codec, durada, kbps);
                     }catch(AplicacioException e){
                         System.out.println(e);
                     }
@@ -243,19 +238,19 @@ public class AplicacioUB3 {
                     System.out.println("Album? ");
                     nomAlbum = sc.next();
                     try{
-                        c.afegirAlbum(nomAlbum);
+                        ctrl.afegirAlbum(nomAlbum);
                     }catch(AplicacioException e){
                         System.out.println(e);
                     }
                     break;
                 case SUB_MENU2_OPTION2:
-                    System.out.println(c.mostrarLlistatAlbums());
+                    System.out.println(ctrl.mostrarLlistatAlbums());
                     break;
                 case SUB_MENU2_OPTION3:
                     System.out.println("Album? ");
                     nomAlbum = sc.next();
                     try{
-                        c.esborrarAlbum(nomAlbum);
+                        ctrl.esborrarAlbum(nomAlbum);
                     }catch(AplicacioException e){
                         System.out.println(e);
                     }
@@ -276,7 +271,7 @@ public class AplicacioUB3 {
         
         OptionsSubMenu24 opt;
         do{
-            System.out.println(c.mostrarBiblioteca());
+            System.out.println(ctrl.mostrarBiblioteca());
             subMenu24.mostrarMenu();
             opt = subMenu24.getOpcio(sc);
             switch(opt){
@@ -286,7 +281,7 @@ public class AplicacioUB3 {
                     System.out.println("Id en biblioteca? ");
                     idBFM = sc.nextInt();
                     try{
-                        c.afegirFitxer(nomAlbum, idBFM);
+                        ctrl.afegirFitxer(nomAlbum, idBFM);
                     }catch(AplicacioException e){
                         System.out.println(e);
                     }
@@ -295,7 +290,7 @@ public class AplicacioUB3 {
                     System.out.println("Album? ");
                     nomAlbum = sc.next();
                     try{
-                        System.out.println(c.mostrarAlbum(nomAlbum));
+                        System.out.println(ctrl.mostrarAlbum(nomAlbum));
                     }catch(AplicacioException e){
                         System.out.println(e);
                     }
@@ -306,7 +301,7 @@ public class AplicacioUB3 {
                     System.out.println("Id en biblioteca? ");
                     idBFM = sc.nextInt();
                     try{
-                        c.esborrarFitxer(nomAlbum, idBFM);
+                        ctrl.esborrarFitxer(nomAlbum, idBFM);
                     }catch(AplicacioException e){
                         System.out.println(e);
                     }
@@ -328,38 +323,38 @@ public class AplicacioUB3 {
             opt = subMenu3.getOpcio(sc);
             switch(opt){
                 case SUB_MENU3_OPTION1:
-                    c.obrirFinestraReproductor();
+                    ctrl.obrirFinestraReproductor();
                     System.out.println("Id de fitxer reproduible? ");
                     idBFM = sc.nextInt();
                     try{
-                        c.reproduirFitxer(idBFM);
+                        ctrl.reproduirFitxer(idBFM);
                     }catch(AplicacioException e){
                         System.out.println(e);
                     }
                     break;
                 case SUB_MENU3_OPTION2:
-                    c.obrirFinestraReproductor();
+                    ctrl.obrirFinestraReproductor();
                     try{
-                        c.reproduirCarpeta(); // Full library reproduction
+                        ctrl.reproduirCarpeta(); // Full library reproduction
                     }catch(AplicacioException e){
                         System.out.println(e);
                     }
                     break;
                 case SUB_MENU3_OPTION3:
-                    c.obrirFinestraReproductor();
+                    ctrl.obrirFinestraReproductor();
                     System.out.println("Album? ");
                     nomAlbum = sc.next();
                     try{
-                        c.reproduirCarpeta(nomAlbum); // Single album reproduction
+                        ctrl.reproduirCarpeta(nomAlbum); // Single album reproduction
                     }catch(AplicacioException e){
                         System.out.println(e);
                     }
                     break;
                 case SUB_MENU3_OPTION4:
-                    c.obrirFinestraReproductor();
+                    ctrl.obrirFinestraReproductor();
                     break;
                 case SUB_MENU3_OPTION5:
-                    c.obrirFinestraReproductor();
+                    ctrl.obrirFinestraReproductor();
                     break;
                 case SUB_MENU3_OPTION6:
                     gestioSubMenu36(sc);
@@ -382,28 +377,28 @@ public class AplicacioUB3 {
             switch(opt){
                 case SUB_MENU36_OPTION1:
                     try{
-                        c.reemprenReproduccio();
+                        ctrl.reemprenReproduccio();
                     }catch(AplicacioException e){
                         System.out.println(e);
                     }
                     break;
                 case SUB_MENU36_OPTION2:
                     try{
-                        c.pausaReproduccio();
+                        ctrl.pausaReproduccio();
                     }catch(AplicacioException e){
                         System.out.println(e);
                     }
                     break;
                 case SUB_MENU36_OPTION3:
                     try{
-                        c.aturaReproduccio();
+                        ctrl.aturaReproduccio();
                     }catch(AplicacioException e){
                         System.out.println(e);
                     }
                     break;
                 case SUB_MENU36_OPTION4:
                     try{
-                        c.saltaReproduccio();
+                        ctrl.saltaReproduccio();
                     }catch(AplicacioException e){
                         System.out.println(e);
                     }

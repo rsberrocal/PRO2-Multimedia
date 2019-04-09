@@ -5,6 +5,8 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.model;
 
+import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Reproductor;
+
 /**
  *
  * @author rsudarbe117.alumnes

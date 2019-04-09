@@ -5,6 +5,7 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.model;
 
+import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Reproductor;
 import java.io.File;
 
 /**

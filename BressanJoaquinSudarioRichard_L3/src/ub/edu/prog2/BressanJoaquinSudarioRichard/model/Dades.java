@@ -5,6 +5,7 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.model;
 
+import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Reproductor;
 import edu.ub.prog2.utils.AplicacioException;
 import java.io.EOFException;
 import java.io.File;
