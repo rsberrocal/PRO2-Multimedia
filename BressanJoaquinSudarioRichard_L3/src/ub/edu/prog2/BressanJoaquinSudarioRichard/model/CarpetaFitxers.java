@@ -18,7 +18,7 @@ import edu.ub.prog2.utils.InFileFolder;
  * @author Richard Sudario This CarpetaFitxers class contains and control all
  * the FitxerMultimedia
  */
-public abstract class CarpetaFitxers implements Serializable, InFileFolder {
+public class CarpetaFitxers implements Serializable, InFileFolder {
 
     private int MAX_SIZE = 100;
 
@@ -41,8 +41,6 @@ public abstract class CarpetaFitxers implements Serializable, InFileFolder {
     }
 
     /**
-     *
-     *
      * @return returns the size folder
      */
     public int getSize() {
@@ -54,9 +52,18 @@ public abstract class CarpetaFitxers implements Serializable, InFileFolder {
      *
      * @param fitxer this fitxer is used to create a new FitxerMultimedia and
      * added to the folder
+     * @throws edu.ub.prog2.utils.AplicacioException
      *
      */
-    public abstract void addFitxer(File fitxer) throws AplicacioException;
+    @Override
+    public void addFitxer(File fitxer) throws AplicacioException {
+        if (!this.isFull()) {
+            this.folder.add((FitxerMultimedia) fitxer);
+        } else {
+            throw new AplicacioException("ERROR: Folder Full");
+        }
+    }
+
     /*public void addFitxer(File fitxer, boolean checkSize) throws AplicacioException {
         //call the method createFitxerMultimedia to create a FitxerMultimedia object
         //this.folder.add(createFitxerMultimedia(fitxer, true));
@@ -72,16 +79,19 @@ public abstract class CarpetaFitxers implements Serializable, InFileFolder {
         }
 
     }*/
-
     /**
      * method to remove a file in a folder, if not exist in the folder throw a
      * exception
      *
      * @param fitxer this fitxer is used to create a new FitxerMultimedia, later
      * search this object and if is found its removed
-     * @throws Exception if file doesnt exist
      */
-    public void removeFitxer(File fitxer) throws Exception {
+    @Override
+    public void removeFitxer(File fitxer) {
+        this.folder.remove(fitxer);
+    }
+
+    /*public void removeFitxer(File fitxer) throws Exception {
         FitxerMultimedia fileMulti = createFitxerMultimedia(fitxer, false);
         //Get the index of the file if not exist fileIndex is -1
         int fileIndex = this.folder.indexOf(fileMulti);
@@ -90,8 +100,7 @@ public abstract class CarpetaFitxers implements Serializable, InFileFolder {
         } else {
             throw new Exception("ERROR: File not found");
         }
-    }
-
+    }*/
     /**
      *
      *
@@ -127,8 +136,8 @@ public abstract class CarpetaFitxers implements Serializable, InFileFolder {
             message += "\n";
         }
         return message;
-    }  
-    
+    }
+
     protected boolean hasFile(File f) {
         Iterator it = this.folder.iterator();
         while (it.hasNext()) {
@@ -138,28 +147,11 @@ public abstract class CarpetaFitxers implements Serializable, InFileFolder {
             }
         }
         return false;
-    }
+    }   
 
-    //Function to create a FitxerMultimedia object, parameters: file to create, bool to select if is a file to add or not
-    private FitxerMultimedia createFitxerMultimedia(File fitxer, boolean isNew) {
-        FitxerMultimedia fileToAdd = new FitxerMultimedia(fitxer.getPath());
-        Scanner sc = new Scanner(System.in);
-
-        //get index to split between the name and the extension
-        int indexName = fitxer.getName().lastIndexOf('.');
-        //String name = fitxer.getName().substring(0, indexName);
-        String ext = fitxer.getName().substring(indexName);
-        //fileToAdd.setNameFile(name);        
-        fileToAdd.setExt(ext);
-        //lastUpdate is now
-        //fileToAdd.setLastUpdate(new Date());
-
-        //if is a file to add, set a description
-        if (isNew) {
-            System.out.println("Afegeix una descripcion al fitxer " + fileToAdd.getNameFile());
-            fileToAdd.setDescription(sc.next());
-        }
-        return fileToAdd;
+    @Override
+    public boolean isFull() {
+        return this.folder.size()==this.MAX_SIZE;
     }
 
 }
