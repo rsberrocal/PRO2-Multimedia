@@ -22,16 +22,18 @@ import java.util.List;
  * @author joaqu
  */
 public class Dades implements Serializable {
-    CarpetaFitxers bfm = new BibliotecaFitxersMultimedia();
-    Reproductor r;
+
+    BibliotecaFitxersMultimedia library = new BibliotecaFitxersMultimedia();
+    Reproductor player;
+
     /**
      *
      * @param b
      */
-    public Dades (BibliotecaFitxersMultimedia b){
-        this.bfm = b;
+    public Dades(BibliotecaFitxersMultimedia b) {
+        this.library = b;
     }
-    
+
     /**
      *
      * @param path file path
@@ -43,12 +45,12 @@ public class Dades implements Serializable {
      * @param fps frames per seconds
      * @throws AplicacioException error
      */
-    public void addVideo(String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException{
-        Video v = new Video(path, nomVideo, codec, durada, alcada, amplada, fps, r);
-        this.bfm.addFitxer(v);
-        
+    public void addVideo(String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException {
+        Video v = new Video(path, nomVideo, codec, durada, alcada, amplada, fps, player);
+        this.library.addFitxer(v);
+
     }
-    
+
     /**
      *
      * @param cami file path
@@ -56,29 +58,29 @@ public class Dades implements Serializable {
      * @param nomAudio audio name
      * @param codec codec file
      * @param durada duration in minutes
-     * @param kbps quality 
+     * @param kbps quality
      * @throws AplicacioException error
      */
-    public void addAudio(String cami, File camiImatge, String nomAudio, String codec, float durada, int kbps) throws AplicacioException{
-        Audio a = new Audio(cami, camiImatge, nomAudio, codec, durada, kbps, r);
-        this.bfm.addFitxer(a);
+    public void addAudio(String cami, File camiImatge, String nomAudio, String codec, float durada, int kbps) throws AplicacioException {
+        Audio a = new Audio(cami, camiImatge, nomAudio, codec, durada, kbps, player);
+        this.library.addFitxer(a);
     }
-    
+
     /**
      *
      * @return
      */
-    public List<String> print(){
-        return bfm.listBiblioteca();
+    public List<String> print() {
+        return library.listBiblioteca();
     }
-    
+
     /**
      *
      * @param id
      * @throws AplicacioException
      */
-    public void delete(int id) throws AplicacioException{
-        this.bfm.removeFitxer(id);
+    public void delete(int id) throws AplicacioException {
+        this.library.removeFitxer(id);
     }
     //serialización
 
@@ -89,74 +91,71 @@ public class Dades implements Serializable {
      * @throws IOException
      * @throws ClassNotFoundException
      */
-    public void carregarDades(String camiOrigen) throws AplicacioException, IOException{
+    public void carregarDades(String camiOrigen) throws AplicacioException, IOException {
         File f = new File(camiOrigen);
         FileInputStream in = null;
         ObjectInputStream objIn = null;
-        
-        try{
+
+        try {
             in = new FileInputStream(f);
             objIn = new ObjectInputStream(in);
             Object stream = objIn.readObject();
-            while(stream != null){
-                this.bfm.addFitxer((File) stream);
+            while (stream != null) {
+                this.library.addFitxer((File) stream);
                 stream = objIn.readObject();
             }
-        }catch(EOFException e){
+        } catch (EOFException e) {
             in.close();
-        }catch(IOException e){
+        } catch (IOException e) {
             throw new AplicacioException(e.getMessage());
-        }catch(ClassNotFoundException ex){
+        } catch (ClassNotFoundException ex) {
             throw new AplicacioException(ex.getMessage());
         } finally {
-            if (in != null){
+            if (in != null) {
                 in.close();
             }
-            if (objIn != null){
+            if (objIn != null) {
                 objIn.close();
             }
         }
     }
-    
-    //deserialización
 
+    //deserialización
     /**
      *
      * @param camiDesti
      * @throws AplicacioException
      * @throws IOException
      */
-    public void guardarDades(String camiDesti) throws AplicacioException, IOException{ 
-        File f = new File (camiDesti);
+    public void guardarDades(String camiDesti) throws AplicacioException, IOException {
+        File f = new File(camiDesti);
         FileOutputStream out = null;
         ObjectOutputStream objOut = null;
-        
-        try{
+
+        try {
             out = new FileOutputStream(f);
             objOut = new ObjectOutputStream(out);
-            for(int i = 0; i<bfm.getSize(); i++){
-                objOut.writeObject(bfm.getAt(i));
+            for (int i = 0; i < library.getSize(); i++) {
+                objOut.writeObject(library.getAt(i));
             }
-        }catch(IOException e){
+        } catch (IOException e) {
             throw new AplicacioException(e.getMessage());
         } finally {
-            if (out != null){
+            if (out != null) {
                 out.close();
             }
-            if (objOut != null){
+            if (objOut != null) {
                 objOut.close();
             }
         }
-        
-        
     }
 
     /**
      *
      * @return
      */
-    public boolean isEmpty(){
-        if(bfm.getSize() == 0){
+    public boolean isEmpty() {
+        if (library.getSize() == 0) {
             return true;
         }
         return false;
