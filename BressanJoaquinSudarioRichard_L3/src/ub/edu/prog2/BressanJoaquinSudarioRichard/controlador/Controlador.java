@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.util.List;
 import edu.ub.prog2.utils.InControlador;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.BibliotecaFitxersMultimedia;
-import ub.edu.prog2.BressanJoaquinSudarioRichard.model.Reproductor;
 /**
  *
  * @author joaqu
