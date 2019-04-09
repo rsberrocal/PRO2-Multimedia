@@ -19,31 +19,31 @@ import ub.edu.prog2.BressanJoaquinSudarioRichard.model.BibliotecaFitxersMultimed
  * @author joaqu
  */
 public class Controlador implements InControlador{
-    BibliotecaFitxersMultimedia b = new BibliotecaFitxersMultimedia();
-    Dades d ;
+    BibliotecaFitxersMultimedia library = new BibliotecaFitxersMultimedia();
+    Dades data ;
     Reproductor reproductor;
     
     public Controlador (){
-        d = new Dades(b);
+        data = new Dades(library);
     }
     public void afegirVideo (String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException{
-        d.addVideo(path, nomVideo, codec, durada, alcada, amplada, fps);
+        data.addVideo(path, nomVideo, codec, durada, alcada, amplada, fps);
     }
     
     public void afegirAudio(String cami, File camiImatge, String nomAudio, String codec, float durada, int kbps) throws AplicacioException{
-        d.addAudio(cami, camiImatge, nomAudio, codec, durada, kbps);
+        data.addAudio(cami, camiImatge, nomAudio, codec, durada, kbps);
     }
     
     public List<String> mostrarBiblioteca(){ // lista de las salidas de toString() de los ficheros
-        return d.print(); 
+        return data.print(); 
     }
     
     public void esborrarFitxer(int id) throws AplicacioException{
-        d.delete(id);
+        data.delete(id);
     }
    
     public boolean isEmpty(){
-        if (d.isEmpty()){
+        if (data.isEmpty()){
             return true;
         }
         return false;
@@ -137,7 +137,7 @@ public class Controlador implements InControlador{
     @Override
     public void guardarDadesDisc(String camiDesti) throws AplicacioException{
         try {
-            d.guardarDades(camiDesti);
+            data.guardarDades(camiDesti);
         } catch (IOException ex) {
             throw new AplicacioException(ex.getMessage());
         }
@@ -146,7 +146,7 @@ public class Controlador implements InControlador{
     @Override
     public void carregarDadesDisc(String camiOrigen) throws AplicacioException{
         try {
-            d.carregarDades(camiOrigen);
+            data.carregarDades(camiOrigen);
         } catch (IOException ex) {
             throw new AplicacioException(ex.getMessage());
         }
