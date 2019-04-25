@@ -23,7 +23,7 @@ public class CarpetaFitxers implements Serializable, InFileFolder {
     private int MAX_SIZE = 100;
 
     /**
-     *
+     * Contains FitxersMultimedia
      */
     protected ArrayList<FitxerMultimedia> folder;
 
@@ -35,6 +35,10 @@ public class CarpetaFitxers implements Serializable, InFileFolder {
         this.folder = new ArrayList<>();
     }
 
+    /**
+     *
+     * @param max
+     */
     public CarpetaFitxers(int max) {
         this.MAX_SIZE = max;
         this.folder = new ArrayList();
@@ -64,21 +68,6 @@ public class CarpetaFitxers implements Serializable, InFileFolder {
         }
     }
 
-    /*public void addFitxer(File fitxer, boolean checkSize) throws AplicacioException {
-        //call the method createFitxerMultimedia to create a FitxerMultimedia object
-        //this.folder.add(createFitxerMultimedia(fitxer, true));
-        //Method is full is useless 
-        if (checkSize) {
-            if (this.MAX_SIZE == this.getSize()) {
-                throw new AplicacioException("Error: folder full");
-            } else {
-                this.folder.add((FitxerMultimedia) fitxer);
-            }
-        } else {
-            this.folder.add((FitxerMultimedia) fitxer);
-        }
-
-    }*/
     /**
      * method to remove a file in a folder, if not exist in the folder throw a
      * exception
@@ -88,22 +77,10 @@ public class CarpetaFitxers implements Serializable, InFileFolder {
      */
     @Override
     public void removeFitxer(File fitxer) {
-        this.folder.remove(fitxer);
+        this.folder.remove((FitxerMultimedia) fitxer);
     }
 
-    /*public void removeFitxer(File fitxer) throws Exception {
-        FitxerMultimedia fileMulti = createFitxerMultimedia(fitxer, false);
-        //Get the index of the file if not exist fileIndex is -1
-        int fileIndex = this.folder.indexOf(fileMulti);
-        if (fileIndex != -1) {
-            this.folder.remove(fileIndex);
-        } else {
-            throw new Exception("ERROR: File not found");
-        }
-    }*/
     /**
-     *
-     *
      * @param position postion of file
      * @return returns file in folder by a position
      */
@@ -117,19 +94,13 @@ public class CarpetaFitxers implements Serializable, InFileFolder {
     public void clear() {
         this.folder.clear();
     }
-
-    /**
-     *
-     * @return true if size is equal to MAX_SIZE
-     */
-    /*
-    public boolean isFull() {
-        return this.folder.size() == this.MAX_SIZE;
-    }*/
+    
     @Override
+    /**
+     * List every file from the folder
+     */
     public String toString() {
-        String message = "Carpeta Fitxers:\n";
-        message += "==============\n";
+        String message = "";
         for (int i = 0; i < this.folder.size(); i++) {
             FitxerMultimedia file = this.folder.get(i);
             message += "[" + (i + 1) + "]" + file;
@@ -138,6 +109,11 @@ public class CarpetaFitxers implements Serializable, InFileFolder {
         return message;
     }
 
+    /**
+     *
+     * @param f file to search
+     * @return true if the file exist or false if not exists
+     */
     protected boolean hasFile(File f) {
         Iterator it = this.folder.iterator();
         while (it.hasNext()) {
@@ -147,11 +123,15 @@ public class CarpetaFitxers implements Serializable, InFileFolder {
             }
         }
         return false;
-    }   
+    }
 
+    /**
+     * Check if the folder is full
+     * @return true if the folder is full, else false
+     */
     @Override
     public boolean isFull() {
-        return this.folder.size()==this.MAX_SIZE;
+        return this.folder.size() == this.MAX_SIZE;
     }
 
 }

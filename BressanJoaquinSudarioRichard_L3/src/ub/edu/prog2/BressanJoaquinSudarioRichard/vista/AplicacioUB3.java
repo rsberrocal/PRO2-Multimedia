@@ -53,7 +53,7 @@ public class AplicacioUB3 {
     Controlador ctrl = new Controlador(); 
     String path, nom, codec, pathFile, nomAlbum;
     float durada, fps;
-    int alcada, amplada, kbps, idBFM;
+    int alcada, amplada, kbps, idBFM,sizeAlbum;
     File camiImatge;
     
     /**

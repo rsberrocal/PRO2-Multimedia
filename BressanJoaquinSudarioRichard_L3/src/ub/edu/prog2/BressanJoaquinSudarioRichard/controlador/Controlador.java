@@ -11,8 +11,10 @@ import java.io.File;
 import java.util.List;
 import edu.ub.prog2.utils.InControlador;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import ub.edu.prog2.BressanJoaquinSudarioRichard.model.AlbumFitxersMultimedia;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.BibliotecaFitxersMultimedia;
 /**
  *
@@ -22,9 +24,10 @@ public class Controlador implements InControlador{
     BibliotecaFitxersMultimedia library = new BibliotecaFitxersMultimedia();
     Dades data ;
     Reproductor reproductor;
-    
+    ArrayList<AlbumFitxersMultimedia> albums;
     public Controlador (){
         data = new Dades(library);
+        this.albums = new ArrayList<>();
     }
     public void afegirVideo (String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException{
         data.addVideo(path, nomVideo, codec, durada, alcada, amplada, fps);

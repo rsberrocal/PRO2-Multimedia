@@ -14,21 +14,50 @@ import java.io.File;
  */
 public class AlbumFitxersMultimedia extends CarpetaFitxers {
 
-    private int maxFiles;
+    private int maxFiles = 100;
+    private String title;
 
-    public AlbumFitxersMultimedia() {
-        super(10);
-        this.maxFiles = 10;
-    }
-
-    public AlbumFitxersMultimedia(int max){
-        super(max);
+    /**
+     * Creates a new album with max size and title
+     *
+     * @param max
+     * @param titulo
+     */
+    public AlbumFitxersMultimedia(int max, String titulo) {
         this.maxFiles = max;
     }
-    
+
+    //addFitxer if the album is full, throw an error, else add the file
     @Override
     public void addFitxer(File fitxer) throws AplicacioException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (this.getSize() < this.maxFiles) {
+            super.addFitxer(fitxer);
+        } else {
+            throw new AplicacioException("Album Full");
+        }
     }
 
+    @Override
+    public String toString() {
+        String message = "Album " + this.title + "\n";
+        message += "==================\n";
+        message += super.toString();
+        return message;
+    }
+    
+    /**
+     *
+     * @param title set a new title album
+     */
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    /**
+     *
+     * @return title from the album
+     */
+    public String getTitle() {
+        return this.title;
+    }
 }
