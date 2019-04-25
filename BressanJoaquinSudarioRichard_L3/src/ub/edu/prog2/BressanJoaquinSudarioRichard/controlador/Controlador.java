@@ -12,6 +12,7 @@ import java.util.List;
 import edu.ub.prog2.utils.InControlador;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -73,12 +74,20 @@ public class Controlador implements InControlador {
         Scanner sc = new Scanner(System.in);
         System.out.println("Album size?");
         albumSize = sc.nextInt();
-        this.albums.add(new AlbumFitxersMultimedia(albumSize, title));        
+        this.albums.add(new AlbumFitxersMultimedia(albumSize, title));
     }
 
     @Override
-    public List<String> mostrarLlistatAlbums() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<String> mostrarLlistatAlbums() {       
+        List<String> list = new ArrayList<>();
+        Iterator it = this.albums.iterator();
+        int i = 1;
+        while (it.hasNext()) {
+            AlbumFitxersMultimedia album = (AlbumFitxersMultimedia)it.next();
+            list.add("\n[" + i + "] " + album.getTitle());
+            i++;
+        }
+        return list;        
     }
 
     @Override
