@@ -20,8 +20,8 @@ public class AlbumFitxersMultimedia extends CarpetaFitxers {
     /**
      * Creates a new album with max size and title
      *
-     * @param max
-     * @param titulo
+     * @param max max files
+     * @param titulo title of the new album
      */
     public AlbumFitxersMultimedia(int max, String titulo) {
         this.maxFiles = max;

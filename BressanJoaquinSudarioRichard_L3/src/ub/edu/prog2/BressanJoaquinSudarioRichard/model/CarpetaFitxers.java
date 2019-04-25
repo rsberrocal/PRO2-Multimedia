@@ -36,8 +36,8 @@ public class CarpetaFitxers implements Serializable, InFileFolder {
     }
 
     /**
-     *
-     * @param max
+     * constructor with max files
+     * @param max max files in folder
      */
     public CarpetaFitxers(int max) {
         this.MAX_SIZE = max;
@@ -47,6 +47,7 @@ public class CarpetaFitxers implements Serializable, InFileFolder {
     /**
      * @return returns the size folder
      */
+    @Override
     public int getSize() {
         return this.folder.size();
     }
@@ -56,7 +57,7 @@ public class CarpetaFitxers implements Serializable, InFileFolder {
      *
      * @param fitxer this fitxer is used to create a new FitxerMultimedia and
      * added to the folder
-     * @throws edu.ub.prog2.utils.AplicacioException
+     * @throws edu.ub.prog2.utils.AplicacioException error full
      *
      */
     @Override

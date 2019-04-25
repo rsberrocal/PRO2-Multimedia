@@ -18,11 +18,11 @@ public abstract class FitxerReproduible extends FitxerMultimedia {
 
     /**
      *
-     * @param cami
-     * @param nom
-     * @param codec
-     * @param durada
-     * @param r
+     * @param cami path's file
+     * @param nom name's file
+     * @param codec codec from file
+     * @param durada duration in seconds
+     * @param r player
      */
     protected FitxerReproduible(String cami, String nom, String codec, float durada, Reproductor r) {
         super(cami, nom);
