@@ -28,7 +28,6 @@ public class Controlador implements InControlador {
     BibliotecaFitxersMultimedia library = new BibliotecaFitxersMultimedia();
     Dades data;
     Reproductor reproductor;
-    ArrayList<AlbumFitxersMultimedia> albums;
 
     public Controlador() {
         data = new Dades(library);
@@ -74,30 +73,47 @@ public class Controlador implements InControlador {
         Scanner sc = new Scanner(System.in);
         System.out.println("Album size?");
         albumSize = sc.nextInt();
-        this.albums.add(new AlbumFitxersMultimedia(albumSize, title));
+        AlbumFitxersMultimedia newAlbum = new AlbumFitxersMultimedia(albumSize, title);
+        if (!this.existeixAlbum(newAlbum.getTitle())) {
+            this.albums.add(newAlbum);
+        } else {
+            throw new AplicacioException("Error: Album exists");
+        }
     }
 
     @Override
-    public List<String> mostrarLlistatAlbums() {       
+    public List<String> mostrarLlistatAlbums() {
         List<String> list = new ArrayList<>();
         Iterator it = this.albums.iterator();
         int i = 1;
         while (it.hasNext()) {
-            AlbumFitxersMultimedia album = (AlbumFitxersMultimedia)it.next();
+            AlbumFitxersMultimedia album = (AlbumFitxersMultimedia) it.next();
             list.add("\n[" + i + "] " + album.getTitle());
             i++;
         }
-        return list;        
+        return list;
     }
 
     @Override
-    public void esborrarAlbum(String string) throws AplicacioException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void esborrarAlbum(String title) throws AplicacioException {
+        int index = this.albums.indexOf(title);
+        if (index > 0) {
+            this.albums.remove(index);
+        } else {
+            throw new AplicacioException("Error: album not exist");
+        }
     }
 
     @Override
-    public boolean existeixAlbum(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean existeixAlbum(String title) {
+        Iterator it = this.albums.iterator();
+        while (it.hasNext()) {
+            AlbumFitxersMultimedia a = (AlbumFitxersMultimedia) it.next();
+            if (a.getTitle().equals(title)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
@@ -106,7 +122,9 @@ public class Controlador implements InControlador {
     }
 
     @Override
-    public List<String> mostrarAlbum(String string) throws AplicacioException {
+    public List<String> mostrarAlbum(String title) throws AplicacioException {
+        AlbumFitxersMultimedia albumToShow = this.getAlbum(title);
+        
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -172,4 +190,16 @@ public class Controlador implements InControlador {
             throw new AplicacioException(ex.getMessage());
         }
     }
+
+    private AlbumFitxersMultimedia getAlbum(String title) {
+        Iterator it = this.albums.iterator();
+        while (it.hasNext()) {
+            AlbumFitxersMultimedia a = (AlbumFitxersMultimedia) it.next();
+            if (a.getTitle().equals(title)) {
+                return a;
+            }
+        }
+        return null;
+    }
+
 }
