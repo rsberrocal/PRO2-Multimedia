@@ -235,7 +235,7 @@ public class AplicacioUB3 {
             opt = subMenu2.getOpcio(sc);
             switch(opt){
                 case SUB_MENU2_OPTION1:
-                    System.out.println("Album name? ");
+                    System.out.println("Insert new Album's name: ");
                     nomAlbum = sc.next();
                     try{
                         ctrl.afegirAlbum(nomAlbum);
@@ -247,7 +247,7 @@ public class AplicacioUB3 {
                     System.out.println(ctrl.mostrarLlistatAlbums());
                     break;
                 case SUB_MENU2_OPTION3:
-                    System.out.println("Album? ");
+                    System.out.println("Insert album to delete: ");
                     nomAlbum = sc.next();
                     try{
                         ctrl.esborrarAlbum(nomAlbum);
@@ -256,6 +256,9 @@ public class AplicacioUB3 {
                     }
                     break;
                 case SUB_MENU2_OPTION4:
+                    System.out.println(ctrl.mostrarLlistatAlbums());
+                    System.out.println("Which album do you want to manage? ");
+                    nomAlbum = sc.next();
                     gestioSubMenu24(sc);
                     break;
                 case SUB_MENU2_EXIT:
@@ -276,9 +279,7 @@ public class AplicacioUB3 {
             opt = subMenu24.getOpcio(sc);
             switch(opt){
                 case SUB_MENU24_OPTION1:
-                    System.out.println("Album? ");
-                    nomAlbum = sc.next();
-                    System.out.println("Id en biblioteca? ");
+                    System.out.println("Insert file's ID in the library ");
                     idBFM = sc.nextInt();
                     try{
                         ctrl.afegirFitxer(nomAlbum, idBFM);
@@ -287,8 +288,6 @@ public class AplicacioUB3 {
                     }
                     break;
                 case SUB_MENU24_OPTION2:
-                    System.out.println("Album? ");
-                    nomAlbum = sc.next();
                     try{
                         System.out.println(ctrl.mostrarAlbum(nomAlbum));
                     }catch(AplicacioException e){
@@ -296,8 +295,6 @@ public class AplicacioUB3 {
                     }
                     break;
                 case SUB_MENU24_OPTION3:
-                    System.out.println("Album? ");
-                    nomAlbum = sc.next();
                     System.out.println("Id en biblioteca? ");
                     idBFM = sc.nextInt();
                     try{
@@ -342,7 +339,7 @@ public class AplicacioUB3 {
                     break;
                 case SUB_MENU3_OPTION3:
                     ctrl.obrirFinestraReproductor();
-                    System.out.println("Album? ");
+                    System.out.println("Which album do you want to reproduce?");
                     nomAlbum = sc.next();
                     try{
                         ctrl.reproduirCarpeta(nomAlbum); // Single album reproduction

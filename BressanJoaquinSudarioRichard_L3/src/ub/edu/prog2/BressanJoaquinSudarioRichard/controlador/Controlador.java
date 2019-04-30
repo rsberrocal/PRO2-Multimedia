@@ -26,13 +26,12 @@ import ub.edu.prog2.BressanJoaquinSudarioRichard.model.BibliotecaFitxersMultimed
 public class Controlador implements InControlador {
 
     BibliotecaFitxersMultimedia library = new BibliotecaFitxersMultimedia();
-    Dades data;
+    Dades data; 
     Reproductor reproductor;
     ArrayList<AlbumFitxersMultimedia> albums;
 
     public Controlador() {
-        data = new Dades(library);
-        this.albums = new ArrayList<>();
+        data = new Dades(library, albums);
     }
 
     public void afegirVideo(String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException {
@@ -70,39 +69,27 @@ public class Controlador implements InControlador {
 
     @Override
     public void afegirAlbum(String title) throws AplicacioException {
-        int albumSize;
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Album size?");
-        albumSize = sc.nextInt();
-        this.albums.add(new AlbumFitxersMultimedia(albumSize, title));
+        data.addAlbum(title);
     }
 
     @Override
-    public List<String> mostrarLlistatAlbums() {       
-        List<String> list = new ArrayList<>();
-        Iterator it = this.albums.iterator();
-        int i = 1;
-        while (it.hasNext()) {
-            AlbumFitxersMultimedia album = (AlbumFitxersMultimedia)it.next();
-            list.add("\n[" + i + "] " + album.getTitle());
-            i++;
-        }
-        return list;        
+    public List<String> mostrarLlistatAlbums(){       
+        return data.mostrarAlbums();
     }
 
     @Override
-    public void esborrarAlbum(String string) throws AplicacioException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void esborrarAlbum(String title) throws AplicacioException {
+        data.deleteAlbum(title);
     }
 
     @Override
     public boolean existeixAlbum(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void afegirFitxer(String string, int i) throws AplicacioException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override

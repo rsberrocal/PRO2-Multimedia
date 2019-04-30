@@ -15,7 +15,10 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  *
@@ -25,13 +28,15 @@ public class Dades implements Serializable {
 
     BibliotecaFitxersMultimedia library = new BibliotecaFitxersMultimedia();
     Reproductor player;
+    ArrayList<AlbumFitxersMultimedia> albums;
 
     /**
      *
      * @param b
      */
-    public Dades(BibliotecaFitxersMultimedia b) {
-        this.library = b;
+    public Dades(BibliotecaFitxersMultimedia lib, ArrayList<AlbumFitxersMultimedia> alb) {
+        this.library = lib;
+        this.albums = alb;
     }
 
     /**
@@ -82,6 +87,52 @@ public class Dades implements Serializable {
     public void delete(int id) throws AplicacioException {
         this.library.removeFitxer(id);
     }
+    
+    //Menu's option 2: Albums
+    public void addAlbum(String title) throws AplicacioException{
+        int albumSize;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Album size?");
+        albumSize = sc.nextInt();
+        this.albums.add(new AlbumFitxersMultimedia(albumSize, title));
+    }
+    
+    public List<String> mostrarAlbums() throws AplicacioException{
+        if (albums.isEmpty()){
+            throw new AplicacioException("No album found.");
+        }else{
+            List<String> list = new ArrayList<>();
+            Iterator it = this.albums.iterator();
+            int i = 1;
+            while (it.hasNext()) {
+                AlbumFitxersMultimedia album = (AlbumFitxersMultimedia)it.next();
+                list.add("\n[" + i + "] " + album.getTitle());
+                i++;
+            }
+            return list;
+        }
+    }
+    
+    public void deleteAlbum(String title) throws AplicacioException{
+            albums.remove(findAlbum(title));
+        
+    }
+    
+    public AlbumFitxersMultimedia findAlbum(String title){
+        for(int i = 0; i<albums.size(); i++){
+                AlbumFitxersMultimedia album = albums.get(i);
+                if (album.getTitle().equals(title)){
+                    return albums.get(i);
+                }
+        }
+        return null;
+    }
+                
+    //Options of 2.4 are already taken into account by CarpetaFitxers class (album extends carpeta)
+    public void addFileToAlbum(String title, int id) throws AplicacioException{
+        findAlbum(title).addFitxer(this.library.getAt(id));
+    }
+    
     //serialización
 
     /**
