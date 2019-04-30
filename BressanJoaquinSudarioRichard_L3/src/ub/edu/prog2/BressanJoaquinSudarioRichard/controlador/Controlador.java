@@ -114,27 +114,27 @@ public class Controlador implements InControlador {
 
     @Override
     public void reproduirCarpeta() throws AplicacioException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void reproduirCarpeta(String string) throws AplicacioException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void reemprenReproduccio() throws AplicacioException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        reproductor.resume();
     }
 
     @Override
     public void pausaReproduccio() throws AplicacioException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        reproductor.pause();
     }
 
     @Override
     public void aturaReproduccio() throws AplicacioException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        reproductor.stop();
     }
 
     @Override
