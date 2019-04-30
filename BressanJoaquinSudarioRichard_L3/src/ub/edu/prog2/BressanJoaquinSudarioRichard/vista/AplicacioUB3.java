@@ -235,7 +235,7 @@ public class AplicacioUB3 {
             opt = subMenu2.getOpcio(sc);
             switch(opt){
                 case SUB_MENU2_OPTION1:
-                    System.out.println("Album? ");
+                    System.out.println("Album name? ");
                     nomAlbum = sc.next();
                     try{
                         ctrl.afegirAlbum(nomAlbum);

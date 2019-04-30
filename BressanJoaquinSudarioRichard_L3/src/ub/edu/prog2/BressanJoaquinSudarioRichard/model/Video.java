@@ -19,14 +19,14 @@ public class Video extends FitxerReproduible {
 
     /**
      *
-     * @param cami
-     * @param nom
-     * @param codec
-     * @param durada
-     * @param alcada
-     * @param amplada
-     * @param fps
-     * @param r
+     * @param cami path's video
+     * @param nom name's video
+     * @param codec codec from video
+     * @param durada duration in seconds
+     * @param alcada height in pixels
+     * @param amplada width in pixels
+     * @param fps frames per second
+     * @param r player
      */
     public Video(String cami, String nom, String codec, float durada, int alcada, int amplada, float fps, Reproductor r) {
         super(cami, nom, codec, durada, r);
@@ -37,7 +37,7 @@ public class Video extends FitxerReproduible {
 
     /**
      *
-     * @return
+     * @return width in pixels
      */
     public int getWidthPx() {
         return widthPx;
@@ -45,7 +45,7 @@ public class Video extends FitxerReproduible {
 
     /**
      *
-     * @param widthPx
+     * @param widthPx set a new width
      */
     public void setWidthPx(int widthPx) {
         this.widthPx = widthPx;
@@ -53,7 +53,7 @@ public class Video extends FitxerReproduible {
 
     /**
      *
-     * @return
+     * @return height in pixels
      */
     public int getHeightPx() {
         return heightPx;
@@ -61,7 +61,7 @@ public class Video extends FitxerReproduible {
 
     /**
      *
-     * @param heightPx
+     * @param heightPx set a new height
      */
     public void setHeightPx(int heightPx) {
         this.heightPx = heightPx;
@@ -69,7 +69,7 @@ public class Video extends FitxerReproduible {
 
     /**
      *
-     * @return
+     * @return frames per seconds
      */
     public float getFps() {
         return fps;
@@ -77,7 +77,7 @@ public class Video extends FitxerReproduible {
 
     /**
      *
-     * @param fps
+     * @param fps set a new value to frames per second
      */
     public void setFps(float fps) {
         this.fps = fps;

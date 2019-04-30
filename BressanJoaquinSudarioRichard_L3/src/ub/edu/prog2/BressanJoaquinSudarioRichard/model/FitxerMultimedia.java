@@ -10,7 +10,7 @@ import java.util.Date;
 
 /**
  *
- * @author rsudarbe117.alumnes & jbressna9.alumnes The FitxerMultimedia class
+ * @author rsudarbe117.alumnes and jbressna9.alumnes The FitxerMultimedia class
  * defines the attributes of a multimedia file
  */
 public class FitxerMultimedia extends File {
@@ -25,18 +25,18 @@ public class FitxerMultimedia extends File {
     private String description;
 
     /**
-     * Constructor for FitxerMultimedia
+     * Constructor for FitxerMultimedia with only path
      *
-     * @param path
+     * @param path local path from file
      */
     public FitxerMultimedia(String path) {
         super(path);
     }
 
     /**
-     *
-     * @param path
-     * @param desc
+     *  Constructor for FitxerMultimedia with path and description
+     * @param path local path from file
+     * @param desc description's file
      */
     public FitxerMultimedia(String path, String desc) {
         super(path);
