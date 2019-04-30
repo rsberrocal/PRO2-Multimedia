@@ -61,5 +61,9 @@ public class Audio extends FitxerReproduible {
     public String toString() {
         return (super.toString() + " , qualitat = " + this.getQuality() + " , imatge = " + this.img.getAbsolutePath());
     }
+    
+    public File getImatge(){
+        return this.img;
+    }
 
 }

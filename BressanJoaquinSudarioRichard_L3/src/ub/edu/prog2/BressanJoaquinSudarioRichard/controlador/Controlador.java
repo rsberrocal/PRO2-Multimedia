@@ -5,6 +5,7 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.controlador;
 
+import ub.edu.prog2.BressanJoaquinSudarioRichard.model.Audio;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.Dades;
 import edu.ub.prog2.utils.AplicacioException;
 import java.io.File;
@@ -18,6 +19,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.AlbumFitxersMultimedia;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.BibliotecaFitxersMultimedia;
+import ub.edu.prog2.BressanJoaquinSudarioRichard.model.FitxerReproduible;
 
 /**
  *
@@ -114,12 +116,23 @@ public class Controlador implements InControlador {
 
     @Override
     public void reproduirCarpeta() throws AplicacioException {
-        
+        for (int i = 0; i < this.library.getSize(); i++){
+            if("Audio".equals(this.library.getAt(i).getClass().getName())){
+                Audio aud = (Audio) this.library.getAt(i);
+                aud.getImatge();
+                this.reproductor.reprodueix(aud, aud.getImatge);
+            }else if ("Video".equals(this.library.getAt(i).getClass().getName())){
+                FitxerReproduible fr = (FitxerReproduible) this.library.getAt(i);
+                this.reproductor.reprodueix(fr);
+            }else{
+                this.reproductor.show(this.library.getAt(i));
+            }
+        }
     }
 
     @Override
     public void reproduirCarpeta(String string) throws AplicacioException {
-        
+            
     }
 
     @Override
