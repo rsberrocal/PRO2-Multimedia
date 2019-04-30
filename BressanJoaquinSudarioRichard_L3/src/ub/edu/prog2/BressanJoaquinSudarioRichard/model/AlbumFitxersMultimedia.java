@@ -7,6 +7,9 @@ package ub.edu.prog2.BressanJoaquinSudarioRichard.model;
 
 import edu.ub.prog2.utils.AplicacioException;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  *
@@ -44,7 +47,17 @@ public class AlbumFitxersMultimedia extends CarpetaFitxers {
         message += super.toString();
         return message;
     }
-    
+
+    public List<String> showAlbum() {
+        List<String> list = new ArrayList<>();
+        Iterator it = super.folder.iterator();
+        while (it.hasNext()) {
+            FitxerMultimedia f = (FitxerMultimedia) it.next();
+            list.add(f.toString());
+        }
+        return list;
+    }
+
     /**
      *
      * @param title set a new title album

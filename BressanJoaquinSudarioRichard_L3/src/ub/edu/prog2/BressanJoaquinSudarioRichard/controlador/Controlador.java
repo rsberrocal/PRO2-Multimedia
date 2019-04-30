@@ -27,11 +27,10 @@ public class Controlador implements InControlador {
 
     BibliotecaFitxersMultimedia library = new BibliotecaFitxersMultimedia();
     Dades data; 
-    Reproductor reproductor;
-    ArrayList<AlbumFitxersMultimedia> albums;
+    Reproductor reproductor;    
 
     public Controlador() {
-        data = new Dades(library, albums);
+        data = new Dades(library);
     }
 
     public void afegirVideo(String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException {
@@ -157,6 +156,6 @@ public class Controlador implements InControlador {
             data.carregarDades(camiOrigen);
         } catch (IOException ex) {
             throw new AplicacioException(ex.getMessage());
-        }
+        }        
     }
 }

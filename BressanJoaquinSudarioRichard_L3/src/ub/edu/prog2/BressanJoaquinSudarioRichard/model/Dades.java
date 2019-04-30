@@ -34,9 +34,9 @@ public class Dades implements Serializable {
      *
      * @param b
      */
-    public Dades(BibliotecaFitxersMultimedia lib, ArrayList<AlbumFitxersMultimedia> alb) {
+    public Dades(BibliotecaFitxersMultimedia lib) {
         this.library = lib;
-        this.albums = alb;
+        this.albums = new ArrayList<>();
     }
 
     /**
@@ -87,54 +87,86 @@ public class Dades implements Serializable {
     public void delete(int id) throws AplicacioException {
         this.library.removeFitxer(id);
     }
-    
+
     //Menu's option 2: Albums
-    public void addAlbum(String title) throws AplicacioException{
+    public void addAlbum(String title) throws AplicacioException {
         int albumSize;
         Scanner sc = new Scanner(System.in);
         System.out.println("Album size?");
         albumSize = sc.nextInt();
-        this.albums.add(new AlbumFitxersMultimedia(albumSize, title));
+        if (!albumExist(title)) {
+            this.albums.add(new AlbumFitxersMultimedia(albumSize, title));
+        } else {
+            throw new AplicacioException("Error: Album exists");
+        }
     }
-    
-    public List<String> mostrarAlbums() throws AplicacioException{
-        if (albums.isEmpty()){
+
+    public boolean albumExist(String title) {
+        Iterator it = this.albums.iterator();
+        while (it.hasNext()) {
+            AlbumFitxersMultimedia a = (AlbumFitxersMultimedia) it.next();
+            if (a.getTitle().equals(title)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public List<String> mostrarAlbums() throws AplicacioException {
+        if (albums.isEmpty()) {
             throw new AplicacioException("No album found.");
-        }else{
+        } else {
             List<String> list = new ArrayList<>();
             Iterator it = this.albums.iterator();
             int i = 1;
             while (it.hasNext()) {
-                AlbumFitxersMultimedia album = (AlbumFitxersMultimedia)it.next();
+                AlbumFitxersMultimedia album = (AlbumFitxersMultimedia) it.next();
                 list.add("\n[" + i + "] " + album.getTitle());
                 i++;
             }
             return list;
         }
     }
-    
-    public void deleteAlbum(String title) throws AplicacioException{
-            albums.remove(findAlbum(title));
-        
+
+    public void deleteAlbum(String title) throws AplicacioException {
+        albums.remove(findAlbum(title));
+
     }
-    
-    public AlbumFitxersMultimedia findAlbum(String title){
-        for(int i = 0; i<albums.size(); i++){
-                AlbumFitxersMultimedia album = albums.get(i);
-                if (album.getTitle().equals(title)){
-                    return albums.get(i);
-                }
+
+    public AlbumFitxersMultimedia findAlbum(String title) {
+        for (int i = 0; i < albums.size(); i++) {
+            AlbumFitxersMultimedia album = albums.get(i);
+            if (album.getTitle().equals(title)) {
+                return albums.get(i);
+            }
         }
         return null;
     }
-                
+
     //Options of 2.4 are already taken into account by CarpetaFitxers class (album extends carpeta)
-    public void addFileToAlbum(String title, int id) throws AplicacioException{
+    public void addFileToAlbum(String title, int id) throws AplicacioException {
         findAlbum(title).addFitxer(this.library.getAt(id));
     }
-    
-    //serialización
 
+    public List<String> mostrarAlbum(String title) throws AplicacioException {
+        AlbumFitxersMultimedia actualAlbum = findAlbum(title);
+        if (actualAlbum != null) {
+           return actualAlbum.showAlbum();
+        } else {
+            throw new AplicacioException("Error: album not exists");
+        }
+    }
+    
+    public void deleteFileInAlbum(String title,int id){
+        AlbumFitxersMultimedia actualAlbum = findAlbum(title);
+        if (actualAlbum != null) {
+           this.albums.remove(id);
+        } else {
+            throw new AplicacioException("Error: album not exists");
+        }
+    }
+
+    //serialización
     /**
      *
      * @param camiOrigen
