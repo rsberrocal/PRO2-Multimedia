@@ -25,7 +25,7 @@ public class CarpetaFitxers implements Serializable, InFileFolder {
     /**
      * Contains FitxersMultimedia
      */
-    protected ArrayList<FitxerMultimedia> folder;
+    public ArrayList<FitxerMultimedia> folder;
 
     /**
      * Creates a empty folder
