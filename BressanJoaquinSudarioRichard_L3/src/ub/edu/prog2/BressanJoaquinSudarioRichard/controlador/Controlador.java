@@ -123,31 +123,42 @@ public class Controlador implements InControlador {
     
     @Override
     public void reproduirFitxer(int i) throws AplicacioException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.reproductor.show(this.library.getAt(i));
     }
     
     @Override
     public void reproduirCarpeta() throws AplicacioException {
-        for (int i = 0; i < this.library.getSize(); i++){
-            if("Audio".equals(this.library.getAt(i).getClass().getName())){
-                Audio aud = (Audio) this.library.getAt(i);
+        Iterator it = this.library.folder.iterator();
+        while(it.hasNext()){
+            File f = (File) it.next();
+            if("Audio".equals(f.getClass().getName())){
+                Audio aud = (Audio) f;
                 aud.getImatge();
                 this.reproductor.reprodueix(aud, aud.getImatge());
-            }else if ("Video".equals(this.library.getAt(i).getClass().getName())){
-                FitxerReproduible fr = (FitxerReproduible) this.library.getAt(i);
+            }else if ("Video".equals(f.getClass().getName())){
+                FitxerReproduible fr = (FitxerReproduible) f;
                 this.reproductor.reprodueix(fr);
             }else{
-                this.reproductor.show(this.library.getAt(i)); //other file than audio/video
+                this.reproductor.show(f); //other file than audio/video
             }
         }
     }
 
     @Override
     public void reproduirCarpeta(String string) throws AplicacioException {
-             Iterator it = this.library.iterator();
-        while (it.hasNext()) {
-            File f = (File) it.next();
-            
+        Iterator it = data.findAlbum(string).folder.iterator();
+        while(it.hasNext()){
+            File a = (File) it.next();
+            if("Audio".equals(a.getClass().getName())){
+                Audio aud = (Audio) a;
+                aud.getImatge();
+                this.reproductor.reprodueix(aud, aud.getImatge());
+            }else if ("Video".equals(a.getClass().getName())){
+                FitxerReproduible fr = (FitxerReproduible) a;
+                this.reproductor.reprodueix(fr);
+            }else{
+                this.reproductor.show(a); //other file than audio/video
+            }
         }
     }
 

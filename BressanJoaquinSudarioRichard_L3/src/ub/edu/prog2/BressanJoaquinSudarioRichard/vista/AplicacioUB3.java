@@ -279,12 +279,17 @@ public class AplicacioUB3 {
             opt = subMenu24.getOpcio(sc);
             switch(opt){
                 case SUB_MENU24_OPTION1:
-                    System.out.println("Insert file's ID in the library ");
-                    idBFM = sc.nextInt();
-                    try{
-                        ctrl.afegirFitxer(nomAlbum, idBFM);
-                    }catch(AplicacioException e){
-                        System.out.println(e);
+                    if (ctrl.isEmpty()){
+                        System.out.println("Biblioteca vacía.");
+                    }else{
+                        System.out.println(ctrl.mostrarBiblioteca());
+                        System.out.println("Id en la biblioteca? ");
+                        idBFM = sc.nextInt();
+                        try{
+                            ctrl.afegirFitxer(nomAlbum, idBFM-1);
+                        }catch(AplicacioException e){
+                            System.out.println(e);
+                        }
                     }
                     break;
                 case SUB_MENU24_OPTION2:
@@ -295,10 +300,15 @@ public class AplicacioUB3 {
                     }
                     break;
                 case SUB_MENU24_OPTION3:
-                    System.out.println("Id en biblioteca? ");
-                    idBFM = sc.nextInt();
                     try{
-                        ctrl.esborrarFitxer(nomAlbum, idBFM);
+                        System.out.println(ctrl.mostrarAlbum(nomAlbum));
+                        System.out.println("Id en el album? ");
+                        idBFM = sc.nextInt();
+                        try{
+                            ctrl.esborrarFitxer(nomAlbum, idBFM-1);
+                        }catch(AplicacioException e){
+                            System.out.println(e);
+                        }
                     }catch(AplicacioException e){
                         System.out.println(e);
                     }
@@ -321,10 +331,11 @@ public class AplicacioUB3 {
             switch(opt){
                 case SUB_MENU3_OPTION1:
                     ctrl.obrirFinestraReproductor();
+                    System.out.println(ctrl.mostrarBiblioteca());
                     System.out.println("Id de fitxer reproduible? ");
                     idBFM = sc.nextInt();
                     try{
-                        ctrl.reproduirFitxer(idBFM);
+                        ctrl.reproduirFitxer(idBFM-1);
                     }catch(AplicacioException e){
                         System.out.println(e);
                     }
@@ -339,6 +350,7 @@ public class AplicacioUB3 {
                     break;
                 case SUB_MENU3_OPTION3:
                     ctrl.obrirFinestraReproductor();
+                    System.out.println(ctrl.mostrarLlistatAlbums());
                     System.out.println("Which album do you want to reproduce?");
                     nomAlbum = sc.next();
                     try{

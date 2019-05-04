@@ -23,11 +23,11 @@ public class Reproductor extends ReproductorBasic {
     }
    
     public void reprodueix(FitxerReproduible fr) throws AplicacioException{
-        play(fr);
+        this.play(fr);
         
     }
     public void reprodueix(Audio audio, File fitxerImatge) throws AplicacioException{
-        play(audio, fitxerImatge);
+        this.play(audio, fitxerImatge);
     }
     
 }
