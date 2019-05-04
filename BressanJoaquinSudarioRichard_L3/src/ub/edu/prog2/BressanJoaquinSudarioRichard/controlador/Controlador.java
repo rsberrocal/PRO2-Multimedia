@@ -25,13 +25,13 @@ import ub.edu.prog2.BressanJoaquinSudarioRichard.model.FitxerReproduible;
 public class Controlador implements InControlador {
 
     BibliotecaFitxersMultimedia library = new BibliotecaFitxersMultimedia();
-    Dades data; 
-    private transient Reproductor reproductor;    
+    Dades data;
+    private transient Reproductor reproductor;
 
     public Controlador() {
         data = new Dades(library);
     }
-    
+
     //BIBLIOTECA
     @Override
     public void afegirVideo(String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException {
@@ -64,7 +64,6 @@ public class Controlador implements InControlador {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-
     //CONTROL ALBUM ARRAY 
     @Override
     public void afegirAlbum(String title) throws AplicacioException {
@@ -72,10 +71,10 @@ public class Controlador implements InControlador {
     }
 
     @Override
-    public List<String> mostrarLlistatAlbums(){       
-        try{
+    public List<String> mostrarLlistatAlbums() {
+        try {
             return data.mostrarAlbums();
-        }catch(AplicacioException e){
+        } catch (AplicacioException e) {
             System.out.println(e);
         }
         return null;
@@ -91,25 +90,23 @@ public class Controlador implements InControlador {
         return data.albumExist(string);
     }
 
-    
     //CONTROL ALBUM add/delete/show
     @Override
-    public void afegirFitxer(String string, int i) throws AplicacioException {
-        
+    public void afegirFitxer(String title, int id) throws AplicacioException {
+        this.data.addFileToAlbum(title, id);
     }
 
     @Override
-    public List<String> mostrarAlbum(String string) throws AplicacioException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<String> mostrarAlbum(String title) throws AplicacioException {
+        return this.data.mostrarAlbum(title);
     }
 
     @Override
-    public void esborrarFitxer(String string, int i) throws AplicacioException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void esborrarFitxer(String title, int id) throws AplicacioException {
+        this.data.deleteFileInAlbum(title, id);
     }
-    
+
     //REPRODUCTOR
-
     @Override
     public void obrirFinestraReproductor() {
         this.reproductor.open();
@@ -120,25 +117,24 @@ public class Controlador implements InControlador {
         this.reproductor.close();
     }
 
-    
     @Override
     public void reproduirFitxer(int i) throws AplicacioException {
         this.reproductor.show(this.library.getAt(i));
     }
-    
+
     @Override
     public void reproduirCarpeta() throws AplicacioException {
         Iterator it = this.library.folder.iterator();
-        while(it.hasNext()){
+        while (it.hasNext()) {
             File f = (File) it.next();
-            if("Audio".equals(f.getClass().getName())){
+            if ("Audio".equals(f.getClass().getName())) {
                 Audio aud = (Audio) f;
                 aud.getImatge();
                 this.reproductor.reprodueix(aud, aud.getImatge());
-            }else if ("Video".equals(f.getClass().getName())){
+            } else if ("Video".equals(f.getClass().getName())) {
                 FitxerReproduible fr = (FitxerReproduible) f;
                 this.reproductor.reprodueix(fr);
-            }else{
+            } else {
                 this.reproductor.show(f); //other file than audio/video
             }
         }
@@ -147,16 +143,16 @@ public class Controlador implements InControlador {
     @Override
     public void reproduirCarpeta(String string) throws AplicacioException {
         Iterator it = data.findAlbum(string).folder.iterator();
-        while(it.hasNext()){
+        while (it.hasNext()) {
             File a = (File) it.next();
-            if("Audio".equals(a.getClass().getName())){
+            if ("Audio".equals(a.getClass().getName())) {
                 Audio aud = (Audio) a;
                 aud.getImatge();
                 this.reproductor.reprodueix(aud, aud.getImatge());
-            }else if ("Video".equals(a.getClass().getName())){
+            } else if ("Video".equals(a.getClass().getName())) {
                 FitxerReproduible fr = (FitxerReproduible) a;
                 this.reproductor.reprodueix(fr);
-            }else{
+            } else {
                 this.reproductor.show(a); //other file than audio/video
             }
         }
@@ -197,6 +193,6 @@ public class Controlador implements InControlador {
             data.carregarDades(camiOrigen);
         } catch (IOException ex) {
             throw new AplicacioException(ex.getMessage());
-        }        
+        }
     }
 }

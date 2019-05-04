@@ -25,7 +25,7 @@ import java.util.Scanner;
  * @author joaqu
  */
 public class Dades implements Serializable {
-
+    
     BibliotecaFitxersMultimedia library = new BibliotecaFitxersMultimedia();
     private transient Reproductor player;
     ArrayList<AlbumFitxersMultimedia> albums;
@@ -55,7 +55,7 @@ public class Dades implements Serializable {
     public void addVideo(String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException {
         Video v = new Video(path, nomVideo, codec, durada, alcada, amplada, fps, player);
         this.library.addFitxer(v);
-
+        
     }
 
     /**
@@ -89,7 +89,27 @@ public class Dades implements Serializable {
      * @throws AplicacioException
      */
     public void delete(int id) throws AplicacioException {
+        this.deleteIfExist(id);
         this.library.removeFitxer(id);
+    }
+    
+    private void deleteIfExist(int id) throws AplicacioException {
+        if (id < 0 || id > this.library.getSize()) {
+            throw new AplicacioException("Error: file not exists");
+        } else {
+            Iterator it = this.albums.iterator();
+            FitxerMultimedia fileToDelete = (FitxerMultimedia) this.library.getAt(id);
+            while (it.hasNext()) {
+                AlbumFitxersMultimedia album = (AlbumFitxersMultimedia) it.next();
+                Iterator itFiles = album.folder.iterator();
+                while (itFiles.hasNext()) {
+                    FitxerMultimedia file = (FitxerMultimedia) itFiles.next();
+                    if (file.equals(fileToDelete)) {
+                        album.removeFitxer(file);
+                    }
+                }
+            }
+        }
     }
 
     //Menu's option 2: Albums
@@ -185,6 +205,7 @@ public class Dades implements Serializable {
     //Options of 2.4 are already taken into account by CarpetaFitxers class (album extends carpeta)
     /**
      * Add file to album only if the album exists and if the file exists
+     *
      * @param title of the album
      * @param id of the library
      * @throws AplicacioException
@@ -221,10 +242,10 @@ public class Dades implements Serializable {
      */
     public void deleteFileInAlbum(String title, int id) throws AplicacioException {
         AlbumFitxersMultimedia actualAlbum = findAlbum(title);
-        if (actualAlbum != null) {
-            this.albums.remove(id);
+        if (actualAlbum == null || id < 0 || id > actualAlbum.getSize()) {
+            throw new AplicacioException("Error: id not exists");
         } else {
-            throw new AplicacioException("Error: album does not exist");
+            actualAlbum.removeFitxer(actualAlbum.getAt(id));
         }
     }
 
@@ -239,7 +260,7 @@ public class Dades implements Serializable {
         File f = new File(camiOrigen);
         FileInputStream in = null;
         ObjectInputStream objIn = null;
-
+        
         try {
             in = new FileInputStream(f);
             objIn = new ObjectInputStream(in);
@@ -275,7 +296,7 @@ public class Dades implements Serializable {
         File f = new File(camiDesti);
         FileOutputStream out = null;
         ObjectOutputStream objOut = null;
-
+        
         try {
             out = new FileOutputStream(f);
             objOut = new ObjectOutputStream(out);
