@@ -15,7 +15,7 @@ public abstract class FitxerReproduible extends FitxerMultimedia {
 
     private float duration;
     private String codec;
-
+    protected Reproductor player;
     /**
      *
      * @param cami path's file
@@ -28,6 +28,7 @@ public abstract class FitxerReproduible extends FitxerMultimedia {
         super(cami, nom);
         this.duration = durada;
         this.codec = codec;
+        this.player = r;
     }
 
     /**
