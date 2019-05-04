@@ -27,12 +27,12 @@ import java.util.Scanner;
 public class Dades implements Serializable {
 
     BibliotecaFitxersMultimedia library = new BibliotecaFitxersMultimedia();
-    Reproductor player;
+    private transient Reproductor player;
     ArrayList<AlbumFitxersMultimedia> albums;
 
     /**
      *
-     * @param b
+     * @param lib
      */
     public Dades(BibliotecaFitxersMultimedia lib) {
         this.library = lib;
@@ -85,6 +85,11 @@ public class Dades implements Serializable {
      * @throws AplicacioException
      */
     public void delete(int id) throws AplicacioException {
+        Iterator it = this.albums.iterator();
+        while (it.hasNext()) {
+            AlbumFitxersMultimedia a = (AlbumFitxersMultimedia) it.next();
+            //album.deleteFile(library.getAt(id))
+        }
         this.library.removeFitxer(id);
     }
 
@@ -157,12 +162,12 @@ public class Dades implements Serializable {
         }
     }
     
-    public void deleteFileInAlbum(String title,int id){
+    public void deleteFileInAlbum(String title,int id) throws AplicacioException{
         AlbumFitxersMultimedia actualAlbum = findAlbum(title);
         if (actualAlbum != null) {
            this.albums.remove(id);
         } else {
-            throw new AplicacioException("Error: album not exists");
+            throw new AplicacioException("Error: album does not exist");
         }
     }
 
@@ -171,8 +176,7 @@ public class Dades implements Serializable {
      *
      * @param camiOrigen
      * @throws AplicacioException
-     * @throws IOException
-     * @throws ClassNotFoundException
+     * @throws IOException¡
      */
     public void carregarDades(String camiOrigen) throws AplicacioException, IOException {
         File f = new File(camiOrigen);

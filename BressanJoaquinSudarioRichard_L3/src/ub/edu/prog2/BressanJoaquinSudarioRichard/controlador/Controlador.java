@@ -12,12 +12,9 @@ import java.io.File;
 import java.util.List;
 import edu.ub.prog2.utils.InControlador;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import ub.edu.prog2.BressanJoaquinSudarioRichard.model.AlbumFitxersMultimedia;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.BibliotecaFitxersMultimedia;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.FitxerReproduible;
 
@@ -29,12 +26,13 @@ public class Controlador implements InControlador {
 
     BibliotecaFitxersMultimedia library = new BibliotecaFitxersMultimedia();
     Dades data; 
-    Reproductor reproductor;    
+    private transient Reproductor reproductor;    
 
     public Controlador() {
         data = new Dades(library);
     }
 
+    @Override
     public void afegirVideo(String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException {
         data.addVideo(path, nomVideo, codec, durada, alcada, amplada, fps);
     }
@@ -43,10 +41,12 @@ public class Controlador implements InControlador {
         data.addAudio(cami, camiImatge, nomAudio, codec, durada, kbps);
     }
 
+    @Override
     public List<String> mostrarBiblioteca() { // lista de las salidas de toString() de los ficheros
         return data.print();
     }
 
+    @Override
     public void esborrarFitxer(int id) throws AplicacioException {
         data.delete(id);
     }
@@ -75,7 +75,12 @@ public class Controlador implements InControlador {
 
     @Override
     public List<String> mostrarLlistatAlbums(){       
-        return data.mostrarAlbums();
+        try{
+            data.mostrarAlbums();
+        }catch(AplicacioException e){
+            System.out.println(e);
+        }
+        return null;
     }
 
     @Override
@@ -85,7 +90,7 @@ public class Controlador implements InControlador {
 
     @Override
     public boolean existeixAlbum(String string) {
-        
+        return data.albumExist(string);
     }
 
     @Override
@@ -119,19 +124,23 @@ public class Controlador implements InControlador {
             if("Audio".equals(this.library.getAt(i).getClass().getName())){
                 Audio aud = (Audio) this.library.getAt(i);
                 aud.getImatge();
-                this.reproductor.reprodueix(aud, aud.getImatge);
+                this.reproductor.reprodueix(aud, aud.getImatge());
             }else if ("Video".equals(this.library.getAt(i).getClass().getName())){
                 FitxerReproduible fr = (FitxerReproduible) this.library.getAt(i);
                 this.reproductor.reprodueix(fr);
             }else{
-                this.reproductor.show(this.library.getAt(i));
+                this.reproductor.show(this.library.getAt(i)); //other file than audio/video
             }
         }
     }
 
     @Override
     public void reproduirCarpeta(String string) throws AplicacioException {
+             Iterator it = this.library.iterator();
+        while (it.hasNext()) {
+            File f = (File) it.next();
             
+        }
     }
 
     @Override
