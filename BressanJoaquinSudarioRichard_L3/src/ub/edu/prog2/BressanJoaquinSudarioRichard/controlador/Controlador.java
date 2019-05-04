@@ -74,7 +74,7 @@ public class Controlador implements InControlador {
     @Override
     public List<String> mostrarLlistatAlbums(){       
         try{
-            data.mostrarAlbums();
+            return data.mostrarAlbums();
         }catch(AplicacioException e){
             System.out.println(e);
         }
