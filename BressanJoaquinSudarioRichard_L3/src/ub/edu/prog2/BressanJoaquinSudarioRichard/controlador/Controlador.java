@@ -31,7 +31,8 @@ public class Controlador implements InControlador {
     public Controlador() {
         data = new Dades(library);
     }
-
+    
+    //BIBLIOTECA
     @Override
     public void afegirVideo(String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException {
         data.addVideo(path, nomVideo, codec, durada, alcada, amplada, fps);
@@ -63,11 +64,8 @@ public class Controlador implements InControlador {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public void reproduirFitxer(int i) throws AplicacioException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
+    //CONTROL ALBUM ARRAY 
     @Override
     public void afegirAlbum(String title) throws AplicacioException {
         data.addAlbum(title);
@@ -93,6 +91,8 @@ public class Controlador implements InControlador {
         return data.albumExist(string);
     }
 
+    
+    //CONTROL ALBUM add/delete/show
     @Override
     public void afegirFitxer(String string, int i) throws AplicacioException {
         
@@ -107,6 +107,8 @@ public class Controlador implements InControlador {
     public void esborrarFitxer(String string, int i) throws AplicacioException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    //REPRODUCTOR
 
     @Override
     public void obrirFinestraReproductor() {
@@ -118,6 +120,12 @@ public class Controlador implements InControlador {
         this.reproductor.close();
     }
 
+    
+    @Override
+    public void reproduirFitxer(int i) throws AplicacioException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     @Override
     public void reproduirCarpeta() throws AplicacioException {
         for (int i = 0; i < this.library.getSize(); i++){
