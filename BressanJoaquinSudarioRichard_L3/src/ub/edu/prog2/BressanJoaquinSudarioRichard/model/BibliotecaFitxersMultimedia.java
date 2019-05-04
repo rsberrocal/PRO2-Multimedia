@@ -71,15 +71,15 @@ public class BibliotecaFitxersMultimedia extends CarpetaFitxers {
     public List<String> listBiblioteca() {
         List<String> list = new ArrayList<>();
         Iterator it = super.folder.iterator();
-        int i = 0;
+        int i = 1;
         while (it.hasNext()) {
             list.add("\n[" + i + "] " + it.next().toString());
             i++;
         }
         return list;
     }
-    
-    public Iterator getIterator(){
+
+    public Iterator getIterator() {
         return super.folder.iterator();
     }
 }

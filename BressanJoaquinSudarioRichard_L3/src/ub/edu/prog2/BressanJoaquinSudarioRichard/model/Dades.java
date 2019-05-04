@@ -31,8 +31,9 @@ public class Dades implements Serializable {
     ArrayList<AlbumFitxersMultimedia> albums;
 
     /**
+     * Creates a new Dades object
      *
-     * @param lib
+     * @param lib library from controller
      */
     public Dades(BibliotecaFitxersMultimedia lib) {
         this.library = lib;
@@ -40,6 +41,7 @@ public class Dades implements Serializable {
     }
 
     /**
+     * Add a video to library
      *
      * @param path file path
      * @param nomVideo video name
@@ -57,6 +59,7 @@ public class Dades implements Serializable {
     }
 
     /**
+     * Add an audio to library
      *
      * @param cami file path
      * @param camiImatge file image
@@ -73,32 +76,35 @@ public class Dades implements Serializable {
 
     /**
      *
-     * @return
+     * @return a string with all the files in library
      */
     public List<String> print() {
         return library.listBiblioteca();
     }
 
     /**
+     * Delete a file from the library
      *
-     * @param id
+     * @param id of the file to delete
      * @throws AplicacioException
      */
     public void delete(int id) throws AplicacioException {
-        Iterator it = this.albums.iterator();
-        while (it.hasNext()) {
-            AlbumFitxersMultimedia a = (AlbumFitxersMultimedia) it.next();
-            //album.deleteFile(library.getAt(id))
-        }
         this.library.removeFitxer(id);
     }
 
     //Menu's option 2: Albums
+    /**
+     * Creates a new album with a title
+     *
+     * @param title of the new album
+     * @throws AplicacioException
+     */
     public void addAlbum(String title) throws AplicacioException {
         int albumSize;
         Scanner sc = new Scanner(System.in);
         System.out.println("Album size?");
         albumSize = sc.nextInt();
+        //Check if album exists
         if (!albumExist(title)) {
             this.albums.add(new AlbumFitxersMultimedia(albumSize, title));
         } else {
@@ -106,6 +112,12 @@ public class Dades implements Serializable {
         }
     }
 
+    /**
+     * Check if the album eists
+     *
+     * @param title of the album to check
+     * @return true if exists, else false
+     */
     public boolean albumExist(String title) {
         Iterator it = this.albums.iterator();
         while (it.hasNext()) {
@@ -117,6 +129,12 @@ public class Dades implements Serializable {
         return false;
     }
 
+    /**
+     * List all the albums
+     *
+     * @return list with albums
+     * @throws AplicacioException
+     */
     public List<String> mostrarAlbums() throws AplicacioException {
         if (albums.isEmpty()) {
             throw new AplicacioException("No album found.");
@@ -133,39 +151,78 @@ public class Dades implements Serializable {
         }
     }
 
+    /**
+     * Delete an album from the array
+     *
+     * @param title of the album
+     * @throws AplicacioException error if not exists
+     */
     public void deleteAlbum(String title) throws AplicacioException {
-        albums.remove(findAlbum(title));
-
+        if (albumExist(title)) {
+            albums.remove(findAlbum(title));
+        } else {
+            throw new AplicacioException("Error: Album not exists");
+        }
     }
 
+    /**
+     * Check if the album exists in the array or not
+     *
+     * @param title of the album
+     * @return album if exists, else null
+     */
     public AlbumFitxersMultimedia findAlbum(String title) {
-        for (int i = 0; i < albums.size(); i++) {
-            AlbumFitxersMultimedia album = albums.get(i);
+        Iterator it = this.albums.iterator();
+        while (it.hasNext()) {
+            AlbumFitxersMultimedia album = (AlbumFitxersMultimedia) it.next();
             if (album.getTitle().equals(title)) {
-                return albums.get(i);
+                return album;
             }
         }
         return null;
     }
 
     //Options of 2.4 are already taken into account by CarpetaFitxers class (album extends carpeta)
+    /**
+     * Add file to album only if the album exists and if the file exists
+     * @param title of the album
+     * @param id of the library
+     * @throws AplicacioException
+     */
     public void addFileToAlbum(String title, int id) throws AplicacioException {
-        findAlbum(title).addFitxer(this.library.getAt(id));
+        AlbumFitxersMultimedia album = findAlbum(title);
+        if (album == null || id < 0 || id > this.library.getSize()) {
+            throw new AplicacioException("Error: id not exists");
+        } else {
+            album.addFitxer(this.library.getAt(id));
+        }
     }
 
+    /**
+     *
+     * @param title
+     * @return
+     * @throws AplicacioException
+     */
     public List<String> mostrarAlbum(String title) throws AplicacioException {
         AlbumFitxersMultimedia actualAlbum = findAlbum(title);
         if (actualAlbum != null) {
-           return actualAlbum.showAlbum();
+            return actualAlbum.showAlbum();
         } else {
             throw new AplicacioException("Error: album not exists");
         }
     }
-    
-    public void deleteFileInAlbum(String title,int id) throws AplicacioException{
+
+    /**
+     *
+     * @param title
+     * @param id
+     * @throws AplicacioException
+     */
+    public void deleteFileInAlbum(String title, int id) throws AplicacioException {
         AlbumFitxersMultimedia actualAlbum = findAlbum(title);
         if (actualAlbum != null) {
-           this.albums.remove(id);
+            this.albums.remove(id);
         } else {
             throw new AplicacioException("Error: album does not exist");
         }
