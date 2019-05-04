@@ -78,4 +78,8 @@ public class BibliotecaFitxersMultimedia extends CarpetaFitxers {
         }
         return list;
     }
+    
+    public Iterator getIterator(){
+        return super.folder.iterator();
+    }
 }
