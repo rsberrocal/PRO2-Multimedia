@@ -44,7 +44,7 @@ public class Reproductor extends ReproductorBasic {
      * @throws AplicacioException
      */
     public void reprodueix(Audio audio, File fitxerImatge) throws AplicacioException{
-        this.play(audio, fitxerImatge);
+            this.play(audio, fitxerImatge);
     }
     
 }
