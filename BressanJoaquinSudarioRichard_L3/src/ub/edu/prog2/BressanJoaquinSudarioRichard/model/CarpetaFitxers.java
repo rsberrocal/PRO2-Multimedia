@@ -9,9 +9,7 @@ import edu.ub.prog2.utils.AplicacioException;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
-import java.util.Scanner;
 import edu.ub.prog2.utils.InFileFolder;
 
 /**
@@ -85,6 +83,7 @@ public class CarpetaFitxers implements Serializable, InFileFolder {
      * @param position postion of file
      * @return returns file in folder by a position
      */
+    @Override
     public File getAt(int position) {
         return this.folder.get(position);
     }
@@ -92,6 +91,7 @@ public class CarpetaFitxers implements Serializable, InFileFolder {
     /**
      * clear the whole folder
      */
+    @Override
     public void clear() {
         this.folder.clear();
     }

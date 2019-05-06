@@ -5,18 +5,15 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.controlador;
 
-import ub.edu.prog2.BressanJoaquinSudarioRichard.model.Audio;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.Dades;
 import edu.ub.prog2.utils.AplicacioException;
 import java.io.File;
 import java.util.List;
 import edu.ub.prog2.utils.InControlador;
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.Scanner;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.AlbumFitxersMultimedia;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.BibliotecaFitxersMultimedia;
-import ub.edu.prog2.BressanJoaquinSudarioRichard.model.FitxerReproduible;
 
 /**
  *
@@ -40,10 +37,13 @@ public class Controlador implements InControlador {
         data.addVideo(path, nomVideo, codec, durada, alcada, amplada, fps);
     }
     
-    public void afegirAudio(String cami, File camiImatge, String nomAudio, String codec, float durada, int kbps) throws AplicacioException {
-        data.addAudio(cami, camiImatge, nomAudio, codec, durada, kbps);
+    @Override
+    public void afegirAudio(String cami, String camiImatge, String nomAudio, String codec, float durada, int kbps) throws AplicacioException {
+        File f = new File(camiImatge);
+        data.addAudio(cami, f, nomAudio, codec, durada, kbps);
     }
-
+    
+    
     @Override
     public List<String> mostrarBiblioteca() { // lista de las salidas de toString() de los ficheros
         return data.print();
@@ -111,7 +111,11 @@ public class Controlador implements InControlador {
 
     @Override
     public void tancarFinestraReproductor() throws AplicacioException {
-        this.reproductor.close();
+        try{
+            this.reproductor.close();
+        }catch(AplicacioException e){
+            throw new AplicacioException(e.getMessage());
+        }
     }
 
     @Override
@@ -198,4 +202,6 @@ public class Controlador implements InControlador {
             throw new AplicacioException(ex.getMessage());
         }
     }
+
+    
 }

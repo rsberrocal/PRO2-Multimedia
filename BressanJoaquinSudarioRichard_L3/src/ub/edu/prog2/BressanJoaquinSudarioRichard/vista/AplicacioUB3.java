@@ -201,8 +201,7 @@ public class AplicacioUB3 {
                     System.out.print("Audio's name? ");
                     nom = sc.next();
                     System.out.print("Audio's image path? ");
-                    pathFile = sc.next();
-                    camiImatge = new File(pathFile);
+                    camiImatge = sc.next();
                     System.out.print("Audio's codec? ");
                     codec = sc.next();
                     System.out.print("Audio's duration? ");
