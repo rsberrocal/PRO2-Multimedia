@@ -13,7 +13,9 @@ import java.util.List;
 import edu.ub.prog2.utils.InControlador;
 import java.io.IOException;
 import java.util.Iterator;
-    import ub.edu.prog2.BressanJoaquinSudarioRichard.model.BibliotecaFitxersMultimedia;
+import java.util.Scanner;
+import ub.edu.prog2.BressanJoaquinSudarioRichard.model.AlbumFitxersMultimedia;
+import ub.edu.prog2.BressanJoaquinSudarioRichard.model.BibliotecaFitxersMultimedia;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.FitxerReproduible;
 
 /**
@@ -26,6 +28,7 @@ public class Controlador implements InControlador {
     Dades data;
     EscoltadorReproduccio escoltador;
     private transient Reproductor reproductor;  
+    Scanner sc = new Scanner(System.in);
 
     public Controlador() {
         data = new Dades(library);
@@ -56,17 +59,6 @@ public class Controlador implements InControlador {
             return true;
         }
         return false;
-    }
-
-    
-    @Override
-    public void afegirAudio(String string, String string1, String string2, String string3, float f, int i) throws AplicacioException {
-        
-        
-        
-        
-        
-        
     }
 
     //CONTROL ALBUM ARRAY 
@@ -124,43 +116,30 @@ public class Controlador implements InControlador {
 
     @Override
     public void reproduirFitxer(int i) throws AplicacioException {
-        this.reproductor.show(this.library.getAt(i));
+        File f = this.library.getAt(i);
+        System.out.println("Reproducción continua?");
+        this.escoltador.setContinue(sc.nextBoolean());
+        this.escoltador.setRandom(false);
+        this.escoltador.iniciarReproduccio(f, this.escoltador.getContinue());
     }
 
     @Override
     public void reproduirCarpeta() throws AplicacioException {
-        Iterator it = this.library.folder.iterator();
-        while (it.hasNext()) {
-            File f = (File) it.next();
-            if ("Audio".equals(f.getClass().getName())) {
-                Audio aud = (Audio) f;
-                aud.getImatge();
-                this.reproductor.reprodueix(aud, aud.getImatge());
-            } else if ("Video".equals(f.getClass().getName())) {
-                FitxerReproduible fr = (FitxerReproduible) f;
-                this.reproductor.reprodueix(fr);
-            } else {
-                this.reproductor.show(f); //other file than audio/video
-            }
-        }
+        System.out.println("Reproducción continua?");
+        this.escoltador.setContinue(sc.nextBoolean());
+        System.out.println("Reproducción aleatoria?");
+        this.escoltador.setRandom(sc.nextBoolean());
+        this.escoltador.iniciarReproduccio(this.library, this.escoltador.getContinue());
     }
 
     @Override
     public void reproduirCarpeta(String string) throws AplicacioException {
-        Iterator it = data.findAlbum(string).folder.iterator();
-        while (it.hasNext()) {
-            File a = (File) it.next();
-            if ("Audio".equals(a.getClass().getName())) {
-                Audio aud = (Audio) a;
-                aud.getImatge();
-                this.reproductor.reprodueix(aud, aud.getImatge());
-            } else if ("Video".equals(a.getClass().getName())) {
-                FitxerReproduible fr = (FitxerReproduible) a;
-                this.reproductor.reprodueix(fr);
-            } else {
-                this.reproductor.show(a); //other file than audio/video
-            }
-        }
+        AlbumFitxersMultimedia album = data.findAlbum(string);
+        System.out.println("Reproducción continua?");
+        this.escoltador.setContinue(sc.nextBoolean());
+        System.out.println("Reproducción aleatoria?");
+        this.escoltador.setRandom(sc.nextBoolean());
+        this.escoltador.iniciarReproduccio(album, this.escoltador.getContinue());
     }
 
     @Override
