@@ -37,11 +37,7 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic{
             this.pos=0;
         }
         fR = (FitxerReproduible) this.llistaReproduint.getAt(pos);
-        for(int i = 0; i<this.llistaReproduint.getSize();i++){
-            fR.reproduir();
-            this.next();
-            fR = (FitxerReproduible) this.llistaReproduint.getAt(pos);
-        }
+        fR.reproduir();
     }
     
     /**
