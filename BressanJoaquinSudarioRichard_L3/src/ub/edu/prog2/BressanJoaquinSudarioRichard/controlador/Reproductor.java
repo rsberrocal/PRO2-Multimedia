@@ -23,7 +23,7 @@ public class Reproductor extends ReproductorBasic {
      * @param controlador
      */
     public Reproductor(EscoltadorReproduccioBasic controlador) {
-        super(controlador);
+        super("C:\\Program Files\\VideoLAN\\VLC",controlador);
     }
    
     /**

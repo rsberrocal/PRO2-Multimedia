@@ -25,7 +25,7 @@ import java.util.Scanner;
  * @author joaqu
  */
 public class Dades implements Serializable {
-    
+
     BibliotecaFitxersMultimedia library = new BibliotecaFitxersMultimedia();
     private transient Reproductor player;
     ArrayList<AlbumFitxersMultimedia> albums;
@@ -35,9 +35,10 @@ public class Dades implements Serializable {
      *
      * @param lib library from controller
      */
-    public Dades(BibliotecaFitxersMultimedia lib) {
+    public Dades(BibliotecaFitxersMultimedia lib, Reproductor player) {
         this.library = lib;
         this.albums = new ArrayList<>();
+        this.player = player;
     }
 
     /**
@@ -55,7 +56,7 @@ public class Dades implements Serializable {
     public void addVideo(String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException {
         Video v = new Video(path, nomVideo, codec, durada, alcada, amplada, fps, player);
         this.library.addFitxer(v);
-        
+
     }
 
     /**
@@ -92,7 +93,7 @@ public class Dades implements Serializable {
         this.deleteIfExist(id);
         this.library.removeFitxer(id);
     }
-    
+
     private void deleteIfExist(int id) throws AplicacioException {
         if (id < 0 || id > this.library.getSize()) {
             throw new AplicacioException("Error: file not exists");
@@ -254,13 +255,13 @@ public class Dades implements Serializable {
      *
      * @param camiOrigen
      * @throws AplicacioException
-     * @throws IOException¡
+     * @throws IOException
      */
     public void carregarDades(String camiOrigen) throws AplicacioException, IOException {
         File f = new File(camiOrigen);
         FileInputStream in = null;
         ObjectInputStream objIn = null;
-        
+
         try {
             in = new FileInputStream(f);
             objIn = new ObjectInputStream(in);
@@ -296,7 +297,7 @@ public class Dades implements Serializable {
         File f = new File(camiDesti);
         FileOutputStream out = null;
         ObjectOutputStream objOut = null;
-        
+
         try {
             out = new FileOutputStream(f);
             objOut = new ObjectOutputStream(out);
@@ -324,9 +325,5 @@ public class Dades implements Serializable {
             return true;
         }
         return false;
-    }
-    
-    public void setReproductor(Reproductor r){
-        
     }
 }

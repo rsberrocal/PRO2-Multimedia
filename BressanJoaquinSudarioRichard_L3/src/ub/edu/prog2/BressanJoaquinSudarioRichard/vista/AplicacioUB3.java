@@ -51,10 +51,9 @@ public class AplicacioUB3 {
     static private String[] descSubMenu36 = {"Re-empren", "Pausa", "Atura", "Salta", "Menu anteriro"};
                                             
     Controlador ctrl = new Controlador(); 
-    String path, nom, codec, pathFile, nomAlbum;
+    String path, nom, codec, pathFile, nomAlbum,camiImatge;
     float durada, fps;
     int alcada, amplada, kbps, idBFM;
-    File camiImatge;
     /**
      *
      * @param sc
