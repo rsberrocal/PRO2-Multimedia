@@ -17,13 +17,13 @@ import ub.edu.prog2.BressanJoaquinSudarioRichard.model.FitxerReproduible;
  * @author Rocho
  */
 public class Reproductor extends ReproductorBasic {
-   
     public Reproductor(EscoltadorReproduccioBasic controlador) {
         super(controlador);
     }
    
     public void reprodueix(FitxerReproduible fr) throws AplicacioException{
         this.play(fr);
+        
         
     }
     public void reprodueix(Audio audio, File fitxerImatge) throws AplicacioException{

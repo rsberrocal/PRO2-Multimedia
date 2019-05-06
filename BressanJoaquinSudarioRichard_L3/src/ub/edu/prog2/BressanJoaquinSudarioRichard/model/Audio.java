@@ -5,8 +5,11 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.model;
 
+import edu.ub.prog2.utils.AplicacioException;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Reproductor;
 import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,7 +19,7 @@ public class Audio extends FitxerReproduible {
 
     private int kbps;
     private File img;
-
+    private transient Reproductor rep;
     /**
      *
      * @param cami path to file
@@ -31,6 +34,7 @@ public class Audio extends FitxerReproduible {
         super(cami, nom, codec, durada, r);
         this.kbps = kbps;
         this.img = fitxerImatge;
+        this.rep = r;
     }
 
     /**
@@ -53,8 +57,12 @@ public class Audio extends FitxerReproduible {
      *
      */
     @Override
-    protected void reproduir() {
-        //TODO
+    public void reproduir() {
+        try {
+            this.rep.reprodueix(this);
+        } catch (AplicacioException ex) {
+            Logger.getLogger(Audio.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override

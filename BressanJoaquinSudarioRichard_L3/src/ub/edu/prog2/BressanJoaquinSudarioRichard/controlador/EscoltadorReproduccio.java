@@ -10,6 +10,7 @@ import edu.ub.prog2.utils.EscoltadorReproduccioBasic;
 import java.io.File;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.BibliotecaFitxersMultimedia;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.CarpetaFitxers;
+import ub.edu.prog2.BressanJoaquinSudarioRichard.model.FitxerReproduible;
 /**
  *
  * @author joaqu
@@ -19,6 +20,7 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic{
     private boolean[] llistaCtrl;
     private boolean reproduccioCiclica, reproduccioAleatoria;
     int pos;
+    FitxerReproduible fR;
     
     /**
      *
@@ -29,6 +31,7 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic{
         this.llistaReproduint = llistaReproduint;
         this.reproduccioCiclica = reproduccioCiclica;
         llistaCtrl =  new boolean[llistaReproduint.getSize()];
+        (FitxerReproduible) f.reproduir();
     }
     
     /**
@@ -38,23 +41,35 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic{
      * @throws AplicacioException
      */
     public void iniciarReproduccio(File f, boolean reproduccioCiclica) throws AplicacioException{
-        this.reproduccioCiclica = reproduccioCiclica;
-        this.llistaReproduint = new BibliotecaFitxersMultimedia();
-        try{
-            this.llistaReproduint.addFitxer(f);
-        }catch(Exception e){
-            throw new AplicacioException("File doesn't exist");
-        }
+        BibliotecaFitxersMultimedia lib = new BibliotecaFitxersMultimedia();
+        lib.addFitxer(f);
+        this.iniciarReproduccio(lib, reproduccioCiclica);
         
     }
     
+    protected void setContinue(boolean isContinue){
+        this.reproduccioCiclica = isContinue;
+    }
+    protected boolean getContinue(){
+        return this.reproduccioCiclica;
+    }
+    
+    protected void setRandom(boolean isRandom){
+        this.reproduccioAleatoria = isRandom;
+    }
+    
+    protected boolean getRandom(){
+        return this.reproduccioAleatoria;
+    }
     /**
-     *
      */
     @Override
     protected void onEndFile() {
-        System.out.println("S'ha acabat de reproduir el fitxer \n");// example to try when all other classes are done to understand this method
+        System.out.println("S'ha acabat de reproduir el fitxer \n");
+        this.next();
     }
+
+    
 
     /**
      *
@@ -66,11 +81,10 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic{
                 pos=(int)Math.round(Math.random()*(llistaCtrl.length-1));
                 pos++;
                 pos = pos%llistaReproduint.getSize();
-                System.out.println(llistaReproduint.getAt(pos));
+                
             }else{
                 pos++;
                 pos = pos%llistaReproduint.getSize();
-                System.out.println(llistaReproduint.getAt(pos));
                 llistaCtrl[pos] = true;
             }
         }else if(hasNext()){
@@ -80,16 +94,16 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic{
                     pos++;
                     pos = pos%llistaReproduint.getSize();
                 }
-                System.out.println(llistaReproduint.getAt(pos));
             }else{
                 pos++;
                 pos = pos%llistaReproduint.getSize();
-                System.out.println(llistaReproduint.getAt(pos));
                 llistaCtrl[pos] = true;
             }
         }else{
-            System.out.println("ERROR: No more files found");
+            System.out.println("No more files found");
         }
+        fR = (FitxerReproduible)this.llistaReproduint.getAt(pos);
+        fR.reproduir();
     }
 
     /**
@@ -105,5 +119,4 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic{
         }
         return false;
     }
-    
 }

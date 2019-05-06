@@ -13,9 +13,7 @@ import java.util.List;
 import edu.ub.prog2.utils.InControlador;
 import java.io.IOException;
 import java.util.Iterator;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import ub.edu.prog2.BressanJoaquinSudarioRichard.model.BibliotecaFitxersMultimedia;
+    import ub.edu.prog2.BressanJoaquinSudarioRichard.model.BibliotecaFitxersMultimedia;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.FitxerReproduible;
 
 /**
@@ -26,7 +24,8 @@ public class Controlador implements InControlador {
 
     BibliotecaFitxersMultimedia library = new BibliotecaFitxersMultimedia();
     Dades data;
-    private transient Reproductor reproductor;
+    EscoltadorReproduccio escoltador;
+    private transient Reproductor reproductor;  
 
     public Controlador() {
         data = new Dades(library);
@@ -61,19 +60,24 @@ public class Controlador implements InControlador {
 
     @Override
     public void afegirAudio(String string, String string1, String string2, String string3, float f, int i) throws AplicacioException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        
+        
+        
+        
+        
     }
 
     //CONTROL ALBUM ARRAY 
     @Override
     public void afegirAlbum(String title) throws AplicacioException {
-        data.addAlbum(title);
+        this.data.addAlbum(title);
     }
 
     @Override
     public List<String> mostrarLlistatAlbums() {
         try {
-            return data.mostrarAlbums();
+            return this.data.mostrarAlbums();
         } catch (AplicacioException e) {
             System.out.println(e);
         }
@@ -82,7 +86,7 @@ public class Controlador implements InControlador {
 
     @Override
     public void esborrarAlbum(String title) throws AplicacioException {
-        data.deleteAlbum(title);
+        this.data.deleteAlbum(title);
     }
 
     @Override
@@ -160,28 +164,47 @@ public class Controlador implements InControlador {
 
     @Override
     public void reemprenReproduccio() throws AplicacioException {
-        reproductor.resume();
+        this.reproductor.resume();
     }
 
     @Override
     public void pausaReproduccio() throws AplicacioException {
-        reproductor.pause();
+        this.reproductor.pause();
     }
 
     @Override
     public void aturaReproduccio() throws AplicacioException {
-        reproductor.stop();
+        this.reproductor.stop();
     }
 
     @Override
     public void saltaReproduccio() throws AplicacioException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.escoltador.next();
     }
 
+    //CONTINUE OR RANDOM
+    public void setRandom(boolean isRandom){
+        this.escoltador.setRandom(isRandom);
+    }
+    
+    public boolean getRandom(){
+        return this.escoltador.getRandom();
+    }
+    
+    public void setContinu(boolean isContinu){
+        this.escoltador.setContinue(isContinu);
+    }
+    
+    public boolean getContinu(){
+        return this.escoltador.getContinue();
+    }
+    
+    
+    //DATA
     @Override
     public void guardarDadesDisc(String camiDesti) throws AplicacioException {
         try {
-            data.guardarDades(camiDesti);
+            this.data.guardarDades(camiDesti);
         } catch (IOException ex) {
             throw new AplicacioException(ex.getMessage());
         }
@@ -190,7 +213,7 @@ public class Controlador implements InControlador {
     @Override
     public void carregarDadesDisc(String camiOrigen) throws AplicacioException {
         try {
-            data.carregarDades(camiOrigen);
+            this.data.carregarDades(camiOrigen);
         } catch (IOException ex) {
             throw new AplicacioException(ex.getMessage());
         }

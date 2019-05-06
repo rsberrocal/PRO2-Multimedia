@@ -34,7 +34,7 @@ public abstract class FitxerReproduible extends FitxerMultimedia {
     /**
      *
      */
-    protected abstract void reproduir();
+    public abstract void reproduir();
 
     /**
      * Method that returns the string representation of the file

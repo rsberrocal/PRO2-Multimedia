@@ -55,7 +55,6 @@ public class AplicacioUB3 {
     float durada, fps;
     int alcada, amplada, kbps, idBFM;
     File camiImatge;
-    
     /**
      *
      * @param sc
@@ -65,7 +64,6 @@ public class AplicacioUB3 {
         Menu<OptionsMainMenu> mainMenu = new Menu<>("Main menu", OptionsMainMenu.values());
         
         mainMenu.setDescripcions(descMainMenu);
-        
         
         String p;
         
@@ -360,10 +358,18 @@ public class AplicacioUB3 {
                     }
                     break;
                 case SUB_MENU3_OPTION4:
-                    ctrl.obrirFinestraReproductor();
+                    if (this.ctrl.getContinu()){
+                        this.ctrl.setContinu(false);
+                    }else{
+                        this.ctrl.setContinu(true);
+                    }
                     break;
                 case SUB_MENU3_OPTION5:
-                    ctrl.obrirFinestraReproductor();
+                    if (this.ctrl.getRandom()){
+                        this.ctrl.setRandom(false);
+                    }else{
+                        this.ctrl.setRandom(true);
+                    }
                     break;
                 case SUB_MENU3_OPTION6:
                     gestioSubMenu36(sc);

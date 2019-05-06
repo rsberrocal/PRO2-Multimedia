@@ -325,4 +325,8 @@ public class Dades implements Serializable {
         }
         return false;
     }
+    
+    public void setReproductor(Reproductor r){
+        
+    }
 }
