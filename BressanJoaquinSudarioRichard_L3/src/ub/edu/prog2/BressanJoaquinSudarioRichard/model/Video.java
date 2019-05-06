@@ -19,7 +19,6 @@ public class Video extends FitxerReproduible {
     private int widthPx;
     private int heightPx;
     private float fps;
-    private transient Reproductor rep;
     /**
      *
      * @param cami path's video
@@ -36,7 +35,6 @@ public class Video extends FitxerReproduible {
         this.widthPx = alcada;
         this.heightPx = amplada;
         this.fps = fps;
-        this.rep = r;
     }
 
     /**
@@ -93,7 +91,7 @@ public class Video extends FitxerReproduible {
     @Override
     public void reproduir() {
         try {   
-            this.rep.reprodueix(this);
+            super.player.reprodueix(this);
         } catch (AplicacioException ex) {
             Logger.getLogger(Video.class.getName()).log(Level.SEVERE, null, ex);
         }

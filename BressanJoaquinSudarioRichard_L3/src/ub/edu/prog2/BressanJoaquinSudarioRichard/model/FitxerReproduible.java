@@ -15,7 +15,7 @@ public abstract class FitxerReproduible extends FitxerMultimedia {
 
     private float duration;
     private String codec;
-    protected Reproductor player;
+    protected transient Reproductor player;
     /**
      *
      * @param cami path's file

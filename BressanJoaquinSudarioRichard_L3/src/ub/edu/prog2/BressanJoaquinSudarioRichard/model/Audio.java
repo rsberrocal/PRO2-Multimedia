@@ -19,7 +19,6 @@ public class Audio extends FitxerReproduible {
 
     private int kbps;
     private File img;
-    private transient Reproductor rep;
     /**
      *
      * @param cami path to file
@@ -34,7 +33,6 @@ public class Audio extends FitxerReproduible {
         super(cami, nom, codec, durada, r);
         this.kbps = kbps;
         this.img = fitxerImatge;
-        this.rep = r;
     }
 
     /**
@@ -59,7 +57,7 @@ public class Audio extends FitxerReproduible {
     @Override
     public void reproduir() {
         try {
-            this.rep.reprodueix(this);
+            super.player.reprodueix(this);
         } catch (AplicacioException ex) {
             Logger.getLogger(Audio.class.getName()).log(Level.SEVERE, null, ex);
         }

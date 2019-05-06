@@ -31,7 +31,17 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic{
         this.llistaReproduint = llistaReproduint;
         this.reproduccioCiclica = reproduccioCiclica;
         llistaCtrl =  new boolean[llistaReproduint.getSize()];
-        (FitxerReproduible) f.reproduir();
+        if(this.reproduccioAleatoria){
+                this.pos=(int)Math.round(Math.random()*(this.llistaReproduint.getSize()-1));
+        }else{
+            this.pos=0;
+        }
+        fR = (FitxerReproduible) this.llistaReproduint.getAt(pos);
+        for(int i = 0; i<this.llistaReproduint.getSize();i++){
+            fR.reproduir();
+            this.next();
+            fR = (FitxerReproduible) this.llistaReproduint.getAt(pos);
+        }
     }
     
     /**
@@ -44,7 +54,6 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic{
         BibliotecaFitxersMultimedia lib = new BibliotecaFitxersMultimedia();
         lib.addFitxer(f);
         this.iniciarReproduccio(lib, reproduccioCiclica);
-        
     }
     
     protected void setContinue(boolean isContinue){

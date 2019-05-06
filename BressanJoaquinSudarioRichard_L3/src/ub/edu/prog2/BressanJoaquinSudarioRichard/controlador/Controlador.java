@@ -36,7 +36,7 @@ public class Controlador implements InControlador {
     public void afegirVideo(String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException {
         data.addVideo(path, nomVideo, codec, durada, alcada, amplada, fps);
     }
-
+    
     public void afegirAudio(String cami, File camiImatge, String nomAudio, String codec, float durada, int kbps) throws AplicacioException {
         data.addAudio(cami, camiImatge, nomAudio, codec, durada, kbps);
     }
@@ -58,6 +58,7 @@ public class Controlador implements InControlador {
         return false;
     }
 
+    
     @Override
     public void afegirAudio(String string, String string1, String string2, String string3, float f, int i) throws AplicacioException {
         
