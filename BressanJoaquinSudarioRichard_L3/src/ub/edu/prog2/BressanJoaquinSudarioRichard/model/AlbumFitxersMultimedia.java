@@ -48,6 +48,10 @@ public class AlbumFitxersMultimedia extends CarpetaFitxers {
         return message;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<String> showAlbum() {
         List<String> list = new ArrayList<>();
         Iterator it = super.folder.iterator();

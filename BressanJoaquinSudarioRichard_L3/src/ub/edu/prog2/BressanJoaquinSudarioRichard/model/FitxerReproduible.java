@@ -15,6 +15,10 @@ public abstract class FitxerReproduible extends FitxerMultimedia {
 
     private float duration;
     private String codec;
+
+    /**
+     *
+     */
     protected transient Reproductor player;
     /**
      *

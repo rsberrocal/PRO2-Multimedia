@@ -17,15 +17,32 @@ import ub.edu.prog2.BressanJoaquinSudarioRichard.model.FitxerReproduible;
  * @author Rocho
  */
 public class Reproductor extends ReproductorBasic {
+
+    /**
+     *
+     * @param controlador
+     */
     public Reproductor(EscoltadorReproduccioBasic controlador) {
-        super(controlador);
+        super("C:\\Program Files\\VideoLAN\\VLC",controlador);
     }
    
+    /**
+     *
+     * @param fr
+     * @throws AplicacioException
+     */
     public void reprodueix(FitxerReproduible fr) throws AplicacioException{
         this.play(fr);
         
         
     }
+
+    /**
+     *
+     * @param audio
+     * @param fitxerImatge
+     * @throws AplicacioException
+     */
     public void reprodueix(Audio audio, File fitxerImatge) throws AplicacioException{
             this.play(audio, fitxerImatge);
     }

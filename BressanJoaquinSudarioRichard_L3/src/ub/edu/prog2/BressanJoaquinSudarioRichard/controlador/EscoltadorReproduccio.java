@@ -52,17 +52,34 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic{
         this.iniciarReproduccio(lib, reproduccioCiclica);
     }
     
+    /**
+     *
+     * @param isContinue
+     */
     protected void setContinue(boolean isContinue){
         this.reproduccioCiclica = isContinue;
     }
+
+    /**
+     *
+     * @return
+     */
     protected boolean getContinue(){
         return this.reproduccioCiclica;
     }
     
+    /**
+     *
+     * @param isRandom
+     */
     protected void setRandom(boolean isRandom){
         this.reproduccioAleatoria = isRandom;
     }
     
+    /**
+     *
+     * @return
+     */
     protected boolean getRandom(){
         return this.reproduccioAleatoria;
     }
