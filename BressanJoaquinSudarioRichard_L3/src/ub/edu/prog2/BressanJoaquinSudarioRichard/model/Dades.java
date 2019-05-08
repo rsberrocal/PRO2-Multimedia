@@ -20,17 +20,19 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.EscoltadorReproduccio;
+
 /**
  *
  * @author joaqu
  */
 public class Dades implements Serializable {
-
+    
     BibliotecaFitxersMultimedia library = new BibliotecaFitxersMultimedia();
     private transient Reproductor player;
     ArrayList<AlbumFitxersMultimedia> albums;
     private transient int howMuchFiles;
     EscoltadorReproduccio escoltador;
+
     /**
      * Creates a new Dades object
      *
@@ -57,7 +59,7 @@ public class Dades implements Serializable {
     public void addVideo(String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException {
         Video v = new Video(path, nomVideo, codec, durada, alcada, amplada, fps, player);
         this.library.addFitxer(v);
-
+        
     }
 
     /**
@@ -94,7 +96,7 @@ public class Dades implements Serializable {
         this.deleteIfExist(id);
         this.library.removeFitxer(id);
     }
-
+    
     private void deleteIfExist(int id) throws AplicacioException {
         if (id < 0 || id > this.library.getSize()) {
             throw new AplicacioException("Error: file does not exist");
@@ -103,11 +105,12 @@ public class Dades implements Serializable {
             FitxerMultimedia fileToDelete = (FitxerMultimedia) this.library.getAt(id);
             while (it.hasNext()) {
                 AlbumFitxersMultimedia album = (AlbumFitxersMultimedia) it.next();
-                Iterator itFiles = album.folder.iterator();
-                while (itFiles.hasNext()) {
-                    FitxerMultimedia file = (FitxerMultimedia) itFiles.next();
-                    if (file.equals(fileToDelete)) {
-                        album.removeFitxer(file);
+                ArrayList tmp = (ArrayList) album.folder.clone();
+                Iterator itFile = tmp.iterator();
+                while (itFile.hasNext()) {
+                    FitxerMultimedia f = (FitxerMultimedia) itFile.next();
+                    if (fileToDelete.equals(f)) {
+                        album.removeFitxer(f);
                     }
                 }
             }
@@ -262,18 +265,18 @@ public class Dades implements Serializable {
         File f = new File(camiOrigen);
         FileInputStream in = null;
         ObjectInputStream objIn = null;
-
+        
         try {
             in = new FileInputStream(f);
             objIn = new ObjectInputStream(in);
             Object stream = objIn.readObject();
-            try{
+            try {
                 while (stream != null) {
                     this.library.addFitxer((File) stream);
                     stream = objIn.readObject();
                 }
-            }catch(ClassCastException e){
-                while (stream != null){
+            } catch (ClassCastException e) {
+                while (stream != null) {
                     this.albums.add((AlbumFitxersMultimedia) stream);
                     stream = objIn.readObject();
                 }
@@ -305,14 +308,14 @@ public class Dades implements Serializable {
         File f = new File(camiDesti);
         FileOutputStream out = null;
         ObjectOutputStream objOut = null;
-
+        
         try {
             out = new FileOutputStream(f);
             objOut = new ObjectOutputStream(out);
             for (int i = 0; i < library.getSize(); i++) {
                 objOut.writeObject(library.getAt(i));
             }
-            for (int j = 0 ; j <albums.size(); j++){
+            for (int j = 0; j < albums.size(); j++) {
                 objOut.writeObject(albums.get(j));
             }
         } catch (IOException e) {
@@ -338,20 +341,20 @@ public class Dades implements Serializable {
         return false;
     }
     
-    public void setReproductor(){
+    public void setReproductor() {
         Iterator it = this.library.folder.iterator();
-        while(it.hasNext()){
-            if (it.next().getClass().getName().equals("FitxerReproduible")){
+        while (it.hasNext()) {
+            if (it.next().getClass().getName().equals("FitxerReproduible")) {
                 FitxerReproduible fR = (FitxerReproduible) it.next();
                 fR.setReproductor(this.player);
-                if(this.albums.size() > 0){
+                if (this.albums.size() > 0) {
                     Iterator itA = this.albums.iterator();
-                    while(itA.hasNext()){
+                    while (itA.hasNext()) {
                         AlbumFitxersMultimedia album = (AlbumFitxersMultimedia) itA.next();
                         Iterator itFiles = album.folder.iterator();
-                        while(itFiles.hasNext()){
+                        while (itFiles.hasNext()) {
                             FitxerReproduible file = (FitxerReproduible) itFiles.next();
-                            if(file.equals(fR)){
+                            if (file.equals(fR)) {
                                 file.setReproductor(this.player);
                             }
                         }
@@ -361,4 +364,3 @@ public class Dades implements Serializable {
         }
     }
 }
-
