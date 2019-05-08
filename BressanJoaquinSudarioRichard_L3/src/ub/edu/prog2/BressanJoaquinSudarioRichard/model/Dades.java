@@ -267,21 +267,12 @@ public class Dades implements Serializable {
             in = new FileInputStream(f);
             objIn = new ObjectInputStream(in);
             Object stream = objIn.readObject();
-            for(int i = 0; i<2; i++){
-               if(i == 0){
-                   this.escoltador.setContinue((boolean) stream);
-                   stream = objIn.readObject();
-               }else{
-                   this.escoltador.setRandom((boolean) stream);
-                   stream = objIn.readObject();
-               }
-            }
             try{
                 while (stream != null) {
                     this.library.addFitxer((File) stream);
                     stream = objIn.readObject();
                 }
-            }catch(Exception e){
+            }catch(ClassCastException e){
                 while (stream != null){
                     this.albums.add((AlbumFitxersMultimedia) stream);
                     stream = objIn.readObject();
@@ -318,8 +309,6 @@ public class Dades implements Serializable {
         try {
             out = new FileOutputStream(f);
             objOut = new ObjectOutputStream(out);
-            objOut.writeBoolean(this.escoltador.getContinue());
-            objOut.writeBoolean(this.escoltador.getRandom());
             for (int i = 0; i < library.getSize(); i++) {
                 objOut.writeObject(library.getAt(i));
             }
