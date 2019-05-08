@@ -318,7 +318,7 @@ public class Dades implements Serializable {
 
     /**
      *
-     * @return
+     * @return boolean
      */
     public boolean isEmpty() {
         if (library.getSize() == 0) {
@@ -326,4 +326,13 @@ public class Dades implements Serializable {
         }
         return false;
     }
+    
+    public void setReproductor(){
+        Iterator it = this.library.folder.iterator();
+        while(it.hasNext()){
+            FitxerReproduible fR = (FitxerReproduible) it.next();
+            fR.setReproductor(this.player);
+        }
+    }
 }
+

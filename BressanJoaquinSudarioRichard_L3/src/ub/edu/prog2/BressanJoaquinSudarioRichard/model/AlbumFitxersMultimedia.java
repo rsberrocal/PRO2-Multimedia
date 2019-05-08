@@ -28,6 +28,7 @@ public class AlbumFitxersMultimedia extends CarpetaFitxers {
      */
     public AlbumFitxersMultimedia(int max, String titulo) {
         this.maxFiles = max;
+        this.title = titulo;
     }
 
     //addFitxer if the album is full, throw an error, else add the file
@@ -57,7 +58,7 @@ public class AlbumFitxersMultimedia extends CarpetaFitxers {
         Iterator it = super.folder.iterator();
         while (it.hasNext()) {
             FitxerMultimedia f = (FitxerMultimedia) it.next();
-            list.add(f.toString());
+            list.add(f.toString() + "\n" );
         }
         return list;
     }

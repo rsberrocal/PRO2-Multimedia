@@ -25,14 +25,17 @@ public class Controlador implements InControlador {
     Dades data;
     EscoltadorReproduccio escoltador;
     private transient Reproductor reproductor;
+    boolean aleatori, ciclico;
     Scanner sc = new Scanner(System.in);
 
     /**
      *
+     * @param vlcPath
      */
     public Controlador() {
-        this.reproductor = new Reproductor(escoltador);
+        
         this.escoltador = new EscoltadorReproduccio();
+        this.reproductor = new Reproductor(escoltador);
         data = new Dades(library, reproductor);
     }
 
@@ -333,6 +336,8 @@ public class Controlador implements InControlador {
     public void guardarDadesDisc(String camiDesti) throws AplicacioException {
         try {
             this.data.guardarDades(camiDesti);
+            this.aleatori = this.escoltador.getRandom();
+            this.ciclico = this.escoltador.getContinue();
         } catch (IOException ex) {
             throw new AplicacioException(ex.getMessage());
         }
@@ -347,6 +352,9 @@ public class Controlador implements InControlador {
     public void carregarDadesDisc(String camiOrigen) throws AplicacioException {
         try {
             this.data.carregarDades(camiOrigen);
+            this.data.setReproductor();
+            this.escoltador.setContinue(ciclico);
+            this.escoltador.setRandom(aleatori);
         } catch (IOException ex) {
             throw new AplicacioException(ex.getMessage());
         }

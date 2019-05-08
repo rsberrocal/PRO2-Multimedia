@@ -101,5 +101,9 @@ public class Video extends FitxerReproduible {
     public String toString() {
         return (super.toString() + ", amplada = " + this.getWidthPx() + ", alçada = " + this.getHeightPx() + " , fps = " + this.getFps());
     }
+    
+    public void setReproductor(Reproductor r){
+        super.player = r;
+    }
 
 }

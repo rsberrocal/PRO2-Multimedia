@@ -12,7 +12,6 @@ package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
 import edu.ub.prog2.utils.AplicacioException;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
 import edu.ub.prog2.utils.Menu;
-import java.io.File;
 import java.util.Scanner;
 
 /**
@@ -51,7 +50,7 @@ public class AplicacioUB3 {
     static private String[] descSubMenu36 = {"Re-empren", "Pausa", "Atura", "Salta", "Menu anteriro"};
                                             
     Controlador ctrl = new Controlador(); 
-    String path, nom, codec, pathFile, nomAlbum,camiImatge;
+    String path, nom, codec, pathFile, nomAlbum,camiImatge, vlcPath;
     float durada, fps;
     int alcada, amplada, kbps, idBFM;
     /**
@@ -59,7 +58,6 @@ public class AplicacioUB3 {
      * @param sc
      */
     public void gestioAplicacioUB(Scanner sc){
-        
         Menu<OptionsMainMenu> mainMenu = new Menu<>("Main menu", OptionsMainMenu.values());
         
         mainMenu.setDescripcions(descMainMenu);
@@ -270,7 +268,6 @@ public class AplicacioUB3 {
         
         OptionsSubMenu24 opt;
         do{
-            System.out.println(ctrl.mostrarBiblioteca());
             subMenu24.mostrarMenu();
             opt = subMenu24.getOpcio(sc);
             switch(opt){

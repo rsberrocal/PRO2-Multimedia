@@ -75,5 +75,8 @@ public class Audio extends FitxerReproduible {
     public File getImatge(){
         return this.img;
     }
-
+    
+    public void setReproductor(Reproductor r){
+        super.player = r;
+    }
 }

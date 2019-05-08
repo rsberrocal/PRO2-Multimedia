@@ -5,6 +5,7 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.controlador;
 
+import com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type;
 import edu.ub.prog2.utils.AplicacioException;
 import edu.ub.prog2.utils.EscoltadorReproduccioBasic;
 import edu.ub.prog2.utils.ReproductorBasic;
@@ -20,6 +21,7 @@ public class Reproductor extends ReproductorBasic {
 
     /**
      *
+     * @param vlcPath
      * @param controlador
      */
     public Reproductor(EscoltadorReproduccioBasic controlador) {

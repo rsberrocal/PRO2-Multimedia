@@ -48,4 +48,9 @@ public abstract class FitxerReproduible extends FitxerMultimedia {
     public String toString() {
         return (super.toString() + ", duració = " + this.duration + " , codec = " + this.codec);
     }
+    
+    public void setReproductor(Reproductor r){
+        this.player = r;
+                
+    }
 }
