@@ -18,7 +18,7 @@ import ub.edu.prog2.BressanJoaquinSudarioRichard.model.FitxerReproduible;
 public class EscoltadorReproduccio extends EscoltadorReproduccioBasic{
     private CarpetaFitxers llistaReproduint;
     private boolean[] llistaCtrl;
-    private boolean reproduccioCiclica, reproduccioAleatoria;
+    private boolean reproduccioCiclica = true, reproduccioAleatoria = false;
     int pos;
     FitxerReproduible fR;
     
@@ -56,7 +56,7 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic{
      *
      * @param isContinue
      */
-    protected void setContinue(boolean isContinue){
+    public void setContinue(boolean isContinue){
         this.reproduccioCiclica = isContinue;
     }
 
@@ -64,7 +64,7 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic{
      *
      * @return
      */
-    protected boolean getContinue(){
+    public boolean getContinue(){
         return this.reproduccioCiclica;
     }
     
@@ -72,7 +72,7 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic{
      *
      * @param isRandom
      */
-    protected void setRandom(boolean isRandom){
+    public void setRandom(boolean isRandom){
         this.reproduccioAleatoria = isRandom;
     }
     
@@ -80,7 +80,7 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic{
      *
      * @return
      */
-    protected boolean getRandom(){
+    public boolean getRandom(){
         return this.reproduccioAleatoria;
     }
     /**

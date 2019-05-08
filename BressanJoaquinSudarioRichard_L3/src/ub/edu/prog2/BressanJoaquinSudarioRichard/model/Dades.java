@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
-
+import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.EscoltadorReproduccio;
 /**
  *
  * @author joaqu
@@ -29,7 +29,8 @@ public class Dades implements Serializable {
     BibliotecaFitxersMultimedia library = new BibliotecaFitxersMultimedia();
     private transient Reproductor player;
     ArrayList<AlbumFitxersMultimedia> albums;
-
+    private transient int howMuchFiles;
+    EscoltadorReproduccio escoltador;
     /**
      * Creates a new Dades object
      *
@@ -96,7 +97,7 @@ public class Dades implements Serializable {
 
     private void deleteIfExist(int id) throws AplicacioException {
         if (id < 0 || id > this.library.getSize()) {
-            throw new AplicacioException("Error: file not exists");
+            throw new AplicacioException("Error: file does not exist");
         } else {
             Iterator it = this.albums.iterator();
             FitxerMultimedia fileToDelete = (FitxerMultimedia) this.library.getAt(id);
@@ -266,9 +267,25 @@ public class Dades implements Serializable {
             in = new FileInputStream(f);
             objIn = new ObjectInputStream(in);
             Object stream = objIn.readObject();
-            while (stream != null) {
-                this.library.addFitxer((File) stream);
-                stream = objIn.readObject();
+            for(int i = 0; i<2; i++){
+               if(i == 0){
+                   this.escoltador.setContinue((boolean) stream);
+                   stream = objIn.readObject();
+               }else{
+                   this.escoltador.setRandom((boolean) stream);
+                   stream = objIn.readObject();
+               }
+            }
+            try{
+                while (stream != null) {
+                    this.library.addFitxer((File) stream);
+                    stream = objIn.readObject();
+                }
+            }catch(Exception e){
+                while (stream != null){
+                    this.albums.add((AlbumFitxersMultimedia) stream);
+                    stream = objIn.readObject();
+                }
             }
         } catch (EOFException e) {
             in.close();
@@ -301,8 +318,13 @@ public class Dades implements Serializable {
         try {
             out = new FileOutputStream(f);
             objOut = new ObjectOutputStream(out);
+            objOut.writeBoolean(this.escoltador.getContinue());
+            objOut.writeBoolean(this.escoltador.getRandom());
             for (int i = 0; i < library.getSize(); i++) {
                 objOut.writeObject(library.getAt(i));
+            }
+            for (int j = 0 ; j <albums.size(); j++){
+                objOut.writeObject(albums.get(j));
             }
         } catch (IOException e) {
             throw new AplicacioException(e.getMessage());
@@ -330,8 +352,23 @@ public class Dades implements Serializable {
     public void setReproductor(){
         Iterator it = this.library.folder.iterator();
         while(it.hasNext()){
-            FitxerReproduible fR = (FitxerReproduible) it.next();
-            fR.setReproductor(this.player);
+            if (it.next().getClass().getName().equals("FitxerReproduible")){
+                FitxerReproduible fR = (FitxerReproduible) it.next();
+                fR.setReproductor(this.player);
+                if(this.albums.size() > 0){
+                    Iterator itA = this.albums.iterator();
+                    while(itA.hasNext()){
+                        AlbumFitxersMultimedia album = (AlbumFitxersMultimedia) itA.next();
+                        Iterator itFiles = album.folder.iterator();
+                        while(itFiles.hasNext()){
+                            FitxerReproduible file = (FitxerReproduible) itFiles.next();
+                            if(file.equals(fR)){
+                                file.setReproductor(this.player);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

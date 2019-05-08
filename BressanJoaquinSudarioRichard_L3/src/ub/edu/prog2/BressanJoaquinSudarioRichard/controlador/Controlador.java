@@ -25,7 +25,6 @@ public class Controlador implements InControlador {
     Dades data;
     EscoltadorReproduccio escoltador;
     private transient Reproductor reproductor;
-    boolean aleatori, ciclico;
     Scanner sc = new Scanner(System.in);
 
     /**
@@ -336,8 +335,6 @@ public class Controlador implements InControlador {
     public void guardarDadesDisc(String camiDesti) throws AplicacioException {
         try {
             this.data.guardarDades(camiDesti);
-            this.aleatori = this.escoltador.getRandom();
-            this.ciclico = this.escoltador.getContinue();
         } catch (IOException ex) {
             throw new AplicacioException(ex.getMessage());
         }
@@ -353,8 +350,6 @@ public class Controlador implements InControlador {
         try {
             this.data.carregarDades(camiOrigen);
             this.data.setReproductor();
-            this.escoltador.setContinue(ciclico);
-            this.escoltador.setRandom(aleatori);
         } catch (IOException ex) {
             throw new AplicacioException(ex.getMessage());
         }
