@@ -27,7 +27,10 @@ public class BibliotecaFitxersMultimedia extends CarpetaFitxers {
     @Override
     public void addFitxer(File fitxer) throws AplicacioException {
         //If its not duplicated and file exists
-        if (!super.hasFile(fitxer) && fitxer.exists()) {
+        if (!fitxer.exists()) {
+            throw new AplicacioException("Error: File not exists");
+        }
+        if (!super.hasFile(fitxer)) {
             //Add file to folder
             super.folder.add((FitxerMultimedia) fitxer);
         } else {
@@ -86,5 +89,5 @@ public class BibliotecaFitxersMultimedia extends CarpetaFitxers {
     public Iterator getIterator() {
         return super.folder.iterator();
     }
-   
+
 }

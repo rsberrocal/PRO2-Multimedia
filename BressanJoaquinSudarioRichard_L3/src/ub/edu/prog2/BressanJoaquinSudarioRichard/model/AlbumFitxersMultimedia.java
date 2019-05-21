@@ -78,4 +78,8 @@ public class AlbumFitxersMultimedia extends CarpetaFitxers {
     public String getTitle() {
         return this.title;
     }
+    
+    public int getMax(){
+        return this.maxFiles;
+    }        
 }
