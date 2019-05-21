@@ -134,5 +134,8 @@ public class CarpetaFitxers implements Serializable, InFileFolder {
     public boolean isFull() {
         return this.folder.size() == this.MAX_SIZE;
     }
-
+    
+    public int getMaxSize(){
+        return this.MAX_SIZE;
+    }
 }
