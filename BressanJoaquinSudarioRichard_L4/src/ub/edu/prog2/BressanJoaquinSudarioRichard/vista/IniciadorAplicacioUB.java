@@ -6,6 +6,7 @@
 package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
 
 import java.util.Scanner;
+import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
 
 /**
  *
@@ -18,10 +19,11 @@ public class IniciadorAplicacioUB {
      */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        
+        Controlador ctrl = new Controlador();
         AplicacioUB3 aplicacio = new AplicacioUB3();
         
-        aplicacio.gestioAplicacioUB(sc);
+        MainView interficie = new MainView(ctrl);
+        interficie.setVisible(true);
     }
     
 }
