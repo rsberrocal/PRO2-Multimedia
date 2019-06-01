@@ -14,7 +14,7 @@ import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
  *
  * @author rsudarbe117.alumnes
  */
-public class GestioBiblioteca extends javax.swing.JFrame {
+public class GestioBiblioteca extends javax.swing.JFrame{
 
     /**
      * Creates new form GestioBiblioteca
@@ -25,6 +25,8 @@ public class GestioBiblioteca extends javax.swing.JFrame {
     public GestioBiblioteca(Controlador ctrl) {
         this.ctrl = ctrl;
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setSize(800, 600);
     }
 
     public void setFiles() {
@@ -74,7 +76,7 @@ public class GestioBiblioteca extends javax.swing.JFrame {
                 .addComponent(removeFileBtn)
                 .addGap(40, 40, 40)
                 .addComponent(jButton1)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(498, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,7 +120,7 @@ public class GestioBiblioteca extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(0, 290, Short.MAX_VALUE))
         );
 
         pack();
