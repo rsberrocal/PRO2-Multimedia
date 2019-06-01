@@ -181,6 +181,7 @@ public class MainView extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         GestioBiblioteca gestioLib = new GestioBiblioteca(this.ctrl);
+        gestioLib.setLocationRelativeTo(null);
         gestioLib.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
