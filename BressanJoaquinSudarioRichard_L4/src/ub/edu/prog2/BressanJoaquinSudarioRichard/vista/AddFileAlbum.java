@@ -5,16 +5,25 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
 
+import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
+
 /**
  *
  * @author rsudarbe117.alumnes
  */
 public class AddFileAlbum extends javax.swing.JFrame {
 
+    Controlador ctrl;
+    
     /**
      * Creates new form AddFileAlbum
      */
     public AddFileAlbum() {
+        initComponents();
+    }
+    
+    public AddFileAlbum(Controlador ctrl){
+        this.ctrl = ctrl;
         initComponents();
     }
 

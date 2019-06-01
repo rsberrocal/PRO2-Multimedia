@@ -131,7 +131,9 @@ public class GestioAlbums extends javax.swing.JFrame {
 
     private void editAlbumBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAlbumBtnActionPerformed
         // TODO add your handling code here:
-        EditAlbum eAlbum = new EditAlbum();
+        EditAlbum eAlbum = new EditAlbum(this.ctrl);
+        eAlbum.setLocationRelativeTo(null);
+        eAlbum.setVisible(true);
     }//GEN-LAST:event_editAlbumBtnActionPerformed
 
     /**

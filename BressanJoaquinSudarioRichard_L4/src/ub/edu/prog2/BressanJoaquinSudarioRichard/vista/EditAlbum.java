@@ -5,16 +5,25 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
 
+import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
+
 /**
  *
  * @author rsudarbe117.alumnes
  */
 public class EditAlbum extends javax.swing.JFrame {
 
+    Controlador ctrl;
+    
     /**
      * Creates new form EditAlbum
      */
     public EditAlbum() {
+        initComponents();
+    }
+    
+    public EditAlbum(Controlador ctrl){
+        this.ctrl = ctrl;
         initComponents();
     }
 
@@ -30,18 +39,29 @@ public class EditAlbum extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jProgressBar1 = new javax.swing.JProgressBar();
+        addFileBtn = new javax.swing.JButton();
+        removeFileBtn = new javax.swing.JButton();
+        playBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Add Album");
+        addFileBtn.setText("Add File");
+        addFileBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addFileBtnActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Edit Album");
+        removeFileBtn.setText("Remove File");
 
-        jButton3.setText("Delete Album");
+        playBtn.setText("▶");
+        playBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -49,22 +69,28 @@ public class EditAlbum extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
-                .addGap(38, 38, 38)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(37, Short.MAX_VALUE)
+                .addComponent(addFileBtn)
+                .addGap(29, 29, 29)
+                .addComponent(removeFileBtn)
+                .addGap(40, 40, 40)
+                .addComponent(playBtn)
+                .addGap(35, 35, 35))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addContainerGap(30, Short.MAX_VALUE))
+                    .addComponent(addFileBtn)
+                    .addComponent(removeFileBtn)
+                    .addComponent(playBtn))
+                .addGap(18, 18, 18)
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         backBtn.setText("Go Back");
@@ -118,6 +144,19 @@ public class EditAlbum extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_backBtnActionPerformed
 
+    private void addFileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFileBtnActionPerformed
+        // TODO add your handling code here:
+        //PONER FILE FORM
+        AddFileAlbum addFileToAlbum = new AddFileAlbum();
+        addFileToAlbum.setLocationRelativeTo(null);
+        addFileToAlbum.setVisible(true);
+    }//GEN-LAST:event_addFileBtnActionPerformed
+
+    private void playBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playBtnActionPerformed
+        // TODO add your handling code here:
+        //OPEN CONTROLLER
+    }//GEN-LAST:event_playBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -154,12 +193,13 @@ public class EditAlbum extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addFileBtn;
     private javax.swing.JButton backBtn;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton playBtn;
+    private javax.swing.JButton removeFileBtn;
     // End of variables declaration//GEN-END:variables
 }
