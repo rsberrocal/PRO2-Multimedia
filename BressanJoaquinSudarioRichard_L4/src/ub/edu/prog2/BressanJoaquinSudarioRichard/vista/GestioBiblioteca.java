@@ -161,12 +161,14 @@ public class GestioBiblioteca extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
         MainView mView = new MainView(ctrl);
-        mView.setLocationRelativeTo(null);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void addFileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFileBtnActionPerformed
         // TODO add your handling code here:
         //PONER FILE FORM
+        dispose();
+        AddFileLib addFile = new AddFileLib(this.ctrl);
+        addFile.setVisible(true);
     }//GEN-LAST:event_addFileBtnActionPerformed
 
     private void playBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playBtnActionPerformed
