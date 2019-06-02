@@ -241,7 +241,7 @@ public class MainView extends javax.swing.JFrame{
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
         GestioAlbums gestioAlb = new GestioAlbums(this.ctrl);
-        setLocationRelativeTo(null);
+        gestioAlb.setLocationRelativeTo(null);
         gestioAlb.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 

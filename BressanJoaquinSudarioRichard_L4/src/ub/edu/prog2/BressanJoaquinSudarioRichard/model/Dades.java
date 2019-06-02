@@ -1,4 +1,4 @@
-        /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -137,6 +137,15 @@ public class Dades implements Serializable {
         }
     }
 
+     public void addAlbum(String title,int albumSize) throws AplicacioException {       
+        //Check if album exists
+        if (!albumExist(title)) {
+            this.albums.add(new AlbumFitxersMultimedia(albumSize, title));
+        } else {
+            throw new AplicacioException("Error: Album exists");
+        }
+    }
+    
     /**
      * Check if the album eists
      *
@@ -161,10 +170,11 @@ public class Dades implements Serializable {
      * @throws AplicacioException
      */
     public List<String> mostrarAlbums() throws AplicacioException {
+        List<String> list = new ArrayList<>();
         if (albums.isEmpty()) {
-            throw new AplicacioException("No album found.");
-        } else {
-            List<String> list = new ArrayList<>();
+            list.add("No albums found");
+            return list;            
+        } else {            
             Iterator it = this.albums.iterator();
             int i = 1;
             while (it.hasNext()) {
@@ -339,6 +349,9 @@ public class Dades implements Serializable {
             return true;
         }
         return false;
+    }
+     public boolean isEmptyAlbums() {        
+        return this.albums.isEmpty();
     }
     
     public void setReproductor() {

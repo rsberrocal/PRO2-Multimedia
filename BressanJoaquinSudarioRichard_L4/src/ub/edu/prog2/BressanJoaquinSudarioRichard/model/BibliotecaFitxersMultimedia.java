@@ -79,6 +79,10 @@ public class BibliotecaFitxersMultimedia extends CarpetaFitxers {
             list.add("\n[" + i + "] " + it.next().toString());
             i++;
         }
+        if(super.folder.isEmpty()){
+            list.add("No files found");
+        }
+        
         return list;
     }
 

@@ -5,6 +5,14 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
 
+import edu.ub.prog2.utils.AplicacioException;
+import java.util.List;
+import javax.swing.AbstractListModel;
+import javax.swing.Box;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
 
 /**
@@ -20,7 +28,25 @@ public class GestioAlbums extends javax.swing.JFrame {
      */
     public GestioAlbums(Controlador ctrl) {
         this.ctrl = ctrl;
+        this.setResizable(false);
         initComponents();
+        this.setFiles();
+    }
+
+    public void setFiles() {
+        this.albumList.setModel(new AbstractListModel<String>() {
+            List<String> l = ctrl.mostrarLlistatAlbums();
+
+            @Override
+            public int getSize() {
+                return l.size();
+            }
+
+            @Override
+            public String getElementAt(int index) {
+                return l.get(index);
+            }
+        });
     }
 
     /**
@@ -34,6 +60,7 @@ public class GestioAlbums extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
+        albumList = new javax.swing.JList<>();
         jPanel2 = new javax.swing.JPanel();
         addAlbumBtn = new javax.swing.JButton();
         editAlbumBtn = new javax.swing.JButton();
@@ -42,7 +69,14 @@ public class GestioAlbums extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jScrollPane1.setViewportView(albumList);
+
         addAlbumBtn.setText("Add Album");
+        addAlbumBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addAlbumBtnActionPerformed(evt);
+            }
+        });
 
         editAlbumBtn.setText("Edit Album");
         editAlbumBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -127,25 +161,55 @@ public class GestioAlbums extends javax.swing.JFrame {
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
         dispose();
+        MainView mView = new MainView(ctrl);
+        mView.setVisible(true);
+        mView.setLocationRelativeTo(null);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void editAlbumBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAlbumBtnActionPerformed
         // TODO add your handling code here:
-        EditAlbum eAlbum = new EditAlbum(this.ctrl);
-        eAlbum.setLocationRelativeTo(null);
-        eAlbum.setVisible(true);
+        if (!ctrl.isEmptyAlbums()) {
+            String selected = albumList.getSelectedValue();
+            System.out.println(selected.substring(5));
+        } else {
+
+        }
     }//GEN-LAST:event_editAlbumBtnActionPerformed
+
+    private void addAlbumBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAlbumBtnActionPerformed
+        JTextField title = new JTextField(20);
+        JTextField size = new JTextField(5);
+
+        JPanel myPanel = new JPanel();
+        myPanel.add(new JLabel("Title:"));
+        myPanel.add(title);
+        myPanel.add(Box.createHorizontalStrut(15)); // a spacer
+        myPanel.add(new JLabel("Size:"));
+        myPanel.add(size);
+
+        int result = JOptionPane.showConfirmDialog(null, myPanel,
+                "Please Enter X and Y Values", JOptionPane.OK_CANCEL_OPTION);
+        if (result == JOptionPane.OK_OPTION) {
+            try {
+                this.ctrl.afegirAlbum(title.getText(), Integer.parseInt(size.getText()));
+            } catch (AplicacioException ex) {
+                JOptionPane.showMessageDialog(this,
+                        ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        this.setFiles();
+    }//GEN-LAST:event_addAlbumBtnActionPerformed
 
     /**
      * @param args the command line arguments
      */
     /*public static void main(String args[]) {*/
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+ /* Set the Nimbus look and feel */
+    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        /*try {
+     */
+ /*try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
@@ -161,10 +225,10 @@ public class GestioAlbums extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(GestioAlbums.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }*/
-        //</editor-fold>
+    //</editor-fold>
 
-        /* Create and display the form */
-        /*java.awt.EventQueue.invokeLater(new Runnable() {
+    /* Create and display the form */
+ /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GestioAlbums().setVisible(true);
             }
@@ -173,6 +237,7 @@ public class GestioAlbums extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addAlbumBtn;
+    private javax.swing.JList<String> albumList;
     private javax.swing.JButton backBtn;
     private javax.swing.JButton deleteAlbumBtn;
     private javax.swing.JButton editAlbumBtn;

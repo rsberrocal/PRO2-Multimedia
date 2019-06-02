@@ -32,7 +32,7 @@ public class Controlador implements InControlador {
      * @param vlcPath
      */
     public Controlador() {
-        
+
         this.escoltador = new EscoltadorReproduccio();
         this.reproductor = new Reproductor(escoltador);
         data = new Dades(library, reproductor);
@@ -116,6 +116,14 @@ public class Controlador implements InControlador {
     @Override
     public void afegirAlbum(String title) throws AplicacioException {
         this.data.addAlbum(title);
+    }
+
+    public void afegirAlbum(String title, int size) throws AplicacioException {
+        this.data.addAlbum(title, size);
+    }
+
+    public boolean isEmptyAlbums() {
+        return this.data.isEmptyAlbums();
     }
 
     /**

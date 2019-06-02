@@ -27,6 +27,7 @@ public class GestioBiblioteca extends javax.swing.JFrame {
         this.ctrl = ctrl;
         this.setResizable(false);
         initComponents();
+        this.setFiles();
     }
 
     public void setFiles() {
