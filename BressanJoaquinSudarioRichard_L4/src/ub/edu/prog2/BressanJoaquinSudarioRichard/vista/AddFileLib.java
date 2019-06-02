@@ -9,15 +9,18 @@ import edu.ub.prog2.utils.AplicacioException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
+
 /**
  *
  * @author joaqu
  */
 public class AddFileLib extends javax.swing.JFrame {
+
     Controlador ctrl;
     String nomFile, codecFile, pathFile, camiImatge;
     float duration, fps1;
     int height, width, kbps1;
+
     /**
      * Creates new form AddFileLib
      */
@@ -25,8 +28,8 @@ public class AddFileLib extends javax.swing.JFrame {
         this.ctrl = ctrl;
         initComponents();
         this.jPanel1.setVisible(false);
-        this.setLocationRelativeTo(null);   
-              
+        this.setLocationRelativeTo(null);
+
     }
 
     /**
@@ -305,10 +308,10 @@ public class AddFileLib extends javax.swing.JFrame {
     }//GEN-LAST:event_audCodecActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        if (this.jComboBox1.getSelectedItem().equals("Video")){
+        if (this.jComboBox1.getSelectedItem().equals("Video")) {
             this.jPanel1.setVisible(true);
             this.jPanel2.setVisible(false);
-        }else{
+        } else {
             this.jPanel1.setVisible(false);
             this.jPanel2.setVisible(true);
         }
@@ -324,6 +327,10 @@ public class AddFileLib extends javax.swing.JFrame {
         this.fps1 = Float.parseFloat(this.fps.getText());
         try {
             this.ctrl.afegirVideo(pathFile, nomFile, codecFile, duration, height, width, fps1);
+            dispose();
+            GestioBiblioteca gb = new GestioBiblioteca(ctrl);
+            gb.setLocationRelativeTo(null);
+            gb.setVisible(true);
         } catch (AplicacioException ex) {
             System.out.println(ex);
         }
@@ -338,9 +345,14 @@ public class AddFileLib extends javax.swing.JFrame {
         this.kbps1 = Integer.parseInt(this.kbps.getText());
         try {
             this.ctrl.afegirAudio(pathFile, camiImatge, nomFile, codecFile, duration, kbps1);
+            dispose();
+            GestioBiblioteca gb = new GestioBiblioteca(ctrl);
+            gb.setLocationRelativeTo(null);
+            gb.setVisible(true);
         } catch (AplicacioException ex) {
             System.out.println(ex);
         }
+
     }//GEN-LAST:event_addAudioActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed

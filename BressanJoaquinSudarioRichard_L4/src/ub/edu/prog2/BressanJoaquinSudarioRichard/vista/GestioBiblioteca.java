@@ -32,7 +32,7 @@ public class GestioBiblioteca extends javax.swing.JFrame {
 
     public void setFiles() {
         this.filesList.setModel(new AbstractListModel<String>() {
-            List<String> l = ctrl.mostrarBiblioteca();
+            List<String> l = ctrl.mostrarBibliotecaNames();
 
             @Override
             public int getSize() {
@@ -161,6 +161,8 @@ public class GestioBiblioteca extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
         MainView mView = new MainView(ctrl);
+        mView.setLocationRelativeTo(null);
+        mView.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void addFileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFileBtnActionPerformed

@@ -171,8 +171,13 @@ public class GestioAlbums extends javax.swing.JFrame {
         if (!ctrl.isEmptyAlbums()) {
             String selected = albumList.getSelectedValue();
             System.out.println(selected.substring(5));
+            EditAlbum eAlbum = new EditAlbum(ctrl, ctrl.getActualAlbum(selected));
+            eAlbum.setLocationRelativeTo(null);
+            eAlbum.setVisible(true);
+            dispose();
         } else {
-
+            JOptionPane.showMessageDialog(this,
+                    "Albums not found", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_editAlbumBtnActionPerformed
 
@@ -193,8 +198,8 @@ public class GestioAlbums extends javax.swing.JFrame {
             try {
                 this.ctrl.afegirAlbum(title.getText(), Integer.parseInt(size.getText()));
             } catch (AplicacioException ex) {
-                JOptionPane.showMessageDialog(this,
-                        ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this,
+                            ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
         this.setFiles();

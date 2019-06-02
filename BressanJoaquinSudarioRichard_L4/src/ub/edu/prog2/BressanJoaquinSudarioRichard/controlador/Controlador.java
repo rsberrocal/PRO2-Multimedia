@@ -83,6 +83,10 @@ public class Controlador implements InControlador {
         return data.print();
     }
 
+    public List<String> mostrarBibliotecaNames() {
+        return data.listBiblioteca();
+    }
+
     /**
      * delete a file
      *
@@ -124,6 +128,10 @@ public class Controlador implements InControlador {
 
     public boolean isEmptyAlbums() {
         return this.data.isEmptyAlbums();
+    }
+
+    public AlbumFitxersMultimedia getActualAlbum(String title) {
+        return this.data.findAlbum(title);
     }
 
     /**

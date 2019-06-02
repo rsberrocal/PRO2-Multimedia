@@ -26,7 +26,7 @@ import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.EscoltadorReproducc
  * @author joaqu
  */
 public class Dades implements Serializable {
-    
+
     BibliotecaFitxersMultimedia library = new BibliotecaFitxersMultimedia();
     private transient Reproductor player;
     ArrayList<AlbumFitxersMultimedia> albums;
@@ -59,7 +59,7 @@ public class Dades implements Serializable {
     public void addVideo(String path, String nomVideo, String codec, float durada, int alcada, int amplada, float fps) throws AplicacioException {
         Video v = new Video(path, nomVideo, codec, durada, alcada, amplada, fps, player);
         this.library.addFitxer(v);
-        
+
     }
 
     /**
@@ -86,6 +86,10 @@ public class Dades implements Serializable {
         return library.listBiblioteca();
     }
 
+    public List<String> listBiblioteca() {
+        return library.listBibliotecaNames();
+    }
+
     /**
      * Delete a file from the library
      *
@@ -96,7 +100,7 @@ public class Dades implements Serializable {
         this.deleteIfExist(id);
         this.library.removeFitxer(id);
     }
-    
+
     private void deleteIfExist(int id) throws AplicacioException {
         if (id < 0 || id > this.library.getSize()) {
             throw new AplicacioException("Error: file does not exist");
@@ -137,7 +141,7 @@ public class Dades implements Serializable {
         }
     }
 
-     public void addAlbum(String title,int albumSize) throws AplicacioException {       
+    public void addAlbum(String title, int albumSize) throws AplicacioException {
         //Check if album exists
         if (!albumExist(title)) {
             this.albums.add(new AlbumFitxersMultimedia(albumSize, title));
@@ -145,7 +149,7 @@ public class Dades implements Serializable {
             throw new AplicacioException("Error: Album exists");
         }
     }
-    
+
     /**
      * Check if the album eists
      *
@@ -173,8 +177,8 @@ public class Dades implements Serializable {
         List<String> list = new ArrayList<>();
         if (albums.isEmpty()) {
             list.add("No albums found");
-            return list;            
-        } else {            
+            return list;
+        } else {
             Iterator it = this.albums.iterator();
             int i = 1;
             while (it.hasNext()) {
@@ -275,7 +279,7 @@ public class Dades implements Serializable {
         File f = new File(camiOrigen);
         FileInputStream in = null;
         ObjectInputStream objIn = null;
-        
+
         try {
             in = new FileInputStream(f);
             objIn = new ObjectInputStream(in);
@@ -318,7 +322,7 @@ public class Dades implements Serializable {
         File f = new File(camiDesti);
         FileOutputStream out = null;
         ObjectOutputStream objOut = null;
-        
+
         try {
             out = new FileOutputStream(f);
             objOut = new ObjectOutputStream(out);
@@ -350,10 +354,11 @@ public class Dades implements Serializable {
         }
         return false;
     }
-     public boolean isEmptyAlbums() {        
+
+    public boolean isEmptyAlbums() {
         return this.albums.isEmpty();
     }
-    
+
     public void setReproductor() {
         Iterator it = this.library.folder.iterator();
         while (it.hasNext()) {
