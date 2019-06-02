@@ -5,27 +5,20 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
 
-import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
-
 /**
  *
  * @author joaqu
  */
-public class MainClass extends javax.swing.JFrame {
-    Controlador ctrl;
+public class AddFileLib extends javax.swing.JFrame {
+
     /**
-     * Creates new form MainClass
+     * Creates new form AddFileLib
      */
-    public MainClass(Controlador player) {
+    public AddFileLib() {
         initComponents();
-        this.ctrl = player;
+        this.setSize(800,600);
     }
-    
-    public Controlador init(){
-        this.setLocationRelativeTo(null);
-        this.setSize(800, 600);
-        return this.ctrl;
-    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,20 +61,20 @@ public class MainClass extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainClass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddFileLib.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainClass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddFileLib.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainClass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddFileLib.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainClass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddFileLib.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-//                new MainClass().setVisible(true);
+                new AddFileLib().setVisible(true);
             }
         });
     }
