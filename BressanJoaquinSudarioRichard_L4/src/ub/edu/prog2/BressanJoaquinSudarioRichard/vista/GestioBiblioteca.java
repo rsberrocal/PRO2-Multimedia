@@ -6,6 +6,7 @@
 package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
 
 import java.util.List;
+import javax.swing.AbstractListModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
@@ -24,16 +25,24 @@ public class GestioBiblioteca extends javax.swing.JFrame {
     //Set controlador
     public GestioBiblioteca(Controlador ctrl) {
         this.ctrl = ctrl;
+        this.setResizable(false);
         initComponents();
     }
 
     public void setFiles() {
-        DefaultListModel<String> model = new DefaultListModel<>();
-        this.filesList = new JList<>(model);
-        List<String> l = this.ctrl.mostrarBiblioteca();
-        for(String item:l){
-            model.addElement(item);
-        }                
+        this.filesList.setModel(new AbstractListModel<String>() {
+            List<String> l = ctrl.mostrarBiblioteca();
+
+            @Override
+            public int getSize() {
+                return l.size();
+            }
+
+            @Override
+            public String getElementAt(int index) {
+                return l.get(index);
+            }
+        });
     }
 
     /**
@@ -86,13 +95,13 @@ public class GestioBiblioteca extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(42, 42, 42)
                 .addComponent(addFileBtn)
                 .addGap(29, 29, 29)
                 .addComponent(removeFileBtn)
                 .addGap(40, 40, 40)
                 .addComponent(playBtn)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,6 +159,8 @@ public class GestioBiblioteca extends javax.swing.JFrame {
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
         dispose();
+        MainView mView = new MainView(ctrl);
+        mView.setLocationRelativeTo(null);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void addFileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFileBtnActionPerformed

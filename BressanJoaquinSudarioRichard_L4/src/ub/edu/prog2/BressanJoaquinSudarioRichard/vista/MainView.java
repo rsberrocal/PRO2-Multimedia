@@ -235,8 +235,7 @@ public class MainView extends javax.swing.JFrame{
         dispose();
         GestioBiblioteca gestioLib = new GestioBiblioteca(this.ctrl);
         gestioLib.setLocationRelativeTo(null);
-        gestioLib.setVisible(true);
-        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_DEACTIVATED));
+        gestioLib.setVisible(true);        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
