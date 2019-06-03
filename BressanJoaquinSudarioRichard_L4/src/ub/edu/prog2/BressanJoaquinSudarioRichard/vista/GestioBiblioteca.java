@@ -170,7 +170,7 @@ public class GestioBiblioteca extends javax.swing.JFrame {
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
         dispose();
-        MainView mView = new MainView(ctrl);
+        AplicacioUB4 mView = new AplicacioUB4(ctrl);
         mView.setLocationRelativeTo(null);
         mView.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
