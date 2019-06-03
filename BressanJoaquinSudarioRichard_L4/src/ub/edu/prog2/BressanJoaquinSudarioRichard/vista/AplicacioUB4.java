@@ -21,7 +21,7 @@ public class AplicacioUB4 extends javax.swing.JFrame{
     Container content = this.getContentPane();
     
     /**
-     * Creates new form MainView
+     * Creates new form AplicacioUB4
      */
     public AplicacioUB4(Controlador ctrl) {
         this.ctrl = ctrl;
@@ -280,7 +280,7 @@ public class AplicacioUB4 extends javax.swing.JFrame{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-//                new MainView(this.ctrl).setVisible(true);
+//                new AplicacioUB4(this.ctrl).setVisible(true);
             }
         });
     }
