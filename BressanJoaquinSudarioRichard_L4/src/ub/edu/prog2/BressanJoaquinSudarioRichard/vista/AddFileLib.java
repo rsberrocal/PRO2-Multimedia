@@ -8,6 +8,7 @@ package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
 import edu.ub.prog2.utils.AplicacioException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
 
@@ -42,9 +43,8 @@ public class AddFileLib extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
+        typeChoice = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
-        path = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         nom = new javax.swing.JTextField();
@@ -59,8 +59,8 @@ public class AddFileLib extends javax.swing.JFrame {
         fps = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         addVideo = new javax.swing.JButton();
+        btnVidPath = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        audPath = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         audNom = new javax.swing.JTextField();
@@ -73,14 +73,19 @@ public class AddFileLib extends javax.swing.JFrame {
         kbps = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         addAudio = new javax.swing.JButton();
+        btnAudPath = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
+        otherFilePanel = new javax.swing.JPanel();
+        lblFilePath = new javax.swing.JLabel();
+        btnFilePath = new javax.swing.JButton();
+        btnAddFile = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Audio", "Video" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        typeChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Audio", "Video", "Other file" }));
+        typeChoice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                typeChoiceActionPerformed(evt);
             }
         });
 
@@ -105,6 +110,13 @@ public class AddFileLib extends javax.swing.JFrame {
             }
         });
 
+        btnVidPath.setText("Search path");
+        btnVidPath.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVidPathActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -119,7 +131,7 @@ public class AddFileLib extends javax.swing.JFrame {
                             .addComponent(jLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(amplada, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                            .addComponent(amplada, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(alcada, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(fps, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -129,12 +141,17 @@ public class AddFileLib extends javax.swing.JFrame {
                                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabel2)
                             .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(durada)
-                            .addComponent(nom)
-                            .addComponent(path)
-                            .addComponent(codec))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(durada)
+                                    .addComponent(nom)
+                                    .addComponent(codec)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(btnVidPath)
+                                .addGap(0, 42, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -143,11 +160,11 @@ public class AddFileLib extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(path, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(26, 26, 26)
+                    .addComponent(jLabel1)
+                    .addComponent(btnVidPath))
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nom, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -200,6 +217,13 @@ public class AddFileLib extends javax.swing.JFrame {
             }
         });
 
+        btnAudPath.setText("Search path");
+        btnAudPath.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAudPathActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -216,15 +240,20 @@ public class AddFileLib extends javax.swing.JFrame {
                             .addComponent(jLabel8)
                             .addComponent(jLabel12)
                             .addComponent(jLabel14))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(kbps, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
-                            .addComponent(audImage)
-                            .addComponent(audDurada)
-                            .addComponent(audNom)
-                            .addComponent(audPath)
-                            .addComponent(audCodec))
-                        .addGap(13, 13, 13))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(kbps, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+                                    .addComponent(audImage)
+                                    .addComponent(audDurada)
+                                    .addComponent(audNom)
+                                    .addComponent(audCodec))
+                                .addGap(13, 13, 13))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addComponent(btnAudPath)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(addAudio)))
@@ -233,11 +262,11 @@ public class AddFileLib extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(audPath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addGap(20, 20, 20)
+                    .addComponent(jLabel8)
+                    .addComponent(btnAudPath))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(audNom, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
@@ -269,6 +298,49 @@ public class AddFileLib extends javax.swing.JFrame {
             }
         });
 
+        lblFilePath.setText("Path:");
+
+        btnFilePath.setText("Search path");
+        btnFilePath.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFilePathActionPerformed(evt);
+            }
+        });
+
+        btnAddFile.setText("Add File");
+        btnAddFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddFileActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout otherFilePanelLayout = new javax.swing.GroupLayout(otherFilePanel);
+        otherFilePanel.setLayout(otherFilePanelLayout);
+        otherFilePanelLayout.setHorizontalGroup(
+            otherFilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(otherFilePanelLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(lblFilePath)
+                .addGap(26, 26, 26)
+                .addGroup(otherFilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(otherFilePanelLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(btnAddFile))
+                    .addComponent(btnFilePath))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        otherFilePanelLayout.setVerticalGroup(
+            otherFilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(otherFilePanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(otherFilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFilePath)
+                    .addComponent(btnFilePath))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(btnAddFile)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -279,13 +351,15 @@ public class AddFileLib extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(backBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(typeChoice, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(81, 81, 81))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(34, 34, 34)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(otherFilePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -293,10 +367,11 @@ public class AddFileLib extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(otherFilePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(typeChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(backBtn))
                 .addGap(29, 29, 29))
         );
@@ -319,7 +394,6 @@ public class AddFileLib extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void addVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVideoActionPerformed
-        this.pathFile = this.path.getText();
         this.nomFile = this.nom.getText();
         this.codecFile = this.codec.getText();
         this.height = Integer.parseInt(this.alcada.getText());
@@ -339,7 +413,6 @@ public class AddFileLib extends javax.swing.JFrame {
     }//GEN-LAST:event_addVideoActionPerformed
 
     private void addAudioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAudioActionPerformed
-        this.pathFile = this.audPath.getText();
         this.nomFile = this.audNom.getText();
         this.codecFile = this.audCodec.getText();
         this.camiImatge = this.audImage.getText();
@@ -364,6 +437,36 @@ public class AddFileLib extends javax.swing.JFrame {
         gestioLib.setLocationRelativeTo(null);
         gestioLib.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
+
+    private void btnVidPathActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVidPathActionPerformed
+        JFileChooser fc = new JFileChooser();
+        fc.setDialogTitle("Search for file's path");
+        fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        this.pathFile = fc.getSelectedFile().getAbsolutePath();
+    }//GEN-LAST:event_btnVidPathActionPerformed
+
+    private void btnAudPathActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAudPathActionPerformed
+        JFileChooser fc = new JFileChooser();
+        fc.setDialogTitle("Search for file's path");
+        fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        this.pathFile = fc.getSelectedFile().getAbsolutePath();
+    }//GEN-LAST:event_btnAudPathActionPerformed
+
+    private void btnFilePathActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilePathActionPerformed
+        JFileChooser fc = new JFileChooser();
+        fc.setDialogTitle("Search for file's path");
+        fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        this.pathFile = fc.getSelectedFile().getAbsolutePath();
+    }//GEN-LAST:event_btnFilePathActionPerformed
+
+    private void btnAddFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFileActionPerformed
+        try{
+            this.ctrl.afegirFitxerToLib(this.pathFile);
+        }catch(AplicacioException ex){
+            JOptionPane.showMessageDialog(this,
+                    ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnAddFileActionPerformed
 
     /**
      * @param args the command line arguments
@@ -409,12 +512,14 @@ public class AddFileLib extends javax.swing.JFrame {
     private javax.swing.JTextField audDurada;
     private javax.swing.JTextField audImage;
     private javax.swing.JTextField audNom;
-    private javax.swing.JTextField audPath;
     private javax.swing.JButton backBtn;
+    private javax.swing.JButton btnAddFile;
+    private javax.swing.JButton btnAudPath;
+    private javax.swing.JButton btnFilePath;
+    private javax.swing.JButton btnVidPath;
     private javax.swing.JTextField codec;
     private javax.swing.JTextField durada;
     private javax.swing.JTextField fps;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -431,7 +536,9 @@ public class AddFileLib extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField kbps;
+    private javax.swing.JLabel lblFilePath;
     private javax.swing.JTextField nom;
-    private javax.swing.JTextField path;
+    private javax.swing.JPanel otherFilePanel;
+    private javax.swing.JComboBox<String> typeChoice;
     // End of variables declaration//GEN-END:variables
 }

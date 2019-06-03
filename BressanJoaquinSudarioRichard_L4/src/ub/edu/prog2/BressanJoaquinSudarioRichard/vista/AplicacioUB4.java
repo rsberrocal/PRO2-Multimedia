@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author joaqu
  */
-public class MainView extends javax.swing.JFrame{
+public class AplicacioUB4 extends javax.swing.JFrame{
     Controlador ctrl = new Controlador();    
     String path, nom, codec, pathFile, nomAlbum, camiImatge, vlcPath;
     float durada, fps;
@@ -23,7 +23,7 @@ public class MainView extends javax.swing.JFrame{
     /**
      * Creates new form MainView
      */
-    public MainView(Controlador ctrl) {
+    public AplicacioUB4(Controlador ctrl) {
         this.ctrl = ctrl;
         initComponents();
         this.setLocationRelativeTo(null);
