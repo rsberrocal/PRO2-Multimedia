@@ -6,6 +6,8 @@
 package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
 
 import edu.ub.prog2.utils.AplicacioException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
  
@@ -227,10 +229,22 @@ public class GestioReproducció extends javax.swing.JFrame {
 
     private void btnGoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoBackActionPerformed
         if(this.isLib){
+            try {
+                this.ctrl.aturaReproduccio();
+            } catch (AplicacioException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            dispose();
             GestioBiblioteca gestioLib = new GestioBiblioteca(this.ctrl);
             gestioLib.setLocationRelativeTo(null);
             gestioLib.setVisible(true);
         }else{
+            try {
+                this.ctrl.aturaReproduccio();
+            } catch (AplicacioException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            dispose();
             GestioAlbums gestioAlb = new GestioAlbums(this.ctrl);
             gestioAlb.setLocationRelativeTo(null);
             gestioAlb.setVisible(true);
