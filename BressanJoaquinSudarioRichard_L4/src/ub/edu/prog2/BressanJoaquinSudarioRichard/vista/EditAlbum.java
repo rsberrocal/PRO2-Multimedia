@@ -167,7 +167,7 @@ public class EditAlbum extends javax.swing.JFrame {
     public void setFiles() {
         try {
             this.filesList.setModel(new AbstractListModel<String>() {
-                List<String> l = ctrl.mostrarAlbum(actualAlbum.getTitle());
+                List<String> l = ctrl.mostrarAlbumNames(actualAlbum.getTitle());
 
                 @Override
                 public int getSize() {

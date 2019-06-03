@@ -386,7 +386,7 @@ public class AddFileLib extends javax.swing.JFrame {
     }//GEN-LAST:event_audCodecActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-      /*  if (this.jComboBox1.getSelectedItem().equals("Video")) {
+        /*  if (this.jComboBox1.getSelectedItem().equals("Video")) {
             this.jPanel1.setVisible(true);
             this.jPanel2.setVisible(false);
             this.otherFilePanel.setVisible(false);
@@ -450,9 +450,9 @@ public class AddFileLib extends javax.swing.JFrame {
         JButton open = new JButton();
         JFileChooser fc = new JFileChooser();
         fc.setDialogTitle("Search for file's path");
-        fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        if(fc.showOpenDialog(fc) == JFileChooser.APPROVE_OPTION){
-            
+        fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        if (fc.showOpenDialog(fc) == JFileChooser.APPROVE_OPTION) {
+
         }
         this.pathFile = fc.getSelectedFile().getAbsolutePath();
     }//GEN-LAST:event_btnVidPathActionPerformed
@@ -461,9 +461,9 @@ public class AddFileLib extends javax.swing.JFrame {
         JButton open = new JButton();
         JFileChooser fc = new JFileChooser();
         fc.setDialogTitle("Search for file's path");
-        fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        if(fc.showOpenDialog(fc) == JFileChooser.APPROVE_OPTION){
-            
+        fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        if (fc.showOpenDialog(fc) == JFileChooser.APPROVE_OPTION) {
+
         }
         this.pathFile = fc.getSelectedFile().getAbsolutePath();
     }//GEN-LAST:event_btnAudPathActionPerformed
@@ -472,17 +472,17 @@ public class AddFileLib extends javax.swing.JFrame {
         JButton open = new JButton();
         JFileChooser fc = new JFileChooser();
         fc.setDialogTitle("Search for file's path");
-        fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        if(fc.showOpenDialog(fc) == JFileChooser.APPROVE_OPTION){
-            
+        fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        if (fc.showOpenDialog(fc) == JFileChooser.APPROVE_OPTION) {
+
         }
         this.pathFile = fc.getSelectedFile().getAbsolutePath();
     }//GEN-LAST:event_btnFilePathActionPerformed
 
     private void btnAddFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFileActionPerformed
-        try{
+        try {
             this.ctrl.afegirFitxerToLib(this.pathFile);
-        }catch(AplicacioException ex){
+        } catch (AplicacioException ex) {
             JOptionPane.showMessageDialog(this,
                     ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -493,11 +493,11 @@ public class AddFileLib extends javax.swing.JFrame {
             this.jPanel1.setVisible(true);
             this.jPanel2.setVisible(false);
             this.otherFilePanel.setVisible(false);
-        } else if (this.typeChoice1.getSelectedItem().equals("Audio")){
+        } else if (this.typeChoice1.getSelectedItem().equals("Audio")) {
             this.jPanel1.setVisible(false);
             this.jPanel2.setVisible(true);
             this.otherFilePanel.setVisible(false);
-        }else{
+        } else {
             this.jPanel1.setVisible(false);
             this.jPanel2.setVisible(false);
             this.otherFilePanel.setVisible(true);

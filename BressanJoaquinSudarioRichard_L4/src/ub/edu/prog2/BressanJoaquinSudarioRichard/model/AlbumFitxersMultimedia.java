@@ -67,6 +67,22 @@ public class AlbumFitxersMultimedia extends CarpetaFitxers {
         return list;
     }
 
+    public List<String> showAlbumNames() {
+        List<String> list = new ArrayList<>();
+
+        Iterator it = super.folder.iterator();
+        int i = 1;
+        while (it.hasNext()) {
+            FitxerMultimedia f = (FitxerMultimedia) it.next();
+            list.add("\n[" + i + "] " + f.getName());
+            i++;
+        }
+        if (super.folder.isEmpty()) {
+            list.add("No files found");
+        }
+        return list;
+    }
+
     /**
      *
      * @param title set a new title album

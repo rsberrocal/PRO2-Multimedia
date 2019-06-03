@@ -39,9 +39,10 @@ public class Controlador implements InControlador {
     }
 
     //BIBLIOTECA
-    public void afegirFitxerToLib(String path) throws AplicacioException{
+    public void afegirFitxerToLib(String path) throws AplicacioException {
         this.data.addFileToLib(path);
     }
+
     /**
      * Add a Video to library
      *
@@ -88,6 +89,10 @@ public class Controlador implements InControlador {
 
     public List<String> mostrarBibliotecaNames() {
         return data.listBiblioteca();
+    }
+
+    public List<String> mostrarAlbumNames(String title) throws AplicacioException {
+        return data.mostrarAlbumNames(title);
     }
 
     /**

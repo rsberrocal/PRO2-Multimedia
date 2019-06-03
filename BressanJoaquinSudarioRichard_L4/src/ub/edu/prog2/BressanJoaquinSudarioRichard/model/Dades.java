@@ -43,10 +43,11 @@ public class Dades implements Serializable {
         this.albums = new ArrayList<>();
         this.player = player;
     }
-    
-    public void addFileToLib(String path) throws AplicacioException{
+
+    public void addFileToLib(String path) throws AplicacioException {
         this.library.addFitxer(new File(path));
     }
+
     /**
      * Add a video to library
      *
@@ -252,6 +253,15 @@ public class Dades implements Serializable {
         AlbumFitxersMultimedia actualAlbum = findAlbum(title);
         if (actualAlbum != null) {
             return actualAlbum.showAlbum();
+        } else {
+            throw new AplicacioException("Error: album not exists");
+        }
+    }
+
+    public List<String> mostrarAlbumNames(String title) throws AplicacioException {
+        AlbumFitxersMultimedia actualAlbum = findAlbum(title);
+        if (actualAlbum != null) {
+            return actualAlbum.showAlbumNames();
         } else {
             throw new AplicacioException("Error: album not exists");
         }
