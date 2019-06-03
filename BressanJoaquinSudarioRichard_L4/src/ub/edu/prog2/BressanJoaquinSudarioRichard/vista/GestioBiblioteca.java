@@ -30,16 +30,16 @@ public class GestioBiblioteca extends javax.swing.JFrame {
         initComponents();
         this.setFiles();
     }
-    
+
     public void setFiles() {
         this.filesList.setModel(new AbstractListModel<String>() {
             List<String> l = ctrl.mostrarBibliotecaNames();
-            
+
             @Override
             public int getSize() {
                 return l.size();
             }
-            
+
             @Override
             public String getElementAt(int index) {
                 return l.get(index);
@@ -177,18 +177,23 @@ public class GestioBiblioteca extends javax.swing.JFrame {
     private void playBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playBtnActionPerformed
         // TODO add your handling code here:
         //OPEN CONTROLLER 
-        if (this.filesList.isSelectionEmpty()) {
-            GestioReproducció gRep = new GestioReproducció(ctrl);
-            try {
+        GestioReproducció gRep = new GestioReproducció(ctrl);
+        try {
+            if (this.filesList.isSelectionEmpty()) {
                 ctrl.reproduirCarpeta();
-                gRep.setLocationRelativeTo(null);
-                gRep.setVisible(true);
-            } catch (AplicacioException ex) {
-                
+
+            } else {
+                String selected = filesList.getSelectedValue();
+                selected = selected.substring(selected.indexOf("[") + 1);
+                selected = selected.substring(0, selected.indexOf("]"));
+                int index = Integer.parseInt(selected);
+                ctrl.reproduirFitxer(index);
             }
-        } else {
-            
+        } catch (AplicacioException ex) {
+
         }
+        gRep.setLocationRelativeTo(null);
+        gRep.setVisible(true);
     }//GEN-LAST:event_playBtnActionPerformed
 
     /**

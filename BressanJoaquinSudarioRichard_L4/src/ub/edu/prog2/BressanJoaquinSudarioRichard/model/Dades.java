@@ -75,6 +75,7 @@ public class Dades implements Serializable {
      */
     public void addAudio(String cami, File camiImatge, String nomAudio, String codec, float durada, int kbps) throws AplicacioException {
         Audio a = new Audio(cami, camiImatge, nomAudio, codec, durada, kbps, player);
+        boolean exists = camiImatge.exists();
         this.library.addFitxer(a);
     }
 

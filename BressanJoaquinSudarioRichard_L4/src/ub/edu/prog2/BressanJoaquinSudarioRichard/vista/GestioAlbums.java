@@ -169,8 +169,7 @@ public class GestioAlbums extends javax.swing.JFrame {
     private void editAlbumBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAlbumBtnActionPerformed
         // TODO add your handling code here:
         if (!ctrl.isEmptyAlbums()) {
-            String selected = albumList.getSelectedValue();
-            System.out.println(selected.substring(5));
+            String selected = albumList.getSelectedValue();            
             EditAlbum eAlbum = new EditAlbum(ctrl, ctrl.getActualAlbum(selected));
             eAlbum.setLocationRelativeTo(null);
             eAlbum.setVisible(true);
