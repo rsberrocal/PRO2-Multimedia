@@ -358,6 +358,7 @@ public class AddFileLib extends javax.swing.JFrame {
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         dispose();
         GestioBiblioteca gestioLib = new GestioBiblioteca(this.ctrl);
+        gestioLib.setLocationRelativeTo(null);
         gestioLib.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 

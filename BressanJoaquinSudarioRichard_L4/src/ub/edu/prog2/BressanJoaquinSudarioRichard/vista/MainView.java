@@ -30,6 +30,8 @@ public class MainView extends javax.swing.JFrame{
         this.setSize(800, 600);
         this.filesProgress.setValue(this.ctrl.getSizeLib());
         this.albumsProgress.setValue(this.ctrl.getNumAlbums());
+        this.lblNumFiles.setText(Integer.toString(this.ctrl.getSizeLib())+"%");
+        this.lblNumAlbums.setText(Integer.toString(this.ctrl.getNumAlbums())+"%");
     }
     
     
@@ -43,7 +45,7 @@ public class MainView extends javax.swing.JFrame{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        gestio = new javax.swing.JPanel();
         btnGestioLib = new javax.swing.JButton();
         filesProgress = new javax.swing.JProgressBar();
         btnGestioAlbums = new javax.swing.JButton();
@@ -64,7 +66,7 @@ public class MainView extends javax.swing.JFrame{
             }
         });
 
-        jPanel1.setForeground(new java.awt.Color(182, 159, 74));
+        gestio.setForeground(new java.awt.Color(182, 159, 74));
 
         btnGestioLib.setText("Gestio Biblioteca");
         btnGestioLib.addActionListener(new java.awt.event.ActionListener() {
@@ -80,41 +82,41 @@ public class MainView extends javax.swing.JFrame{
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout gestioLayout = new javax.swing.GroupLayout(gestio);
+        gestio.setLayout(gestioLayout);
+        gestioLayout.setHorizontalGroup(
+            gestioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gestioLayout.createSequentialGroup()
+                .addGroup(gestioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(gestioLayout.createSequentialGroup()
                         .addComponent(btnGestioLib)
                         .addGap(28, 28, 28)
                         .addComponent(filesProgress, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(gestioLayout.createSequentialGroup()
                         .addComponent(btnGestioAlbums)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(albumsProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gestioLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(gestioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNumFiles, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblNumAlbums, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        gestioLayout.setVerticalGroup(
+            gestioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gestioLayout.createSequentialGroup()
                 .addComponent(lblNumFiles)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(gestioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnGestioLib, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(filesProgress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(lblNumAlbums)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(gestioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnGestioAlbums, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(gestioLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(albumsProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -156,7 +158,7 @@ public class MainView extends javax.swing.JFrame{
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(73, 73, 73)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(gestio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,7 +186,7 @@ public class MainView extends javax.swing.JFrame{
                 .addContainerGap()
                 .addComponent(lblMainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(gestio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 315, Short.MAX_VALUE)
                 .addComponent(txtDataPath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -196,8 +198,8 @@ public class MainView extends javax.swing.JFrame{
                 .addContainerGap())
         );
 
-        jPanel1.getAccessibleContext().setAccessibleName("");
-        jPanel1.getAccessibleContext().setAccessibleDescription("");
+        gestio.getAccessibleContext().setAccessibleName("");
+        gestio.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -291,7 +293,7 @@ public class MainView extends javax.swing.JFrame{
     private javax.swing.JButton btnLoadData;
     private javax.swing.JButton btnSaveData;
     private javax.swing.JProgressBar filesProgress;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel gestio;
     private javax.swing.JLabel lblMainMenu;
     private javax.swing.JLabel lblNumAlbums;
     private javax.swing.JLabel lblNumFiles;

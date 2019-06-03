@@ -15,11 +15,13 @@ import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
  */
 public class GestioReproducció extends javax.swing.JFrame {
     Controlador ctrl;
+    boolean isLib;
     /**
      * Creates new form GestioReproducció
      */
-    public GestioReproducció(Controlador ctrl) {
+    public GestioReproducció(Controlador ctrl, boolean b) {
         initComponents();
+        this.isLib = b;
         this.ctrl = ctrl;
         this.setLocation(0,472);
         this.ctrl.obrirFinestraReproductor();
@@ -44,6 +46,7 @@ public class GestioReproducció extends javax.swing.JFrame {
         btnContinue = new javax.swing.JButton();
         checkRandom = new javax.swing.JCheckBox();
         checkContinue = new javax.swing.JCheckBox();
+        btnGoBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -134,18 +137,31 @@ public class GestioReproducció extends javax.swing.JFrame {
                 .addComponent(checkContinue, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        btnGoBack.setText("Go Back");
+        btnGoBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGoBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnGoBack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(mediaControlPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(mediaControlPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnGoBack)
+                .addContainerGap())
         );
 
         pack();
@@ -209,6 +225,18 @@ public class GestioReproducció extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnGoForwardActionPerformed
 
+    private void btnGoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoBackActionPerformed
+        if(this.isLib){
+            GestioBiblioteca gestioLib = new GestioBiblioteca(this.ctrl);
+            gestioLib.setLocationRelativeTo(null);
+            gestioLib.setVisible(true);
+        }else{
+            GestioAlbums gestioAlb = new GestioAlbums(this.ctrl);
+            gestioAlb.setLocationRelativeTo(null);
+            gestioAlb.setVisible(true);
+        }
+    }//GEN-LAST:event_btnGoBackActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -246,6 +274,7 @@ public class GestioReproducció extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnContinue;
+    private javax.swing.JButton btnGoBack;
     private javax.swing.JButton btnGoForward;
     private javax.swing.JButton btnPlay;
     private javax.swing.JButton btnRandom;
