@@ -193,7 +193,7 @@ public class EditAlbum extends javax.swing.JFrame {
         GestioReproducció gRep = new GestioReproducció(ctrl, true);
         try {
             if (this.filesList.isSelectionEmpty()) {
-                ctrl.reproduirCarpeta();
+                ctrl.reproduirCarpeta(this.actualAlbum.getTitle());
 
             } else {
                 String selected = filesList.getSelectedValue();
@@ -203,7 +203,8 @@ public class EditAlbum extends javax.swing.JFrame {
                 ctrl.reproduirFitxer(index);
             }
         } catch (AplicacioException ex) {
-
+            JOptionPane.showMessageDialog(this,
+                    ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
         gRep.setLocationRelativeTo(null);
         gRep.setVisible(true);

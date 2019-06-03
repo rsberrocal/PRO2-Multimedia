@@ -10,6 +10,7 @@ import java.util.List;
 import javax.swing.AbstractListModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
 
 /**
@@ -29,17 +30,18 @@ public class GestioBiblioteca extends javax.swing.JFrame {
         this.setResizable(false);
         initComponents();
         this.setFiles();
+        this.removeFileBtn.setEnabled(false);
     }
-
+    
     public void setFiles() {
         this.filesList.setModel(new AbstractListModel<String>() {
             List<String> l = ctrl.mostrarBibliotecaNames();
-
+            
             @Override
             public int getSize() {
                 return l.size();
             }
-
+            
             @Override
             public String getElementAt(int index) {
                 return l.get(index);
@@ -84,6 +86,11 @@ public class GestioBiblioteca extends javax.swing.JFrame {
         });
 
         removeFileBtn.setText("Remove File");
+        removeFileBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeFileBtnActionPerformed(evt);
+            }
+        });
 
         playBtn.setText("▶");
         playBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -172,6 +179,9 @@ public class GestioBiblioteca extends javax.swing.JFrame {
         dispose();
         AddFileLib addFile = new AddFileLib(this.ctrl);
         addFile.setVisible(true);
+        if (!this.removeFileBtn.isEnabled()) {
+            this.removeFileBtn.setEnabled(true);
+        }
     }//GEN-LAST:event_addFileBtnActionPerformed
 
     private void playBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playBtnActionPerformed
@@ -181,7 +191,7 @@ public class GestioBiblioteca extends javax.swing.JFrame {
         try {
             if (this.filesList.isSelectionEmpty()) {
                 ctrl.reproduirCarpeta();
-
+                
             } else {
                 String selected = filesList.getSelectedValue();
                 selected = selected.substring(selected.indexOf("[") + 1);
@@ -190,11 +200,26 @@ public class GestioBiblioteca extends javax.swing.JFrame {
                 ctrl.reproduirFitxer(index);
             }
         } catch (AplicacioException ex) {
-
+            JOptionPane.showMessageDialog(this,
+                    ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
         gRep.setLocationRelativeTo(null);
         gRep.setVisible(true);
     }//GEN-LAST:event_playBtnActionPerformed
+
+    private void removeFileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeFileBtnActionPerformed
+        // TODO add your handling code here:
+        String selected = filesList.getSelectedValue();
+        selected = selected.substring(selected.indexOf("[") + 1);
+        selected = selected.substring(0, selected.indexOf("]"));
+        int index = Integer.parseInt(selected);
+        try {
+            ctrl.esborrarFitxer(index);
+        } catch (AplicacioException ex) {
+            JOptionPane.showMessageDialog(this,
+                    ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_removeFileBtnActionPerformed
 
     /**
      * @param args the command line arguments
