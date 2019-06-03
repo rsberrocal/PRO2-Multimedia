@@ -30,6 +30,7 @@ public class AddFileLib extends javax.swing.JFrame {
         this.ctrl = ctrl;
         initComponents();
         this.jPanel1.setVisible(false);
+        this.otherFilePanel.setVisible(false);
         this.setLocationRelativeTo(null);
 
     }
@@ -475,7 +476,19 @@ public class AddFileLib extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddFileActionPerformed
 
     private void typeChoice1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeChoice1ActionPerformed
-        // TODO add your handling code here:
+        if (this.typeChoice1.getSelectedItem().equals("Video")) {
+            this.jPanel1.setVisible(true);
+            this.jPanel2.setVisible(false);
+            this.otherFilePanel.setVisible(false);
+        } else if (this.typeChoice1.getSelectedItem().equals("Audio")){
+            this.jPanel1.setVisible(false);
+            this.jPanel2.setVisible(true);
+            this.otherFilePanel.setVisible(false);
+        }else{
+            this.jPanel1.setVisible(false);
+            this.jPanel2.setVisible(false);
+            this.otherFilePanel.setVisible(true);
+        }
     }//GEN-LAST:event_typeChoice1ActionPerformed
 
     /**

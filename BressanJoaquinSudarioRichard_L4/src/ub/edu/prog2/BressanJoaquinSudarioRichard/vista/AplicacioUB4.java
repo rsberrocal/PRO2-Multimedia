@@ -8,6 +8,7 @@ package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
 import edu.ub.prog2.utils.AplicacioException;
 import java.awt.Container;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 /**
  *
@@ -27,7 +28,6 @@ public class AplicacioUB4 extends javax.swing.JFrame{
         this.ctrl = ctrl;
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setSize(800, 600);
         this.filesProgress.setValue(this.ctrl.getSizeLib());
         this.albumsProgress.setValue(this.ctrl.getNumAlbums());
         this.lblNumFiles.setText(Integer.toString(this.ctrl.getSizeLib())+"%");
@@ -56,7 +56,6 @@ public class AplicacioUB4 extends javax.swing.JFrame{
         btnExit = new javax.swing.JButton();
         btnLoadData = new javax.swing.JButton();
         btnSaveData = new javax.swing.JButton();
-        txtDataPath = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(162, 145, 50));
@@ -145,13 +144,6 @@ public class AplicacioUB4 extends javax.swing.JFrame{
             }
         });
 
-        txtDataPath.setText("Insert file's path...");
-        txtDataPath.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDataPathActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -163,21 +155,19 @@ public class AplicacioUB4 extends javax.swing.JFrame{
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(690, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtDataPath, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(284, 284, 284)
-                                    .addComponent(lblMainMenu))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(120, 120, 120)
-                                    .addComponent(btnSaveData)
-                                    .addGap(66, 66, 66)
-                                    .addComponent(btnLoadData))))
-                        .addGap(0, 390, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(284, 284, 284)
+                                .addComponent(lblMainMenu))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(120, 120, 120)
+                                .addComponent(btnSaveData)
+                                .addGap(66, 66, 66)
+                                .addComponent(btnLoadData)))
+                        .addGap(0, 236, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -187,9 +177,7 @@ public class AplicacioUB4 extends javax.swing.JFrame{
                 .addComponent(lblMainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(gestio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 300, Short.MAX_VALUE)
-                .addComponent(txtDataPath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSaveData)
                     .addComponent(btnLoadData))
@@ -223,28 +211,28 @@ public class AplicacioUB4 extends javax.swing.JFrame{
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnLoadDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadDataActionPerformed
-       try {
-            ctrl.carregarDadesDisc(this.txtDataPath.getText());
+        JFileChooser fc = new JFileChooser();
+        fc.setDialogTitle("Search for file's path");
+        fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        try {
+            ctrl.carregarDadesDisc(fc.getSelectedFile().getAbsolutePath());
             JOptionPane.showMessageDialog(this, "Data Loaded!", "Confirm", JOptionPane.PLAIN_MESSAGE);
         } catch (AplicacioException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-       this.txtDataPath.setText("Insert file's path...");
     }//GEN-LAST:event_btnLoadDataActionPerformed
 
     private void btnSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveDataActionPerformed
+        JFileChooser fc = new JFileChooser();
+        fc.setDialogTitle("Search for file's path");
+        fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         try {
-            ctrl.guardarDadesDisc(this.txtDataPath.getText());
+            ctrl.guardarDadesDisc(fc.getSelectedFile().getAbsolutePath());
             JOptionPane.showMessageDialog(this, "Data Saved!", "Confirm", JOptionPane.PLAIN_MESSAGE);
         } catch (AplicacioException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-        this.txtDataPath.setText("Insert file's path...");
     }//GEN-LAST:event_btnSaveDataActionPerformed
-
-    private void txtDataPathActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataPathActionPerformed
-        
-    }//GEN-LAST:event_txtDataPathActionPerformed
 
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
         // TODO add your handling code here:
@@ -297,6 +285,5 @@ public class AplicacioUB4 extends javax.swing.JFrame{
     private javax.swing.JLabel lblMainMenu;
     private javax.swing.JLabel lblNumAlbums;
     private javax.swing.JLabel lblNumFiles;
-    private javax.swing.JTextField txtDataPath;
     // End of variables declaration//GEN-END:variables
 }
