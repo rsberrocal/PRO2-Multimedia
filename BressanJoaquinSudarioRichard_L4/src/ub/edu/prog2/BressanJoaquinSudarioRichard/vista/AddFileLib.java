@@ -387,9 +387,15 @@ public class AddFileLib extends javax.swing.JFrame {
         if (this.jComboBox1.getSelectedItem().equals("Video")) {
             this.jPanel1.setVisible(true);
             this.jPanel2.setVisible(false);
-        } else {
+            this.otherFilePanel.setVisible(false);
+        } else if (this.jComboBox1.getSelectedItem().equals("Audio")){
             this.jPanel1.setVisible(false);
             this.jPanel2.setVisible(true);
+            this.otherFilePanel.setVisible(false);
+        }else{
+            this.jPanel1.setVisible(false);
+            this.jPanel2.setVisible(false);
+            this.otherFilePanel.setVisible(true);
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
