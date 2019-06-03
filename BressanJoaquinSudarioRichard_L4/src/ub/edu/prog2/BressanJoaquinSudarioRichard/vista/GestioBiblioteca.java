@@ -177,7 +177,7 @@ public class GestioBiblioteca extends javax.swing.JFrame {
     private void playBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playBtnActionPerformed
         // TODO add your handling code here:
         //OPEN CONTROLLER 
-        GestioReproducció gRep = new GestioReproducció(ctrl);
+        GestioReproducció gRep = new GestioReproducció(ctrl, true);
         try {
             if (this.filesList.isSelectionEmpty()) {
                 ctrl.reproduirCarpeta();

@@ -190,6 +190,23 @@ public class EditAlbum extends javax.swing.JFrame {
     private void playBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playBtnActionPerformed
         // TODO add your handling code here:
         //OPEN CONTROLLER
+        GestioReproducció gRep = new GestioReproducció(ctrl, true);
+        try {
+            if (this.filesList.isSelectionEmpty()) {
+                ctrl.reproduirCarpeta();
+
+            } else {
+                String selected = filesList.getSelectedValue();
+                selected = selected.substring(selected.indexOf("[") + 1);
+                selected = selected.substring(0, selected.indexOf("]"));
+                int index = Integer.parseInt(selected);
+                ctrl.reproduirFitxer(index);
+            }
+        } catch (AplicacioException ex) {
+
+        }
+        gRep.setLocationRelativeTo(null);
+        gRep.setVisible(true);
     }//GEN-LAST:event_playBtnActionPerformed
 
     /**
