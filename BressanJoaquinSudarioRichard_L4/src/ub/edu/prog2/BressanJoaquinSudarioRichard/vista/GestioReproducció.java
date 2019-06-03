@@ -6,6 +6,7 @@
 package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
 
 import edu.ub.prog2.utils.AplicacioException;
+import javax.swing.JOptionPane;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
  
 /**
@@ -22,6 +23,8 @@ public class GestioReproducció extends javax.swing.JFrame {
         this.ctrl = ctrl;
         this.setLocation(0,472);
         this.ctrl.obrirFinestraReproductor();
+        this.ctrl.setRandom(false);
+        this.ctrl.setContinu(false);
     }
 
     /**
@@ -165,14 +168,14 @@ public class GestioReproducció extends javax.swing.JFrame {
             try {
                 this.ctrl.pausaReproduccio();
             } catch (AplicacioException ex) {
-                System.out.println(ex);
+                JOptionPane.showMessageDialog(this,ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
             this.btnPlay.setText("▶");
         }else{
             try {
                 this.ctrl.reemprenReproduccio();
             } catch (AplicacioException ex) {
-                System.out.println(ex);
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
             this.btnPlay.setText("❚❚");
         }
@@ -206,7 +209,7 @@ public class GestioReproducció extends javax.swing.JFrame {
         try {
             this.ctrl.aturaReproduccio();
         } catch (AplicacioException ex) {
-            System.out.println(ex);
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnStopActionPerformed
 
@@ -214,7 +217,7 @@ public class GestioReproducció extends javax.swing.JFrame {
         try {
             this.ctrl.saltaReproduccio();
         } catch (AplicacioException ex) {
-            System.out.println(ex);
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnGoForwardActionPerformed
 

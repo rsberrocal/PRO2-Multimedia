@@ -26,6 +26,7 @@ public class Controlador implements InControlador {
     EscoltadorReproduccio escoltador;
     private transient Reproductor reproductor;
     Scanner sc = new Scanner(System.in);
+    
 
     /**
      *
