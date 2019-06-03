@@ -8,6 +8,7 @@ package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
 import edu.ub.prog2.utils.AplicacioException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
@@ -446,23 +447,35 @@ public class AddFileLib extends javax.swing.JFrame {
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void btnVidPathActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVidPathActionPerformed
+        JButton open = new JButton();
         JFileChooser fc = new JFileChooser();
         fc.setDialogTitle("Search for file's path");
         fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        if(fc.showOpenDialog(fc) == JFileChooser.APPROVE_OPTION){
+            
+        }
         this.pathFile = fc.getSelectedFile().getAbsolutePath();
     }//GEN-LAST:event_btnVidPathActionPerformed
 
     private void btnAudPathActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAudPathActionPerformed
+        JButton open = new JButton();
         JFileChooser fc = new JFileChooser();
         fc.setDialogTitle("Search for file's path");
         fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        if(fc.showOpenDialog(fc) == JFileChooser.APPROVE_OPTION){
+            
+        }
         this.pathFile = fc.getSelectedFile().getAbsolutePath();
     }//GEN-LAST:event_btnAudPathActionPerformed
 
     private void btnFilePathActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilePathActionPerformed
+        JButton open = new JButton();
         JFileChooser fc = new JFileChooser();
         fc.setDialogTitle("Search for file's path");
         fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        if(fc.showOpenDialog(fc) == JFileChooser.APPROVE_OPTION){
+            
+        }
         this.pathFile = fc.getSelectedFile().getAbsolutePath();
     }//GEN-LAST:event_btnFilePathActionPerformed
 

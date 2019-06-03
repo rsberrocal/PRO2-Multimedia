@@ -8,6 +8,7 @@ package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
 import edu.ub.prog2.utils.AplicacioException;
 import java.awt.Container;
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 /**
@@ -211,9 +212,13 @@ public class AplicacioUB4 extends javax.swing.JFrame{
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnLoadDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadDataActionPerformed
+        JButton open = new JButton();
         JFileChooser fc = new JFileChooser();
         fc.setDialogTitle("Search for file's path");
         fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        if(fc.showOpenDialog(fc) == JFileChooser.APPROVE_OPTION){
+            
+        }
         try {
             ctrl.carregarDadesDisc(fc.getSelectedFile().getAbsolutePath());
             JOptionPane.showMessageDialog(this, "Data Loaded!", "Confirm", JOptionPane.PLAIN_MESSAGE);
@@ -223,9 +228,13 @@ public class AplicacioUB4 extends javax.swing.JFrame{
     }//GEN-LAST:event_btnLoadDataActionPerformed
 
     private void btnSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveDataActionPerformed
+        JButton open = new JButton();
         JFileChooser fc = new JFileChooser();
         fc.setDialogTitle("Search for file's path");
         fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        if(fc.showOpenDialog(fc) == JFileChooser.APPROVE_OPTION){
+            
+        }
         try {
             ctrl.guardarDadesDisc(fc.getSelectedFile().getAbsolutePath());
             JOptionPane.showMessageDialog(this, "Data Saved!", "Confirm", JOptionPane.PLAIN_MESSAGE);
