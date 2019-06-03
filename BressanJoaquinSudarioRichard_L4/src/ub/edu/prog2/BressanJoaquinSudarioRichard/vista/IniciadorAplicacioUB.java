@@ -21,8 +21,8 @@ public class IniciadorAplicacioUB {
         Scanner sc = new Scanner(System.in);
         Controlador ctrl = new Controlador();
         AplicacioUB3 aplicacio = new AplicacioUB3();
-        MainView interficie = new MainView(ctrl);        
+        MainView interficie = new MainView(ctrl);
         interficie.setVisible(true);
     }
-    
+
 }

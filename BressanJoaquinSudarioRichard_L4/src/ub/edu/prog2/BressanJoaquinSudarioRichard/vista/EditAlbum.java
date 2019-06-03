@@ -5,7 +5,12 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
 
+import edu.ub.prog2.utils.AplicacioException;
+import java.util.List;
+import javax.swing.AbstractListModel;
+import javax.swing.JOptionPane;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
+import ub.edu.prog2.BressanJoaquinSudarioRichard.model.AlbumFitxersMultimedia;
 
 /**
  *
@@ -14,16 +19,18 @@ import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
 public class EditAlbum extends javax.swing.JFrame {
 
     Controlador ctrl;
-    
+    AlbumFitxersMultimedia actualAlbum;
+
     /**
      * Creates new form EditAlbum
      */
     public EditAlbum() {
         initComponents();
     }
-    
-    public EditAlbum(Controlador ctrl){
+
+    public EditAlbum(Controlador ctrl, AlbumFitxersMultimedia actualAlbum) {
         this.ctrl = ctrl;
+        this.actualAlbum = actualAlbum;
         initComponents();
     }
 
@@ -38,6 +45,7 @@ public class EditAlbum extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
+        filesList = new javax.swing.JList<>();
         jPanel2 = new javax.swing.JPanel();
         jProgressBar1 = new javax.swing.JProgressBar();
         addFileBtn = new javax.swing.JButton();
@@ -46,6 +54,8 @@ public class EditAlbum extends javax.swing.JFrame {
         backBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jScrollPane1.setViewportView(filesList);
 
         addFileBtn.setText("Add File");
         addFileBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -142,12 +152,37 @@ public class EditAlbum extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
+        dispose();
+        GestioAlbums gAlbums = new GestioAlbums(ctrl);
+        gAlbums.setVisible(true);
+        gAlbums.setLocationRelativeTo(null);
     }//GEN-LAST:event_backBtnActionPerformed
+
+    public void setFiles() {
+        try {
+            this.filesList.setModel(new AbstractListModel<String>() {
+                List<String> l = ctrl.mostrarAlbum(actualAlbum.getTitle());
+
+                @Override
+                public int getSize() {
+                    return l.size();
+                }
+
+                @Override
+                public String getElementAt(int index) {
+                    return l.get(index);
+                }
+            });
+        } catch (AplicacioException ex) {
+            JOptionPane.showMessageDialog(this,
+                    ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
     private void addFileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFileBtnActionPerformed
         // TODO add your handling code here:
         //PONER FILE FORM
-        AddFileAlbum addFileToAlbum = new AddFileAlbum();
+        AddFileAlbum addFileToAlbum = new AddFileAlbum(ctrl, actualAlbum);
         addFileToAlbum.setLocationRelativeTo(null);
         addFileToAlbum.setVisible(true);
     }//GEN-LAST:event_addFileBtnActionPerformed
@@ -195,6 +230,7 @@ public class EditAlbum extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addFileBtn;
     private javax.swing.JButton backBtn;
+    private javax.swing.JList<String> filesList;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JProgressBar jProgressBar1;
