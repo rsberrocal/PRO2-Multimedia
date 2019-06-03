@@ -48,7 +48,6 @@ public class EditAlbum extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         filesList = new javax.swing.JList<>();
         jPanel2 = new javax.swing.JPanel();
-        jProgressBar1 = new javax.swing.JProgressBar();
         addFileBtn = new javax.swing.JButton();
         removeFileBtn = new javax.swing.JButton();
         playBtn = new javax.swing.JButton();
@@ -83,10 +82,6 @@ public class EditAlbum extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(37, Short.MAX_VALUE)
                 .addComponent(addFileBtn)
@@ -104,9 +99,7 @@ public class EditAlbum extends javax.swing.JFrame {
                     .addComponent(addFileBtn)
                     .addComponent(removeFileBtn)
                     .addComponent(playBtn))
-                .addGap(18, 18, 18)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         backBtn.setText("Go Back");
@@ -224,7 +217,7 @@ public class EditAlbum extends javax.swing.JFrame {
         selected = selected.substring(0, selected.indexOf("]"));
         int index = Integer.parseInt(selected);
         try {
-            ctrl.esborrarFitxer(this.actualAlbum.getTitle(), index);
+            ctrl.esborrarFitxer(this.actualAlbum.getTitle(), index - 1);
         } catch (AplicacioException ex) {
             JOptionPane.showMessageDialog(this,
                     ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -275,7 +268,6 @@ public class EditAlbum extends javax.swing.JFrame {
     private javax.swing.JList<String> filesList;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton playBtn;
     private javax.swing.JButton removeFileBtn;
