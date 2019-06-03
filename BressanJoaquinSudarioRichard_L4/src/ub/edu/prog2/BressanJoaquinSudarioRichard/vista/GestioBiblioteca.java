@@ -173,7 +173,7 @@ public class GestioBiblioteca extends javax.swing.JFrame {
 
     private void playBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playBtnActionPerformed
         // TODO add your handling code here:
-        //OPEN CONTROLLER
+        //OPEN CONTROLLER 
     }//GEN-LAST:event_playBtnActionPerformed
 
     /**

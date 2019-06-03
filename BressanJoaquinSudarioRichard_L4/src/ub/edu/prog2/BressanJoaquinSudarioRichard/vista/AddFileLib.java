@@ -6,8 +6,6 @@
 package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
 
 import edu.ub.prog2.utils.AplicacioException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
 /**
  *
@@ -38,7 +36,7 @@ public class AddFileLib extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
+        typeChoice = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         path = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -73,10 +71,10 @@ public class AddFileLib extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Audio", "Video" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        typeChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Audio", "Video" }));
+        typeChoice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                typeChoiceActionPerformed(evt);
             }
         });
 
@@ -275,7 +273,7 @@ public class AddFileLib extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(backBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(typeChoice, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(81, 81, 81))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -292,7 +290,7 @@ public class AddFileLib extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(typeChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(backBtn))
                 .addGap(29, 29, 29))
         );
@@ -304,15 +302,15 @@ public class AddFileLib extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_audCodecActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        if (this.jComboBox1.getSelectedItem().equals("Video")){
+    private void typeChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeChoiceActionPerformed
+        if (this.typeChoice.getSelectedItem().equals("Video")){
             this.jPanel1.setVisible(true);
             this.jPanel2.setVisible(false);
         }else{
             this.jPanel1.setVisible(false);
             this.jPanel2.setVisible(true);
         }
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_typeChoiceActionPerformed
 
     private void addVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVideoActionPerformed
         this.pathFile = this.path.getText();
@@ -327,6 +325,7 @@ public class AddFileLib extends javax.swing.JFrame {
         } catch (AplicacioException ex) {
             System.out.println(ex);
         }
+        
     }//GEN-LAST:event_addVideoActionPerformed
 
     private void addAudioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAudioActionPerformed
@@ -398,7 +397,6 @@ public class AddFileLib extends javax.swing.JFrame {
     private javax.swing.JTextField codec;
     private javax.swing.JTextField durada;
     private javax.swing.JTextField fps;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -417,5 +415,6 @@ public class AddFileLib extends javax.swing.JFrame {
     private javax.swing.JTextField kbps;
     private javax.swing.JTextField nom;
     private javax.swing.JTextField path;
+    private javax.swing.JComboBox<String> typeChoice;
     // End of variables declaration//GEN-END:variables
 }

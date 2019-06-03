@@ -22,7 +22,7 @@ import ub.edu.prog2.BressanJoaquinSudarioRichard.model.BibliotecaFitxersMultimed
 public class Controlador implements InControlador {
 
     BibliotecaFitxersMultimedia library = new BibliotecaFitxersMultimedia();
-    Dades data;
+    public Dades data;
     EscoltadorReproduccio escoltador;
     private transient Reproductor reproductor;
     Scanner sc = new Scanner(System.in);
@@ -362,5 +362,12 @@ public class Controlador implements InControlador {
             throw new AplicacioException(ex.getMessage());
         }
     }
-
+    
+    public int getNumAlbums(){
+        return this.data.getNumAlbums();
+    }
+    
+    public int getSizeLib(){
+        return this.library.getSize();
+    }
 }

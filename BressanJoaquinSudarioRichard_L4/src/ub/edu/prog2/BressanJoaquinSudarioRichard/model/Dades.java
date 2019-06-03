@@ -376,4 +376,9 @@ public class Dades implements Serializable {
             }
         }
     }
+    
+    public int getNumAlbums(){
+        return this.albums.size();
+    }
+    
 }
