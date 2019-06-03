@@ -55,10 +55,14 @@ public class AlbumFitxersMultimedia extends CarpetaFitxers {
      */
     public List<String> showAlbum() {
         List<String> list = new ArrayList<>();
+
         Iterator it = super.folder.iterator();
         while (it.hasNext()) {
             FitxerMultimedia f = (FitxerMultimedia) it.next();
-            list.add(f.toString() + "\n" );
+            list.add(f.toString() + "\n");
+        }
+        if (super.folder.isEmpty()) {
+            list.add("No files found");
         }
         return list;
     }
@@ -78,8 +82,8 @@ public class AlbumFitxersMultimedia extends CarpetaFitxers {
     public String getTitle() {
         return this.title;
     }
-    
-    public int getMax(){
+
+    public int getMax() {
         return this.maxFiles;
-    }        
+    }
 }

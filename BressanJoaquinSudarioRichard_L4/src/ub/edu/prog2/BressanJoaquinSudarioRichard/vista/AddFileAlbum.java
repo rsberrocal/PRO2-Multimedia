@@ -5,8 +5,10 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
 
+import edu.ub.prog2.utils.AplicacioException;
 import java.util.List;
 import javax.swing.AbstractListModel;
+import javax.swing.JOptionPane;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.model.AlbumFitxersMultimedia;
 
@@ -151,11 +153,20 @@ public class AddFileAlbum extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String selected = fileAlbumList.getSelectedValue();
-        System.out.println(selected.substring(5));
-        EditAlbum eAlbum = new EditAlbum(ctrl, ctrl.getActualAlbum(selected));
-        eAlbum.setLocationRelativeTo(null);
-        eAlbum.setVisible(true);
-        dispose();
+        selected = selected.substring(selected.indexOf("[") + 1);
+        selected = selected.substring(0, selected.indexOf("]"));
+        int index = Integer.parseInt(selected);
+        try {
+            ctrl.afegirFitxer(this.actualAlbum.getTitle(), index - 1);
+            EditAlbum eAlbum = new EditAlbum(ctrl, this.actualAlbum);
+            eAlbum.setLocationRelativeTo(null);
+            eAlbum.setVisible(true);
+            dispose();
+        } catch (AplicacioException ex) {
+            JOptionPane.showMessageDialog(this,
+                    ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -32,6 +32,7 @@ public class EditAlbum extends javax.swing.JFrame {
         this.ctrl = ctrl;
         this.actualAlbum = actualAlbum;
         initComponents();
+        this.setFiles();
     }
 
     /**
@@ -187,6 +188,7 @@ public class EditAlbum extends javax.swing.JFrame {
     private void addFileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFileBtnActionPerformed
         // TODO add your handling code here:
         //PONER FILE FORM
+        dispose();
         AddFileAlbum addFileToAlbum = new AddFileAlbum(ctrl, actualAlbum);
         addFileToAlbum.setLocationRelativeTo(null);
         addFileToAlbum.setVisible(true);

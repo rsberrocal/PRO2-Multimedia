@@ -30,6 +30,10 @@ public class GestioAlbums extends javax.swing.JFrame {
         this.ctrl = ctrl;
         this.setResizable(false);
         initComponents();
+        if (ctrl.isEmptyAlbums()) {
+            this.deleteAlbumBtn.setEnabled(false);
+            this.editAlbumBtn.setEnabled(false);
+        }
         this.setFiles();
     }
 
@@ -86,6 +90,11 @@ public class GestioAlbums extends javax.swing.JFrame {
         });
 
         deleteAlbumBtn.setText("Delete Album");
+        deleteAlbumBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteAlbumBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -94,9 +103,9 @@ public class GestioAlbums extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(addAlbumBtn)
-                .addGap(38, 38, 38)
+                .addGap(27, 27, 27)
                 .addComponent(editAlbumBtn)
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addComponent(deleteAlbumBtn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -169,7 +178,8 @@ public class GestioAlbums extends javax.swing.JFrame {
     private void editAlbumBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAlbumBtnActionPerformed
         // TODO add your handling code here:
         if (!ctrl.isEmptyAlbums()) {
-            String selected = albumList.getSelectedValue();            
+            String selected = albumList.getSelectedValue();
+            selected = selected.substring(selected.indexOf("]") + 2);
             EditAlbum eAlbum = new EditAlbum(ctrl, ctrl.getActualAlbum(selected));
             eAlbum.setLocationRelativeTo(null);
             eAlbum.setVisible(true);
@@ -197,12 +207,37 @@ public class GestioAlbums extends javax.swing.JFrame {
             try {
                 this.ctrl.afegirAlbum(title.getText(), Integer.parseInt(size.getText()));
             } catch (AplicacioException ex) {
-                    JOptionPane.showMessageDialog(this,
-                            ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this,
+                        ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
+        this.editAlbumBtn.setEnabled(true);
+        this.deleteAlbumBtn.setEnabled(true);
         this.setFiles();
     }//GEN-LAST:event_addAlbumBtnActionPerformed
+
+    private void deleteAlbumBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAlbumBtnActionPerformed
+        // TODO add your handling code here:
+        if (ctrl.isEmptyAlbums()) {
+            JOptionPane.showMessageDialog(this,
+                    "0 albums", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            String selected = albumList.getSelectedValue();
+            selected = selected.substring(selected.indexOf("[") + 1);
+            selected = selected.substring(0, selected.indexOf("]"));
+            int index = Integer.parseInt(selected);
+            try {
+                ctrl.esborrarFitxer(index - 1);
+            } catch (AplicacioException ex) {
+                JOptionPane.showMessageDialog(this,
+                        ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            if (ctrl.isEmptyAlbums()) {
+                this.deleteAlbumBtn.setEnabled(false);
+            }
+            this.setFiles();
+        }
+    }//GEN-LAST:event_deleteAlbumBtnActionPerformed
 
     /**
      * @param args the command line arguments
