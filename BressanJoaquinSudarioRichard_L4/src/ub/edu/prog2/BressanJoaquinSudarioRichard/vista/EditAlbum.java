@@ -65,6 +65,11 @@ public class EditAlbum extends javax.swing.JFrame {
         });
 
         removeFileBtn.setText("Remove File");
+        removeFileBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeFileBtnActionPerformed(evt);
+            }
+        });
 
         playBtn.setText("▶");
         playBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -209,6 +214,23 @@ public class EditAlbum extends javax.swing.JFrame {
         gRep.setLocationRelativeTo(null);
         gRep.setVisible(true);
     }//GEN-LAST:event_playBtnActionPerformed
+
+    private void removeFileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeFileBtnActionPerformed
+        // TODO add your handling code here:
+        String selected = filesList.getSelectedValue();
+        selected = selected.substring(selected.indexOf("[") + 1);
+        selected = selected.substring(0, selected.indexOf("]"));
+        int index = Integer.parseInt(selected);
+        try {
+            ctrl.esborrarFitxer(this.actualAlbum.getTitle(), index);
+        } catch (AplicacioException ex) {
+            JOptionPane.showMessageDialog(this,
+                    ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        if (ctrl.isEmpty()) {
+            this.removeFileBtn.setEnabled(false);
+        }
+    }//GEN-LAST:event_removeFileBtnActionPerformed
 
     /**
      * @param args the command line arguments

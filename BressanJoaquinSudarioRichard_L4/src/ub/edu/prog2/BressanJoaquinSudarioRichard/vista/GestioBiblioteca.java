@@ -219,6 +219,9 @@ public class GestioBiblioteca extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,
                     ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
+        if (ctrl.isEmpty()) {
+            this.removeFileBtn.setEnabled(false);
+        }
     }//GEN-LAST:event_removeFileBtnActionPerformed
 
     /**
