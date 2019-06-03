@@ -39,6 +39,9 @@ public class Controlador implements InControlador {
     }
 
     //BIBLIOTECA
+    public void afegirFitxerToLib(String path) throws AplicacioException{
+        this.data.addFileToLib(path);
+    }
     /**
      * Add a Video to library
      *

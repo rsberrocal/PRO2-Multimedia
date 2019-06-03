@@ -161,7 +161,7 @@ public class GestioAlbums extends javax.swing.JFrame {
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
         dispose();
-        MainView mView = new MainView(ctrl);
+        AplicacioUB4 mView = new AplicacioUB4(ctrl);
         mView.setVisible(true);
         mView.setLocationRelativeTo(null);
     }//GEN-LAST:event_backBtnActionPerformed

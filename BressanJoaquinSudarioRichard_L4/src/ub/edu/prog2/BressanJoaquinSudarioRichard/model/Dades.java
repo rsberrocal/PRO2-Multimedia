@@ -43,7 +43,10 @@ public class Dades implements Serializable {
         this.albums = new ArrayList<>();
         this.player = player;
     }
-
+    
+    public void addFileToLib(String path) throws AplicacioException{
+        this.library.addFitxer(new File(path));
+    }
     /**
      * Add a video to library
      *
