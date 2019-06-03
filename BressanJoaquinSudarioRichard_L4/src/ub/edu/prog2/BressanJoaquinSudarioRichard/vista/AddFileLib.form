@@ -33,9 +33,9 @@
                       <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="addVideoPnl" max="32767" attributes="0"/>
+                      <Component id="jPanel1" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                      <Component id="addAudioPnl" min="-2" max="-2" attributes="0"/>
+                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -47,8 +47,8 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="addAudioPnl" min="-2" max="-2" attributes="0"/>
-                  <Component id="addVideoPnl" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="56" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -77,7 +77,7 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Container class="javax.swing.JPanel" name="addVideoPnl">
+    <Container class="javax.swing.JPanel" name="jPanel1">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -87,32 +87,32 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblAmplada" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblAlcada" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblFps" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtAmplada" alignment="1" pref="171" max="32767" attributes="0"/>
-                              <Component id="txtAlcada" alignment="1" max="32767" attributes="0"/>
-                              <Component id="txtFps" alignment="1" max="32767" attributes="0"/>
+                              <Component id="amplada" alignment="1" pref="171" max="32767" attributes="0"/>
+                              <Component id="alcada" alignment="1" max="32767" attributes="0"/>
+                              <Component id="fps" alignment="1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="lblDurada" max="32767" attributes="0"/>
-                                  <Component id="lblCodec" max="32767" attributes="0"/>
+                                  <Component id="jLabel4" max="32767" attributes="0"/>
+                                  <Component id="jLabel3" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="lblNom" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblPath" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtDurada" max="32767" attributes="0"/>
-                              <Component id="txtNom" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtPath" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtCodec" alignment="0" max="32767" attributes="0"/>
+                              <Component id="durada" max="32767" attributes="0"/>
+                              <Component id="nom" alignment="0" max="32767" attributes="0"/>
+                              <Component id="path" alignment="0" max="32767" attributes="0"/>
+                              <Component id="codec" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -120,7 +120,7 @@
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="btnAddVideo" min="-2" max="-2" attributes="0"/>
+                  <Component id="addVideo" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -129,106 +129,106 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtPath" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblPath" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="path" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtNom" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="lblNom" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nom" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtCodec" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblCodec" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="codec" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtDurada" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblDurada" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="durada" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblAmplada" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtAmplada" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="amplada" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtAlcada" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblAlcada" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="alcada" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtFps" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblFps" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="fps" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btnAddVideo" min="-2" max="-2" attributes="0"/>
+                  <Component id="addVideo" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblPath">
+        <Component class="javax.swing.JTextField" name="path">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Path:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtPath">
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblNom">
+        <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nom:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNom">
+        <Component class="javax.swing.JTextField" name="nom">
         </Component>
-        <Component class="javax.swing.JLabel" name="lblCodec">
+        <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="text" type="java.lang.String" value="Codec:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtCodec">
+        <Component class="javax.swing.JTextField" name="codec">
         </Component>
-        <Component class="javax.swing.JLabel" name="lblDurada">
+        <Component class="javax.swing.JTextField" name="durada">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="text" type="java.lang.String" value="Durada:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtDurada">
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblAmplada">
+        <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
             <Property name="text" type="java.lang.String" value="Amplada:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtAmplada">
+        <Component class="javax.swing.JTextField" name="amplada">
         </Component>
-        <Component class="javax.swing.JLabel" name="lblAlcada">
+        <Component class="javax.swing.JTextField" name="alcada">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="text" type="java.lang.String" value="Alcada:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtAlcada">
+        <Component class="javax.swing.JTextField" name="fps">
         </Component>
-        <Component class="javax.swing.JLabel" name="lblFps">
+        <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
             <Property name="text" type="java.lang.String" value="FPS:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtFps">
-        </Component>
-        <Component class="javax.swing.JButton" name="btnAddVideo">
+        <Component class="javax.swing.JButton" name="addVideo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Add Video"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddVideoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addVideoActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="addAudioPnl">
+    <Container class="javax.swing.JPanel" name="jPanel2">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -239,28 +239,28 @@
                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="lblAudDurada" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblCodecNom" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel11" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel10" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="lblAudNom" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblAudPath" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblImagePath" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblKbps" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtKbps" pref="155" max="32767" attributes="0"/>
-                              <Component id="txtAudImage" max="32767" attributes="0"/>
-                              <Component id="txtAudDurada" max="32767" attributes="0"/>
-                              <Component id="txtAudNom" max="32767" attributes="0"/>
-                              <Component id="txtAudPath" max="32767" attributes="0"/>
-                              <Component id="txtAudCodec" alignment="0" max="32767" attributes="0"/>
+                              <Component id="kbps" pref="155" max="32767" attributes="0"/>
+                              <Component id="audImage" max="32767" attributes="0"/>
+                              <Component id="audDurada" max="32767" attributes="0"/>
+                              <Component id="audNom" max="32767" attributes="0"/>
+                              <Component id="audPath" max="32767" attributes="0"/>
+                              <Component id="audCodec" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btnAddAudio" min="-2" max="-2" attributes="0"/>
+                          <Component id="addAudio" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -272,93 +272,93 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtAudPath" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblAudPath" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="audPath" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtAudNom" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="lblAudNom" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="audNom" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtAudCodec" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblCodecNom" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="audCodec" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtAudDurada" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblAudDurada" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="audDurada" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblImagePath" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtAudImage" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="audImage" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblKbps" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtKbps" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="kbps" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btnAddAudio" min="-2" max="-2" attributes="0"/>
+                  <Component id="addAudio" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblAudPath">
+        <Component class="javax.swing.JTextField" name="audPath">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
             <Property name="text" type="java.lang.String" value="Path:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtAudPath">
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblAudNom">
+        <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nom:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtAudNom">
+        <Component class="javax.swing.JTextField" name="audNom">
         </Component>
-        <Component class="javax.swing.JLabel" name="lblCodecNom">
+        <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>
             <Property name="text" type="java.lang.String" value="Codec:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtAudCodec">
+        <Component class="javax.swing.JTextField" name="audCodec">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAudCodecActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="audCodecActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblAudDurada">
+        <Component class="javax.swing.JTextField" name="audDurada">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>
             <Property name="text" type="java.lang.String" value="Durada:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtAudDurada">
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblImagePath">
+        <Component class="javax.swing.JLabel" name="jLabel12">
           <Properties>
             <Property name="text" type="java.lang.String" value="Image path:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtAudImage">
+        <Component class="javax.swing.JTextField" name="audImage">
         </Component>
-        <Component class="javax.swing.JLabel" name="lblKbps">
+        <Component class="javax.swing.JTextField" name="kbps">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel14">
           <Properties>
             <Property name="text" type="java.lang.String" value="KBPS:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtKbps">
-        </Component>
-        <Component class="javax.swing.JButton" name="btnAddAudio">
+        <Component class="javax.swing.JButton" name="addAudio">
           <Properties>
             <Property name="text" type="java.lang.String" value="Add Audio"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddAudioActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addAudioActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
