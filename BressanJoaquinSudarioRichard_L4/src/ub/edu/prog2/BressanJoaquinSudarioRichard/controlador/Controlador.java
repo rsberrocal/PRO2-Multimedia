@@ -239,9 +239,6 @@ public class Controlador implements InControlador {
     @Override
     public void reproduirFitxer(int i) throws AplicacioException {
         File f = this.library.getAt(i);
-        System.out.println("Reproducción continua?");
-        this.escoltador.setContinue(sc.nextBoolean());
-        this.escoltador.setRandom(false);
         this.escoltador.iniciarReproduccio(f, this.escoltador.getContinue());
     }
 
@@ -251,10 +248,6 @@ public class Controlador implements InControlador {
      */
     @Override
     public void reproduirCarpeta() throws AplicacioException {
-        System.out.println("Reproducción continua?");
-        this.escoltador.setContinue(sc.nextBoolean());
-        System.out.println("Reproducción aleatoria?");
-        this.escoltador.setRandom(sc.nextBoolean());
         this.escoltador.iniciarReproduccio(this.library, this.escoltador.getContinue());
     }
 
@@ -266,10 +259,6 @@ public class Controlador implements InControlador {
     @Override
     public void reproduirCarpeta(String string) throws AplicacioException {
         AlbumFitxersMultimedia album = data.findAlbum(string);
-        System.out.println("Reproducción continua?");
-        this.escoltador.setContinue(sc.nextBoolean());
-        System.out.println("Reproducción aleatoria?");
-        this.escoltador.setRandom(sc.nextBoolean());
         this.escoltador.iniciarReproduccio(album, this.escoltador.getContinue());
     }
 

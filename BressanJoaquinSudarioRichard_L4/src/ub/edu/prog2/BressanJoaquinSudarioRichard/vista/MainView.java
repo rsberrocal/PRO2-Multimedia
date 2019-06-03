@@ -48,6 +48,7 @@ public class MainView extends javax.swing.JFrame{
     private void initComponents() {
 
         jDialog1 = new javax.swing.JDialog();
+        entityManager1 = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory(null).createEntityManager();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         filesProgress = new javax.swing.JProgressBar();
@@ -344,6 +345,7 @@ public class MainView extends javax.swing.JFrame{
     private javax.swing.JButton btnLoadData;
     private javax.swing.JButton btnSaveData;
     private javax.swing.JTextField dataPath;
+    private javax.persistence.EntityManager entityManager1;
     private javax.swing.JLabel fileProgress;
     private javax.swing.JProgressBar filesProgress;
     private javax.swing.JButton jButton1;
