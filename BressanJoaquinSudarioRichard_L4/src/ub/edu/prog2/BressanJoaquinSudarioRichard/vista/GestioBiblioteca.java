@@ -5,6 +5,7 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
 
+import edu.ub.prog2.utils.AplicacioException;
 import java.util.List;
 import javax.swing.AbstractListModel;
 import javax.swing.DefaultListModel;
@@ -29,16 +30,16 @@ public class GestioBiblioteca extends javax.swing.JFrame {
         initComponents();
         this.setFiles();
     }
-
+    
     public void setFiles() {
         this.filesList.setModel(new AbstractListModel<String>() {
             List<String> l = ctrl.mostrarBibliotecaNames();
-
+            
             @Override
             public int getSize() {
                 return l.size();
             }
-
+            
             @Override
             public String getElementAt(int index) {
                 return l.get(index);
@@ -176,6 +177,18 @@ public class GestioBiblioteca extends javax.swing.JFrame {
     private void playBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playBtnActionPerformed
         // TODO add your handling code here:
         //OPEN CONTROLLER 
+        if (this.filesList.isSelectionEmpty()) {
+            GestioReproducció gRep = new GestioReproducció(ctrl);
+            try {
+                ctrl.reproduirCarpeta();
+                gRep.setLocationRelativeTo(null);
+                gRep.setVisible(true);
+            } catch (AplicacioException ex) {
+                
+            }
+        } else {
+            
+        }
     }//GEN-LAST:event_playBtnActionPerformed
 
     /**
