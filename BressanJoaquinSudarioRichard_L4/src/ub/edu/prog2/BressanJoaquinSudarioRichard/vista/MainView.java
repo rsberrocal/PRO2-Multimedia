@@ -5,14 +5,10 @@
  */
 package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
 
-import java.awt.event.WindowEvent;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
 import edu.ub.prog2.utils.AplicacioException;
-import edu.ub.prog2.utils.Menu;
 import java.awt.Container;
-import java.util.Scanner;
 import javax.swing.JOptionPane;
-import javax.swing.Timer;
 /**
  *
  * @author joaqu
@@ -33,7 +29,7 @@ public class MainView extends javax.swing.JFrame{
         this.setLocationRelativeTo(null);
         this.setSize(800, 600);
         this.filesProgress.setValue(this.ctrl.getSizeLib());
-        this.numAlbums.setValue(this.ctrl.getNumAlbums());
+        this.albumsProgress.setValue(this.ctrl.getNumAlbums());
     }
     
     
@@ -47,133 +43,89 @@ public class MainView extends javax.swing.JFrame{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
-        entityManager1 = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory(null).createEntityManager();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnGestioLib = new javax.swing.JButton();
         filesProgress = new javax.swing.JProgressBar();
-        jPanel2 = new javax.swing.JPanel();
-        albProgress = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        numAlbums = new javax.swing.JProgressBar();
-        fileProgress = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        btnGestioAlbums = new javax.swing.JButton();
+        albumsProgress = new javax.swing.JProgressBar();
+        lblNumFiles = new javax.swing.JLabel();
+        lblNumAlbums = new javax.swing.JLabel();
+        lblMainMenu = new javax.swing.JLabel();
+        btnExit = new javax.swing.JButton();
         btnLoadData = new javax.swing.JButton();
         btnSaveData = new javax.swing.JButton();
-        dataPath = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        txtDataPath = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(162, 145, 50));
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentHidden(java.awt.event.ComponentEvent evt) {
                 formComponentHidden(evt);
             }
         });
 
-        jButton1.setText("Gestio Biblioteca");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jPanel1.setForeground(new java.awt.Color(182, 159, 74));
+
+        btnGestioLib.setText("Gestio Biblioteca");
+        btnGestioLib.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnGestioLibActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(albProgress)
-                .addGap(187, 187, 187))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 29, Short.MAX_VALUE)
-                .addComponent(albProgress))
-        );
-
-        jButton2.setText("Gestio Albums");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnGestioAlbums.setText("Gestio Albums");
+        btnGestioAlbums.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnGestioAlbumsActionPerformed(evt);
             }
         });
-
-        fileProgress.setText("jLabel3");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnGestioLib)
                         .addGap(28, 28, 28)
                         .addComponent(filesProgress, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(btnGestioAlbums)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(numAlbums, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(albumsProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNumFiles, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblNumAlbums, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(fileProgress)
-                .addGap(184, 184, 184))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(fileProgress)
+                .addComponent(lblNumFiles)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGestioLib, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(filesProgress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(lblNumAlbums)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGestioAlbums, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(numAlbums, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(albumsProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
-        jPanel2.getAccessibleContext().setAccessibleDescription("");
+        lblMainMenu.setText("Main Menu");
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 225, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 34, Short.MAX_VALUE)
-        );
-
-        jLabel1.setText("Main Menu");
-
-        jButton6.setText("Exit");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnExitActionPerformed(evt);
             }
         });
 
@@ -191,10 +143,10 @@ public class MainView extends javax.swing.JFrame{
             }
         });
 
-        dataPath.setText("Insert file's path...");
-        dataPath.addActionListener(new java.awt.event.ActionListener() {
+        txtDataPath.setText("Insert file's path...");
+        txtDataPath.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dataPathActionPerformed(evt);
+                txtDataPathActionPerformed(evt);
             }
         });
 
@@ -203,54 +155,44 @@ public class MainView extends javax.swing.JFrame{
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(284, 284, 284)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(dataPath, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnSaveData)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnLoadData)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2)))
-                .addContainerGap(382, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(135, 135, 135))))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(73, 73, 73)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(690, Short.MAX_VALUE)
+                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtDataPath, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(284, 284, 284)
+                                    .addComponent(lblMainMenu))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(120, 120, 120)
+                                    .addComponent(btnSaveData)
+                                    .addGap(66, 66, 66)
+                                    .addComponent(btnLoadData))))
+                        .addGap(0, 390, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblMainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 247, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dataPath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 315, Short.MAX_VALUE)
+                .addComponent(txtDataPath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSaveData)
                     .addComponent(btnLoadData))
                 .addGap(26, 26, 26)
-                .addComponent(jButton6)
+                .addComponent(btnExit)
                 .addContainerGap())
         );
 
@@ -260,46 +202,47 @@ public class MainView extends javax.swing.JFrame{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnGestioLibActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestioLibActionPerformed
         dispose();
         GestioBiblioteca gestioLib = new GestioBiblioteca(this.ctrl);
         gestioLib.setLocationRelativeTo(null);
         gestioLib.setVisible(true);        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnGestioLibActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnGestioAlbumsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestioAlbumsActionPerformed
         dispose();
         GestioAlbums gestioAlb = new GestioAlbums(this.ctrl);
         gestioAlb.setLocationRelativeTo(null);
         gestioAlb.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnGestioAlbumsActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         dispose();
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnLoadDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadDataActionPerformed
        try {
-            ctrl.carregarDadesDisc(this.dataPath.getText());
-        } catch (AplicacioException a) {
-            System.err.println(a);
+            ctrl.carregarDadesDisc(this.txtDataPath.getText());
+            JOptionPane.showMessageDialog(this, "Data Loaded!", "Confirm", JOptionPane.PLAIN_MESSAGE);
+        } catch (AplicacioException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-       JOptionPane.showMessageDialog(this, "Data Loaded!", "Confirm", JOptionPane.PLAIN_MESSAGE);
-       
+       this.txtDataPath.setText("Insert file's path...");
     }//GEN-LAST:event_btnLoadDataActionPerformed
 
     private void btnSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveDataActionPerformed
         try {
-            ctrl.guardarDadesDisc(this.dataPath.getText());
-        } catch (AplicacioException a) {
-            System.err.println(a);
+            ctrl.guardarDadesDisc(this.txtDataPath.getText());
+            JOptionPane.showMessageDialog(this, "Data Saved!", "Confirm", JOptionPane.PLAIN_MESSAGE);
+        } catch (AplicacioException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-        JOptionPane.showMessageDialog(this, "Data Saved!", "Confirm", JOptionPane.PLAIN_MESSAGE);
+        this.txtDataPath.setText("Insert file's path...");
     }//GEN-LAST:event_btnSaveDataActionPerformed
 
-    private void dataPathActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataPathActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dataPathActionPerformed
+    private void txtDataPathActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataPathActionPerformed
+        
+    }//GEN-LAST:event_txtDataPathActionPerformed
 
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
         // TODO add your handling code here:
@@ -341,22 +284,17 @@ public class MainView extends javax.swing.JFrame{
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel albProgress;
+    private javax.swing.JProgressBar albumsProgress;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnGestioAlbums;
+    private javax.swing.JButton btnGestioLib;
     private javax.swing.JButton btnLoadData;
     private javax.swing.JButton btnSaveData;
-    private javax.swing.JTextField dataPath;
-    private javax.persistence.EntityManager entityManager1;
-    private javax.swing.JLabel fileProgress;
     private javax.swing.JProgressBar filesProgress;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JDialog jDialog1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JProgressBar numAlbums;
+    private javax.swing.JLabel lblMainMenu;
+    private javax.swing.JLabel lblNumAlbums;
+    private javax.swing.JLabel lblNumFiles;
+    private javax.swing.JTextField txtDataPath;
     // End of variables declaration//GEN-END:variables
 }

@@ -36,26 +36,14 @@ public class GestioReproducció extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
         mediaControlPanel = new javax.swing.JPanel();
         btnPlay = new javax.swing.JButton();
         btnGoForward = new javax.swing.JButton();
         btnStop = new javax.swing.JButton();
         btnRandom = new javax.swing.JButton();
         btnContinue = new javax.swing.JButton();
-        isRandom = new javax.swing.JCheckBox();
-        isContinu = new javax.swing.JCheckBox();
-
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        checkRandom = new javax.swing.JCheckBox();
+        checkContinue = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,17 +82,17 @@ public class GestioReproducció extends javax.swing.JFrame {
             }
         });
 
-        isRandom.setText("Reproduccio Aleatoria");
-        isRandom.addActionListener(new java.awt.event.ActionListener() {
+        checkRandom.setText("Reproduccio Aleatoria");
+        checkRandom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                isRandomActionPerformed(evt);
+                checkRandomActionPerformed(evt);
             }
         });
 
-        isContinu.setText("Reproduccio Continua");
-        isContinu.addActionListener(new java.awt.event.ActionListener() {
+        checkContinue.setText("Reproduccio Continua");
+        checkContinue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                isContinuActionPerformed(evt);
+                checkContinueActionPerformed(evt);
             }
         });
 
@@ -125,8 +113,8 @@ public class GestioReproducció extends javax.swing.JFrame {
                 .addComponent(btnContinue)
                 .addGap(18, 18, 18)
                 .addGroup(mediaControlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(isRandom)
-                    .addComponent(isContinu))
+                    .addComponent(checkRandom)
+                    .addComponent(checkContinue))
                 .addGap(0, 6, Short.MAX_VALUE))
         );
         mediaControlPanelLayout.setVerticalGroup(
@@ -141,9 +129,9 @@ public class GestioReproducció extends javax.swing.JFrame {
                     .addComponent(btnContinue))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(mediaControlPanelLayout.createSequentialGroup()
-                .addComponent(isRandom)
+                .addComponent(checkRandom)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(isContinu, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(checkContinue, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -182,26 +170,26 @@ public class GestioReproducció extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPlayActionPerformed
 
     private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed
-        if (this.isContinu.isSelected()){
-            this.isContinu.setSelected(false);
+        if (this.checkContinue.isSelected()){
+            this.checkContinue.setSelected(false);
         }else{
-            this.isContinu.setSelected(true);
+            this.checkContinue.setSelected(true);
         }
     }//GEN-LAST:event_btnContinueActionPerformed
 
-    private void isRandomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isRandomActionPerformed
-        this.ctrl.setRandom(this.isRandom.isSelected());
-    }//GEN-LAST:event_isRandomActionPerformed
+    private void checkRandomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkRandomActionPerformed
+        this.ctrl.setRandom(this.checkRandom.isSelected());
+    }//GEN-LAST:event_checkRandomActionPerformed
 
-    private void isContinuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isContinuActionPerformed
-        this.ctrl.setContinu(this.isContinu.isSelected());
-    }//GEN-LAST:event_isContinuActionPerformed
+    private void checkContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkContinueActionPerformed
+        this.ctrl.setContinu(this.checkContinue.isSelected());
+    }//GEN-LAST:event_checkContinueActionPerformed
 
     private void btnRandomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRandomActionPerformed
-        if (this.isRandom.isSelected()){
-            this.isRandom.setSelected(false);
+        if (this.checkRandom.isSelected()){
+            this.checkRandom.setSelected(false);
         }else{
-            this.isRandom.setSelected(true);
+            this.checkRandom.setSelected(true);
         }
     }//GEN-LAST:event_btnRandomActionPerformed
 
@@ -262,9 +250,8 @@ public class GestioReproducció extends javax.swing.JFrame {
     private javax.swing.JButton btnPlay;
     private javax.swing.JButton btnRandom;
     private javax.swing.JButton btnStop;
-    private javax.swing.JCheckBox isContinu;
-    private javax.swing.JCheckBox isRandom;
-    private javax.swing.JDialog jDialog1;
+    private javax.swing.JCheckBox checkContinue;
+    private javax.swing.JCheckBox checkRandom;
     private javax.swing.JPanel mediaControlPanel;
     // End of variables declaration//GEN-END:variables
 }
