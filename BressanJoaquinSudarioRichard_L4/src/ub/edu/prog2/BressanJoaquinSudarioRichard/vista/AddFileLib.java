@@ -384,7 +384,7 @@ public class AddFileLib extends javax.swing.JFrame {
     }//GEN-LAST:event_audCodecActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        if (this.jComboBox1.getSelectedItem().equals("Video")) {
+      /*  if (this.jComboBox1.getSelectedItem().equals("Video")) {
             this.jPanel1.setVisible(true);
             this.jPanel2.setVisible(false);
             this.otherFilePanel.setVisible(false);
@@ -396,7 +396,7 @@ public class AddFileLib extends javax.swing.JFrame {
             this.jPanel1.setVisible(false);
             this.jPanel2.setVisible(false);
             this.otherFilePanel.setVisible(true);
-        }
+        }*/
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void addVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVideoActionPerformed
@@ -474,6 +474,10 @@ public class AddFileLib extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAddFileActionPerformed
 
+    private void typeChoice1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeChoice1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_typeChoice1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -545,6 +549,6 @@ public class AddFileLib extends javax.swing.JFrame {
     private javax.swing.JLabel lblFilePath;
     private javax.swing.JTextField nom;
     private javax.swing.JPanel otherFilePanel;
-    private javax.swing.JComboBox<String> typeChoice1;
+    public javax.swing.JComboBox<String> typeChoice1;
     // End of variables declaration//GEN-END:variables
 }
