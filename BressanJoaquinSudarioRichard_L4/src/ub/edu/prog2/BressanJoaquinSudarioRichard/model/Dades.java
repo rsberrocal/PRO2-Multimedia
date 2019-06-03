@@ -360,6 +360,10 @@ public class Dades implements Serializable {
         return this.albums.isEmpty();
     }
 
+    public boolean isEmptyAlbum(String title) {
+        return this.findAlbum(title).folder.isEmpty();
+    }
+
     public void setReproductor() {
         Iterator it = this.library.folder.iterator();
         while (it.hasNext()) {
@@ -382,9 +386,9 @@ public class Dades implements Serializable {
             }
         }
     }
-    
-    public int getNumAlbums(){
+
+    public int getNumAlbums() {
         return this.albums.size();
     }
-    
+
 }

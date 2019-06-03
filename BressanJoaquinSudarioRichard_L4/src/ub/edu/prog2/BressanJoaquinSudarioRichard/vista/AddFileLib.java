@@ -8,6 +8,7 @@ package ub.edu.prog2.BressanJoaquinSudarioRichard.vista;
 import edu.ub.prog2.utils.AplicacioException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import ub.edu.prog2.BressanJoaquinSudarioRichard.controlador.Controlador;
 
 /**
@@ -332,7 +333,8 @@ public class AddFileLib extends javax.swing.JFrame {
             gb.setLocationRelativeTo(null);
             gb.setVisible(true);
         } catch (AplicacioException ex) {
-            System.out.println(ex);
+            JOptionPane.showMessageDialog(this,
+                    ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_addVideoActionPerformed
 
@@ -350,7 +352,8 @@ public class AddFileLib extends javax.swing.JFrame {
             gb.setLocationRelativeTo(null);
             gb.setVisible(true);
         } catch (AplicacioException ex) {
-            System.out.println(ex);
+            JOptionPane.showMessageDialog(this,
+                    ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_addAudioActionPerformed

@@ -26,7 +26,6 @@ public class Controlador implements InControlador {
     EscoltadorReproduccio escoltador;
     private transient Reproductor reproductor;
     Scanner sc = new Scanner(System.in);
-    
 
     /**
      *
@@ -105,10 +104,7 @@ public class Controlador implements InControlador {
      * @return a boolean
      */
     public boolean isEmpty() {
-        if (data.isEmpty()) {
-            return true;
-        }
-        return false;
+        return data.isEmpty();
     }
 
     //CONTROL ALBUM ARRAY 
@@ -133,6 +129,10 @@ public class Controlador implements InControlador {
 
     public AlbumFitxersMultimedia getActualAlbum(String title) {
         return this.data.findAlbum(title);
+    }
+
+    public boolean isEmptyAlbum(String title) {
+        return this.data.isEmptyAlbum(title);
     }
 
     /**
@@ -360,12 +360,12 @@ public class Controlador implements InControlador {
             throw new AplicacioException(ex.getMessage());
         }
     }
-    
-    public int getNumAlbums(){
+
+    public int getNumAlbums() {
         return this.data.getNumAlbums();
     }
-    
-    public int getSizeLib(){
+
+    public int getSizeLib() {
         return this.library.getSize();
     }
 }

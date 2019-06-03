@@ -205,7 +205,7 @@ public class EditAlbum extends javax.swing.JFrame {
                 selected = selected.substring(selected.indexOf("[") + 1);
                 selected = selected.substring(0, selected.indexOf("]"));
                 int index = Integer.parseInt(selected);
-                ctrl.reproduirFitxer(index);
+                ctrl.reproduirFitxer(index - 1);
             }
         } catch (AplicacioException ex) {
             JOptionPane.showMessageDialog(this,
@@ -227,7 +227,7 @@ public class EditAlbum extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,
                     ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-        if (ctrl.isEmpty()) {
+        if (ctrl.isEmptyAlbum(selected)) {
             this.removeFileBtn.setEnabled(false);
         }
     }//GEN-LAST:event_removeFileBtnActionPerformed
