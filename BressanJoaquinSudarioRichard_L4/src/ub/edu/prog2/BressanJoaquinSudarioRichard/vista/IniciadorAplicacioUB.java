@@ -20,8 +20,7 @@ public class IniciadorAplicacioUB {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Controlador ctrl = new Controlador();
-        AplicacioUB3 aplicacio = new AplicacioUB3();
-        MainView interficie = new MainView(ctrl);
+        AplicacioUB4 interficie = new AplicacioUB4(ctrl);
         interficie.setVisible(true);
     }
 
