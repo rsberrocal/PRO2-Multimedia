@@ -27,7 +27,7 @@ public class AddFileLib extends javax.swing.JFrame {
     public AddFileLib(Controlador ctrl) {
         this.ctrl = ctrl;
         initComponents();
-        this.jPanel1.setVisible(false);
+        this.addVideoPnl.setVisible(false);
         this.setLocationRelativeTo(null);
 
     }
@@ -42,36 +42,36 @@ public class AddFileLib extends javax.swing.JFrame {
     private void initComponents() {
 
         jComboBox1 = new javax.swing.JComboBox<>();
-        jPanel1 = new javax.swing.JPanel();
-        path = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        nom = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        codec = new javax.swing.JTextField();
-        durada = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        amplada = new javax.swing.JTextField();
-        alcada = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        fps = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        addVideo = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        audPath = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        audNom = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        audCodec = new javax.swing.JTextField();
-        audDurada = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        audImage = new javax.swing.JTextField();
-        kbps = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        addAudio = new javax.swing.JButton();
+        addVideoPnl = new javax.swing.JPanel();
+        lblPath = new javax.swing.JLabel();
+        txtPath = new javax.swing.JTextField();
+        lblNom = new javax.swing.JLabel();
+        txtNom = new javax.swing.JTextField();
+        lblCodec = new javax.swing.JLabel();
+        txtCodec = new javax.swing.JTextField();
+        lblDurada = new javax.swing.JLabel();
+        txtDurada = new javax.swing.JTextField();
+        lblAmplada = new javax.swing.JLabel();
+        txtAmplada = new javax.swing.JTextField();
+        lblAlcada = new javax.swing.JLabel();
+        txtAlcada = new javax.swing.JTextField();
+        lblFps = new javax.swing.JLabel();
+        txtFps = new javax.swing.JTextField();
+        btnAddVideo = new javax.swing.JButton();
+        addAudioPnl = new javax.swing.JPanel();
+        lblAudPath = new javax.swing.JLabel();
+        txtAudPath = new javax.swing.JTextField();
+        lblAudNom = new javax.swing.JLabel();
+        txtAudNom = new javax.swing.JTextField();
+        lblCodecNom = new javax.swing.JLabel();
+        txtAudCodec = new javax.swing.JTextField();
+        lblAudDurada = new javax.swing.JLabel();
+        txtAudDurada = new javax.swing.JTextField();
+        lblImagePath = new javax.swing.JLabel();
+        txtAudImage = new javax.swing.JTextField();
+        lblKbps = new javax.swing.JLabel();
+        txtKbps = new javax.swing.JTextField();
+        btnAddAudio = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -83,181 +83,181 @@ public class AddFileLib extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Path:");
+        lblPath.setText("Path:");
 
-        jLabel2.setText("Nom:");
+        lblNom.setText("Nom:");
 
-        jLabel3.setText("Codec:");
+        lblCodec.setText("Codec:");
 
-        jLabel4.setText("Durada:");
+        lblDurada.setText("Durada:");
 
-        jLabel5.setText("Amplada:");
+        lblAmplada.setText("Amplada:");
 
-        jLabel6.setText("Alcada:");
+        lblAlcada.setText("Alcada:");
 
-        jLabel7.setText("FPS:");
+        lblFps.setText("FPS:");
 
-        addVideo.setText("Add Video");
-        addVideo.addActionListener(new java.awt.event.ActionListener() {
+        btnAddVideo.setText("Add Video");
+        btnAddVideo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addVideoActionPerformed(evt);
+                btnAddVideoActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout addVideoPnlLayout = new javax.swing.GroupLayout(addVideoPnl);
+        addVideoPnl.setLayout(addVideoPnlLayout);
+        addVideoPnlLayout.setHorizontalGroup(
+            addVideoPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addVideoPnlLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
+                .addGroup(addVideoPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addVideoPnlLayout.createSequentialGroup()
+                        .addGroup(addVideoPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAmplada)
+                            .addComponent(lblAlcada)
+                            .addComponent(lblFps))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(amplada, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                            .addComponent(alcada, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(fps, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
+                        .addGroup(addVideoPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtAmplada, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                            .addComponent(txtAlcada, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtFps, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(addVideoPnlLayout.createSequentialGroup()
+                        .addGroup(addVideoPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(addVideoPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lblDurada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblCodec, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblNom)
+                            .addComponent(lblPath))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(durada)
-                            .addComponent(nom)
-                            .addComponent(path)
-                            .addComponent(codec))))
+                        .addGroup(addVideoPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDurada)
+                            .addComponent(txtNom)
+                            .addComponent(txtPath)
+                            .addComponent(txtCodec))))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addVideoPnlLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(addVideo))
+                .addComponent(btnAddVideo))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        addVideoPnlLayout.setVerticalGroup(
+            addVideoPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addVideoPnlLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(path, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                .addGroup(addVideoPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPath))
                 .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nom, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                .addGroup(addVideoPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNom))
                 .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(codec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                .addGroup(addVideoPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCodec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCodec))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(durada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                .addGroup(addVideoPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDurada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDurada))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(amplada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(addVideoPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAmplada)
+                    .addComponent(txtAmplada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(alcada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                .addGroup(addVideoPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAlcada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAlcada))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                .addGroup(addVideoPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtFps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblFps))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(addVideo))
+                .addComponent(btnAddVideo))
         );
 
-        jLabel8.setText("Path:");
+        lblAudPath.setText("Path:");
 
-        jLabel9.setText("Nom:");
+        lblAudNom.setText("Nom:");
 
-        jLabel10.setText("Codec:");
+        lblCodecNom.setText("Codec:");
 
-        audCodec.addActionListener(new java.awt.event.ActionListener() {
+        txtAudCodec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                audCodecActionPerformed(evt);
+                txtAudCodecActionPerformed(evt);
             }
         });
 
-        jLabel11.setText("Durada:");
+        lblAudDurada.setText("Durada:");
 
-        jLabel12.setText("Image path:");
+        lblImagePath.setText("Image path:");
 
-        jLabel14.setText("KBPS:");
+        lblKbps.setText("KBPS:");
 
-        addAudio.setText("Add Audio");
-        addAudio.addActionListener(new java.awt.event.ActionListener() {
+        btnAddAudio.setText("Add Audio");
+        btnAddAudio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addAudioActionPerformed(evt);
+                btnAddAudioActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout addAudioPnlLayout = new javax.swing.GroupLayout(addAudioPnl);
+        addAudioPnl.setLayout(addAudioPnlLayout);
+        addAudioPnlLayout.setHorizontalGroup(
+            addAudioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addAudioPnlLayout.createSequentialGroup()
+                .addGroup(addAudioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addAudioPnlLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel14))
+                        .addGroup(addAudioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(addAudioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lblAudDurada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblCodecNom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblAudNom)
+                            .addComponent(lblAudPath)
+                            .addComponent(lblImagePath)
+                            .addComponent(lblKbps))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(kbps, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
-                            .addComponent(audImage)
-                            .addComponent(audDurada)
-                            .addComponent(audNom)
-                            .addComponent(audPath)
-                            .addComponent(audCodec))
+                        .addGroup(addAudioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtKbps, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+                            .addComponent(txtAudImage)
+                            .addComponent(txtAudDurada)
+                            .addComponent(txtAudNom)
+                            .addComponent(txtAudPath)
+                            .addComponent(txtAudCodec))
                         .addGap(13, 13, 13))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addAudioPnlLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(addAudio)))
+                        .addComponent(btnAddAudio)))
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        addAudioPnlLayout.setVerticalGroup(
+            addAudioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addAudioPnlLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(audPath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
+                .addGroup(addAudioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAudPath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAudPath))
                 .addGap(20, 20, 20)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(audNom, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                .addGroup(addAudioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAudNom, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAudNom))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(audCodec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
+                .addGroup(addAudioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAudCodec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCodecNom))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(audDurada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
+                .addGroup(addAudioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAudDurada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAudDurada))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(audImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(addAudioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblImagePath)
+                    .addComponent(txtAudImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(kbps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(addAudioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblKbps)
+                    .addComponent(txtKbps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(addAudio)
+                .addComponent(btnAddAudio)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -281,9 +281,9 @@ public class AddFileLib extends javax.swing.JFrame {
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(81, 81, 81))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(addVideoPnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(34, 34, 34)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addAudioPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(57, 57, 57))))
         );
         layout.setVerticalGroup(
@@ -291,8 +291,8 @@ public class AddFileLib extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addAudioPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addVideoPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -303,28 +303,28 @@ public class AddFileLib extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void audCodecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_audCodecActionPerformed
+    private void txtAudCodecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAudCodecActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_audCodecActionPerformed
+    }//GEN-LAST:event_txtAudCodecActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         if (this.jComboBox1.getSelectedItem().equals("Video")) {
-            this.jPanel1.setVisible(true);
-            this.jPanel2.setVisible(false);
+            this.addVideoPnl.setVisible(true);
+            this.addAudioPnl.setVisible(false);
         } else {
-            this.jPanel1.setVisible(false);
-            this.jPanel2.setVisible(true);
+            this.addVideoPnl.setVisible(false);
+            this.addAudioPnl.setVisible(true);
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void addVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVideoActionPerformed
-        this.pathFile = this.path.getText();
-        this.nomFile = this.nom.getText();
-        this.codecFile = this.codec.getText();
-        this.height = Integer.parseInt(this.alcada.getText());
-        this.width = Integer.parseInt(this.amplada.getText());
-        this.duration = Float.parseFloat(this.durada.getText());
-        this.fps1 = Float.parseFloat(this.fps.getText());
+    private void btnAddVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddVideoActionPerformed
+        this.pathFile = this.txtPath.getText();
+        this.nomFile = this.txtNom.getText();
+        this.codecFile = this.txtCodec.getText();
+        this.height = Integer.parseInt(this.txtAlcada.getText());
+        this.width = Integer.parseInt(this.txtAmplada.getText());
+        this.duration = Float.parseFloat(this.txtDurada.getText());
+        this.fps1 = Float.parseFloat(this.txtFps.getText());
         try {
             this.ctrl.afegirVideo(pathFile, nomFile, codecFile, duration, height, width, fps1);
             dispose();
@@ -334,15 +334,15 @@ public class AddFileLib extends javax.swing.JFrame {
         } catch (AplicacioException ex) {
             System.out.println(ex);
         }
-    }//GEN-LAST:event_addVideoActionPerformed
+    }//GEN-LAST:event_btnAddVideoActionPerformed
 
-    private void addAudioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAudioActionPerformed
-        this.pathFile = this.audPath.getText();
-        this.nomFile = this.audNom.getText();
-        this.codecFile = this.audCodec.getText();
-        this.camiImatge = this.audImage.getText();
-        this.duration = Float.parseFloat(this.audDurada.getText());
-        this.kbps1 = Integer.parseInt(this.kbps.getText());
+    private void btnAddAudioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddAudioActionPerformed
+        this.pathFile = this.txtAudPath.getText();
+        this.nomFile = this.txtAudNom.getText();
+        this.codecFile = this.txtAudCodec.getText();
+        this.camiImatge = this.txtAudImage.getText();
+        this.duration = Float.parseFloat(this.txtAudDurada.getText());
+        this.kbps1 = Integer.parseInt(this.txtKbps.getText());
         try {
             this.ctrl.afegirAudio(pathFile, camiImatge, nomFile, codecFile, duration, kbps1);
             dispose();
@@ -353,7 +353,7 @@ public class AddFileLib extends javax.swing.JFrame {
             System.out.println(ex);
         }
 
-    }//GEN-LAST:event_addAudioActionPerformed
+    }//GEN-LAST:event_btnAddAudioActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         dispose();
@@ -361,6 +361,10 @@ public class AddFileLib extends javax.swing.JFrame {
         gestioLib.setLocationRelativeTo(null);
         gestioLib.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -398,37 +402,37 @@ public class AddFileLib extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addAudio;
-    private javax.swing.JButton addVideo;
-    private javax.swing.JTextField alcada;
-    private javax.swing.JTextField amplada;
-    private javax.swing.JTextField audCodec;
-    private javax.swing.JTextField audDurada;
-    private javax.swing.JTextField audImage;
-    private javax.swing.JTextField audNom;
-    private javax.swing.JTextField audPath;
+    private javax.swing.JPanel addAudioPnl;
+    private javax.swing.JPanel addVideoPnl;
     private javax.swing.JButton backBtn;
-    private javax.swing.JTextField codec;
-    private javax.swing.JTextField durada;
-    private javax.swing.JTextField fps;
+    private javax.swing.JButton btnAddAudio;
+    private javax.swing.JButton btnAddVideo;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField kbps;
-    private javax.swing.JTextField nom;
-    private javax.swing.JTextField path;
+    private javax.swing.JLabel lblAlcada;
+    private javax.swing.JLabel lblAmplada;
+    private javax.swing.JLabel lblAudDurada;
+    private javax.swing.JLabel lblAudNom;
+    private javax.swing.JLabel lblAudPath;
+    private javax.swing.JLabel lblCodec;
+    private javax.swing.JLabel lblCodecNom;
+    private javax.swing.JLabel lblDurada;
+    private javax.swing.JLabel lblFps;
+    private javax.swing.JLabel lblImagePath;
+    private javax.swing.JLabel lblKbps;
+    private javax.swing.JLabel lblNom;
+    private javax.swing.JLabel lblPath;
+    private javax.swing.JTextField txtAlcada;
+    private javax.swing.JTextField txtAmplada;
+    private javax.swing.JTextField txtAudCodec;
+    private javax.swing.JTextField txtAudDurada;
+    private javax.swing.JTextField txtAudImage;
+    private javax.swing.JTextField txtAudNom;
+    private javax.swing.JTextField txtAudPath;
+    private javax.swing.JTextField txtCodec;
+    private javax.swing.JTextField txtDurada;
+    private javax.swing.JTextField txtFps;
+    private javax.swing.JTextField txtKbps;
+    private javax.swing.JTextField txtNom;
+    private javax.swing.JTextField txtPath;
     // End of variables declaration//GEN-END:variables
 }
